@@ -103,9 +103,45 @@ function ensureArrowMarker(svg) {
   svg.appendChild(defs);
 }
 
+// Figures out which part of the half-court a play actually uses, so the
+// diagram can crop in on that area instead of always showing the full
+// half-court (which leaves plays confined to one end looking tiny).
+function getDiagramExtent(diagram) {
+  const xs = [], ys = [];
+  const add = (p) => { if (p) { xs.push(p.x); ys.push(p.y); } };
+  (diagram.players || []).forEach(add);
+  (diagram.actions || []).forEach((a) => {
+    if (a.type === "cut" || a.type === "move") (a.path || []).forEach(add);
+    else if (a.type === "pass") { add(a.from); add(a.to); }
+    else if (a.type === "screen") add(a.at);
+  });
+  if (!xs.length) return { minX: 0, maxX: 100, maxY: 100 };
+  return { minX: Math.min(...xs), maxX: Math.max(...xs), maxY: Math.max(...ys) };
+}
+
+function clampRange(min, max, lo, hi, minSize) {
+  let a = min, b = max;
+  if (b - a < minSize) {
+    const mid = (a + b) / 2;
+    a = mid - minSize / 2;
+    b = mid + minSize / 2;
+  }
+  if (a < lo) { b += lo - a; a = lo; }
+  if (b > hi) { a -= b - hi; b = hi; }
+  return [Math.max(lo, a), Math.min(hi, b)];
+}
+
 function renderCourt(container, diagram) {
-  const svg = svgEl("svg", { viewBox: "0 0 300 320", width: "100%" });
+  const svg = svgEl("svg", { width: "100%" });
   svg.style.display = "block";
+
+  const ext = getDiagramExtent(diagram);
+  const [minX, maxX] = clampRange(ext.minX - 10, ext.maxX + 10, 0, 100, 55);
+  const maxY = Math.min(100, Math.max(ext.maxY + 12, 40));
+  const pxLeft = mapX(minX), pxRight = mapX(maxX);
+  const pxTop = mapY(maxY), pxBottom = mapY(0);
+  svg.setAttribute("viewBox", `${pxLeft} ${pxTop} ${pxRight - pxLeft} ${pxBottom - pxTop}`);
+
   ensureArrowMarker(svg);
   drawCourtLines(svg);
 
