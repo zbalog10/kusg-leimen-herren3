@@ -134,4 +134,32 @@ const SET_PLAYS = [
       ],
     },
   },
+  {
+    id: "box-elbow-curl",
+    name: "Box Elbow Curl",
+    category: "Half-Court Offense",
+    description: "Box alignment quick-hitter: a baseline screen clears one cutter to the weak-side corner while our scorer curls the length of the lane off a second screen for a catch-and-attack at the rim.",
+    keyPoints: [
+      "4 sets a baseline screen for 3, who cuts from the block to the far corner as the decoy/second option.",
+      "5 clears from the elbow through the lane to the top as 2 curls the opposite way, elbow to short corner.",
+      "1 hits 2 on the move; 2 attacks middle and finishes at the rim.",
+    ],
+    diagram: {
+      players: [
+        { id: "1", label: "1", x: 4, y: 24 },
+        { id: "2", label: "2", x: 34, y: 19 },
+        { id: "3", label: "3", x: 68, y: 5 },
+        { id: "4", label: "4", x: 29, y: 7 },
+        { id: "5", label: "5", x: 66, y: 19 },
+      ],
+      actions: [
+        { type: "screen", at: { x: 29, y: 7 }, angle: 0 },
+        { type: "cut", path: [{ x: 68, y: 5 }, { x: 38, y: 5 }, { x: 3, y: 5 }] },
+        { type: "cut", path: [{ x: 66, y: 19 }, { x: 33, y: 24 }, { x: 26, y: 29 }] },
+        { type: "cut", path: [{ x: 34, y: 19 }, { x: 24, y: 26 }, { x: 52, y: 22 }, { x: 58, y: 11 }] },
+        { type: "pass", from: { x: 4, y: 24 }, to: { x: 58, y: 11 } },
+        { type: "cut", path: [{ x: 58, y: 11 }, { x: 51, y: 7 }] },
+      ],
+    },
+  },
 ];
