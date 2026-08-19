@@ -58,96 +58,19 @@ const TRAINING_PLANS = [
 // 3 = small forward, 4 = power forward, 5 = center.
 const SET_PLAYS = [
   {
-    id: "horns-elbow-get",
-    name: "Horns Elbow Get",
-    category: "Half-Court Offense",
-    description: "Horns alignment used to get our best shooter a catch-and-shoot look off a pin-down, with a rim-run counter if the defense switches.",
-    keyPoints: [
-      "1 reverses to 4 at the elbow, then cuts off 5's screen.",
-      "3 relocates from the corner off a pin-down set by 5.",
-      "If X5 switches onto 3, 5 rolls hard to the rim for the lob/dump-off.",
-    ],
-    diagram: {
-      players: [
-        { id: "1", label: "1", x: 50, y: 68 },
-        { id: "2", label: "2", x: 6, y: 6 },
-        { id: "3", label: "3", x: 94, y: 6 },
-        { id: "4", label: "4", x: 38, y: 41 },
-        { id: "5", label: "5", x: 62, y: 41 },
-      ],
-      actions: [
-        { type: "pass", from: { x: 50, y: 68 }, to: { x: 38, y: 41 } },
-        { type: "cut", path: [{ x: 50, y: 68 }, { x: 54, y: 50 }, { x: 60, y: 30 }] },
-        { type: "screen", at: { x: 62, y: 41 }, angle: 90 },
-        { type: "cut", path: [{ x: 94, y: 6 }, { x: 74, y: 32 }, { x: 56, y: 46 }] },
-        { type: "screen", at: { x: 74, y: 32 }, angle: 0 },
-      ],
-    },
-  },
-  {
-    id: "zipper-flare",
-    name: "Zipper Flare",
-    category: "Half-Court Offense",
-    description: "Quick-hitter to spring 2 for a three off a zipper cut, with a flare screen counter if the defense chases too hard.",
-    keyPoints: [
-      "2 starts in the dunker spot and sprints off 4's zipper screen to the top.",
-      "If X2 fights over the top, 5 flares 2 out to the wing for a three.",
-      "1 always looks to hit the open shooter first, drive-and-kick as backup.",
-    ],
-    diagram: {
-      players: [
-        { id: "1", label: "1", x: 50, y: 68 },
-        { id: "2", label: "2", x: 44, y: 5 },
-        { id: "3", label: "3", x: 6, y: 6 },
-        { id: "4", label: "4", x: 34, y: 25 },
-        { id: "5", label: "5", x: 66, y: 25 },
-      ],
-      actions: [
-        { type: "screen", at: { x: 34, y: 25 }, angle: 90 },
-        { type: "cut", path: [{ x: 44, y: 5 }, { x: 40, y: 32 }, { x: 46, y: 58 }] },
-        { type: "pass", from: { x: 50, y: 68 }, to: { x: 46, y: 58 } },
-      ],
-    },
-  },
-  {
-    id: "box-elevator",
-    name: "Box Elevator",
-    category: "Out of Bounds (BLOB)",
-    description: "Baseline out-of-bounds set from a box alignment, springing our shooter through an elevator screen for a clean catch-and-shoot three.",
-    keyPoints: [
-      "4 and 5 stand as the elevator doors, tight together at the free-throw line.",
-      "2 curls hard through the elevator, doors close behind them.",
-      "1 inbounds and reads the rim-runner (3) as the second option.",
-    ],
-    diagram: {
-      players: [
-        { id: "1", label: "1", x: 50, y: 2 },
-        { id: "2", label: "2", x: 20, y: 15 },
-        { id: "3", label: "3", x: 80, y: 15 },
-        { id: "4", label: "4", x: 44, y: 41 },
-        { id: "5", label: "5", x: 56, y: 41 },
-      ],
-      actions: [
-        { type: "cut", path: [{ x: 20, y: 15 }, { x: 50, y: 38 }, { x: 50, y: 50 }] },
-        { type: "screen", at: { x: 44, y: 41 }, angle: 90 },
-        { type: "screen", at: { x: 56, y: 41 }, angle: 90 },
-        { type: "pass", from: { x: 50, y: 2 }, to: { x: 50, y: 50 } },
-      ],
-    },
-  },
-  {
     id: "box-elbow-curl",
     name: "Box Elbow Curl",
-    category: "Half-Court Offense",
-    description: "Box alignment quick-hitter: a baseline screen clears one cutter to the weak-side corner while our scorer curls the length of the lane off a second screen for a catch-and-attack at the rim.",
+    category: "Out of Bounds (SLOB)",
+    description: "Sideline out-of-bounds set from a box alignment: a baseline screen clears one cutter to the weak-side corner while our scorer curls the length of the lane off a second screen for a catch-and-attack at the rim.",
     keyPoints: [
+      "1 inbounds from the sideline.",
       "4 sets a baseline screen for 3, who cuts from the block to the far corner as the decoy/second option.",
       "5 clears from the elbow through the lane to the top as 2 curls the opposite way, elbow to short corner.",
       "1 hits 2 on the move; 2 attacks middle and finishes at the rim.",
     ],
     diagram: {
       players: [
-        { id: "1", label: "1", x: 4, y: 55 },
+        { id: "1", label: "1", x: -4, y: 55 },
         { id: "2", label: "2", x: 34, y: 40 },
         { id: "3", label: "3", x: 68, y: 8 },
         { id: "4", label: "4", x: 29, y: 10 },
@@ -158,7 +81,7 @@ const SET_PLAYS = [
         { type: "cut", path: [{ x: 68, y: 8 }, { x: 38, y: 3 }, { x: 3, y: 3 }] },
         { type: "cut", path: [{ x: 66, y: 41 }, { x: 33, y: 54 }, { x: 26, y: 67 }] },
         { type: "cut", path: [{ x: 34, y: 40 }, { x: 24, y: 60 }, { x: 52, y: 50 }, { x: 61, y: 23 }] },
-        { type: "pass", from: { x: 4, y: 55 }, to: { x: 56, y: 20 } },
+        { type: "pass", from: { x: -4, y: 55 }, to: { x: 56, y: 20 } },
         { type: "cut", path: [{ x: 56, y: 20 }, { x: 51, y: 10 }] },
       ],
     },

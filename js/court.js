@@ -126,8 +126,15 @@ function ensureArrowMarker(svg) {
   svg.appendChild(defs);
 }
 
+// Room around the court itself for out-of-bounds inbounders (SLOB/BLOB
+// plays put a player just outside the sideline or baseline).
+const OOB_MARGIN = 26;
+
 function renderCourt(container, diagram) {
-  const svg = svgEl("svg", { width: "100%", viewBox: `0 0 ${COURT_W_PX} ${COURT_H_PX}` });
+  const svg = svgEl("svg", {
+    width: "100%",
+    viewBox: `${-OOB_MARGIN} ${-OOB_MARGIN} ${COURT_W_PX + 2 * OOB_MARGIN} ${COURT_H_PX + 2 * OOB_MARGIN}`,
+  });
   svg.style.display = "block";
 
   ensureArrowMarker(svg);
