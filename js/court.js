@@ -80,7 +80,7 @@ function drawArrow(svg, points, { dashed = false, color = "#4ade80" } = {}) {
 
 function drawScreen(svg, at, angle = 0) {
   const cx = mapX(at.x), cy = mapY(at.y);
-  const len = 9;
+  const len = 18; // longer than a player circle's radius so it stays visible when a screener stands right at this spot
   const rad = (angle * Math.PI) / 180;
   const dx = Math.cos(rad) * len, dy = Math.sin(rad) * len;
   svg.appendChild(svgEl("line", {
