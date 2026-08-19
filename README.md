@@ -35,9 +35,12 @@ Add an entry to the `TRAINING_PLANS` array:
 
 ### Set plays
 
-Add an entry to the `SET_PLAYS` array. The court diagram uses a normalized
-coordinate system: `x` runs 0–100 sideline to sideline, `y` runs 0–100 with the
-**hoop at y=0** and the half-court line at y=100.
+Add an entry to the `SET_PLAYS` array. The court diagram uses a coordinate
+system matching real FIBA court proportions: `x` runs 0–100 sideline to
+sideline (15m), `y` runs 0–100 baseline to half-court line (14m), with the
+**hoop at y=0**. The free-throw line sits at y≈41.4. Values can go slightly
+outside 0–100 to place a player out of bounds (e.g. `x: -4` for a sideline
+inbounder) — there's a margin drawn around the court for exactly this.
 
 Player numbering convention: `1` = point guard, `2` = shooting guard,
 `3` = small forward, `4` = power forward, `5` = center.
@@ -60,6 +63,19 @@ Player numbering convention: `1` = point guard, `2` = shooting guard,
       { type: "screen", at: { x: 62, y: 55 }, angle: 90 },              // red bar, angle in degrees
     ],
   },
+  // Optional: powers a "View step-by-step" link to play.html?id=unique-id.
+  // Each step's `players` are positions as of the END of that step (so
+  // earlier movement is already reflected); `actions` are only the arrows
+  // for that step, keeping each mini-diagram focused on one beat.
+  steps: [
+    {
+      title: "Initial Alignment",
+      narrative: "...",
+      players: [{ id: "1", label: "1", x: 50, y: 85 }, /* ... */],
+      actions: [],
+    },
+    // ...one entry per step.
+  ],
 }
 ```
 
