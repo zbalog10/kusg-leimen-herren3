@@ -36,13 +36,12 @@ const THREE_PT_TRANSITION_Y = 21.4; // where the straight 3pt line meets the arc
 
 function drawCourtLines(svg) {
   const line = (x1, y1, x2, y2, extra = {}) =>
-    svg.appendChild(svgEl("line", { x1: mapX(x1), y1: mapY(y1), x2: mapX(x2), y2: mapY(y2), stroke: "#2b3a26", "stroke-width": 1.5, ...extra }));
-  const arcPath = (d, extra = {}) => svg.appendChild(svgEl("path", { d, fill: "none", stroke: "#2b3a26", "stroke-width": 1.5, ...extra }));
+    svg.appendChild(svgEl("line", { x1: mapX(x1), y1: mapY(y1), x2: mapX(x2), y2: mapY(y2), stroke: "#48603f", "stroke-width": 1.5, ...extra }));
+  const arcPath = (d, extra = {}) => svg.appendChild(svgEl("path", { d, fill: "none", stroke: "#48603f", "stroke-width": 1.5, ...extra }));
 
-  // Court boundary (half court)
-  svg.appendChild(svgEl("rect", { x: mapX(0), y: mapY(100), width: mapX(100) - mapX(0), height: mapY(0) - mapY(100), fill: "none", stroke: "#2b3a26", "stroke-width": 2 }));
-
-  // Half-court line
+  // Half-court line. (No full sideline boundary: the sidelines sit only
+  // 0.9m outside the three-point line, so drawing both this close together
+  // reads as visual clutter rather than a court edge.)
   line(0, 100, 100, 100);
 
   // Key / paint (4.9m wide, free-throw line 5.8m from the baseline)
@@ -51,7 +50,7 @@ function drawCourtLines(svg) {
   line(KEY_LEFT_X, FT_LINE_Y, KEY_RIGHT_X, FT_LINE_Y);
 
   // Free-throw circle (1.8m radius)
-  svg.appendChild(svgEl("circle", { cx: mapX(50), cy: mapY(FT_LINE_Y), r: m(1.8), fill: "none", stroke: "#2b3a26", "stroke-width": 1.5, "stroke-dasharray": "4 3" }));
+  svg.appendChild(svgEl("circle", { cx: mapX(50), cy: mapY(FT_LINE_Y), r: m(1.8), fill: "none", stroke: "#48603f", "stroke-width": 1.5, "stroke-dasharray": "4 3" }));
 
   // Restricted (no-charge) arc under the hoop, 1.25m radius
   const raR = m(1.25);
