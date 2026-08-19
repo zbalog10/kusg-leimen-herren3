@@ -39,9 +39,8 @@ function drawCourtLines(svg) {
     svg.appendChild(svgEl("line", { x1: mapX(x1), y1: mapY(y1), x2: mapX(x2), y2: mapY(y2), stroke: "#48603f", "stroke-width": 1.5, ...extra }));
   const arcPath = (d, extra = {}) => svg.appendChild(svgEl("path", { d, fill: "none", stroke: "#48603f", "stroke-width": 1.5, ...extra }));
 
-  // Half-court line. (No full sideline boundary: the sidelines sit only
-  // 0.9m outside the three-point line, so drawing both this close together
-  // reads as visual clutter rather than a court edge.)
+  // Court boundary: sidelines, baseline, half-court line.
+  svg.appendChild(svgEl("rect", { x: mapX(0), y: mapY(100), width: mapX(100) - mapX(0), height: mapY(0) - mapY(100), fill: "none", stroke: "#48603f", "stroke-width": 2 }));
   line(0, 100, 100, 100);
 
   // Key / paint (4.9m wide, free-throw line 5.8m from the baseline)
