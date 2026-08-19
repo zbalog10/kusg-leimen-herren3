@@ -9,8 +9,30 @@ function svgEl(tag, attrs) {
   return el;
 }
 
-function mapX(x) { return (x / 100) * 300; }
-function mapY(y) { return 320 - (y / 100) * 300; } // flip so hoop (y=0) is near top of the SVG
+// Real FIBA half-court dimensions (meters), used to keep every line's
+// proportions correct instead of eyeballed. Court is 15m wide; a half
+// court is 14m long (baseline to half-court line).
+const COURT_WIDTH_M = 15;
+const COURT_HALF_LENGTH_M = 14;
+const PX_PER_M = 20;
+const COURT_W_PX = COURT_WIDTH_M * PX_PER_M; // 300
+const COURT_H_PX = COURT_HALF_LENGTH_M * PX_PER_M; // 280
+
+function m(meters) { return meters * PX_PER_M; } // meters -> px, for radii
+
+// x: 0-100 = sideline to sideline (15m). y: 0-100 = baseline(0) to half-court line(100), over 14m.
+function mapX(x) { return (x / 100) * COURT_W_PX; }
+function mapY(y) { return COURT_H_PX - (y / 100) * COURT_H_PX; }
+
+// FIBA landmarks expressed as % of the half-court's own axis, so they can
+// be dropped straight into mapX/mapY and into play diagrams.
+const FT_LINE_Y = (5.8 / COURT_HALF_LENGTH_M) * 100; // ~41.4
+const KEY_LEFT_X = ((COURT_WIDTH_M - 4.9) / 2 / COURT_WIDTH_M) * 100; // ~33.7
+const KEY_RIGHT_X = 100 - KEY_LEFT_X; // ~66.3
+const RIM_Y = (1.575 / COURT_HALF_LENGTH_M) * 100; // ~11.25
+const BACKBOARD_Y = (1.2 / COURT_HALF_LENGTH_M) * 100; // ~8.6
+const THREE_PT_CORNER_X = (0.9 / COURT_WIDTH_M) * 100; // ~6
+const THREE_PT_TRANSITION_Y = 21.4; // where the straight 3pt line meets the arc
 
 function drawCourtLines(svg) {
   const line = (x1, y1, x2, y2, extra = {}) =>
@@ -23,26 +45,28 @@ function drawCourtLines(svg) {
   // Half-court line
   line(0, 100, 100, 100);
 
-  // Key / paint
-  line(34, 0, 34, 19);
-  line(66, 0, 66, 19);
-  line(34, 19, 66, 19);
+  // Key / paint (4.9m wide, free-throw line 5.8m from the baseline)
+  line(KEY_LEFT_X, 0, KEY_LEFT_X, FT_LINE_Y);
+  line(KEY_RIGHT_X, 0, KEY_RIGHT_X, FT_LINE_Y);
+  line(KEY_LEFT_X, FT_LINE_Y, KEY_RIGHT_X, FT_LINE_Y);
 
-  // Free-throw circle
-  const c = { x: mapX(50), y: mapY(19) };
-  svg.appendChild(svgEl("circle", { cx: c.x, cy: c.y, r: (mapX(62) - mapX(50)), fill: "none", stroke: "#2b3a26", "stroke-width": 1.5, "stroke-dasharray": "4 3" }));
+  // Free-throw circle (1.8m radius)
+  svg.appendChild(svgEl("circle", { cx: mapX(50), cy: mapY(FT_LINE_Y), r: m(1.8), fill: "none", stroke: "#2b3a26", "stroke-width": 1.5, "stroke-dasharray": "4 3" }));
 
-  // Restricted area arc under the hoop
-  arcPath(`M ${mapX(44)} ${mapY(0)} A ${mapX(50) - mapX(44)} ${mapX(50) - mapX(44)} 0 0 0 ${mapX(56)} ${mapY(0)}`);
+  // Restricted (no-charge) arc under the hoop, 1.25m radius
+  const raR = m(1.25);
+  const raXOffset = (raR / COURT_W_PX) * 100;
+  arcPath(`M ${mapX(50 - raXOffset)} ${mapY(0)} A ${raR} ${raR} 0 0 0 ${mapX(50 + raXOffset)} ${mapY(0)}`);
 
-  // Backboard + rim
-  line(47, 3.5, 53, 3.5, { "stroke-width": 2.2 });
-  svg.appendChild(svgEl("circle", { cx: mapX(50), cy: mapY(4.5), r: 3, fill: "none", stroke: "#e0663f", "stroke-width": 1.6 }));
+  // Backboard (1.2m from baseline) + rim (center 1.575m from baseline)
+  line(47, BACKBOARD_Y, 53, BACKBOARD_Y, { "stroke-width": 2.2 });
+  svg.appendChild(svgEl("circle", { cx: mapX(50), cy: mapY(RIM_Y), r: m(0.225), fill: "none", stroke: "#e0663f", "stroke-width": 1.6 }));
 
-  // Three-point line: straight sections then an arc
-  line(3, 0, 3, 21);
-  line(97, 0, 97, 21);
-  arcPath(`M ${mapX(3)} ${mapY(21)} A ${mapX(50) - mapX(3)} ${mapX(50) - mapX(3)} 0 0 0 ${mapX(97)} ${mapY(21)}`);
+  // Three-point line: straight sections (0.9m from the sideline) then a 6.75m-radius arc
+  line(THREE_PT_CORNER_X, 0, THREE_PT_CORNER_X, THREE_PT_TRANSITION_Y);
+  line(100 - THREE_PT_CORNER_X, 0, 100 - THREE_PT_CORNER_X, THREE_PT_TRANSITION_Y);
+  const tpR = m(6.75);
+  arcPath(`M ${mapX(THREE_PT_CORNER_X)} ${mapY(THREE_PT_TRANSITION_Y)} A ${tpR} ${tpR} 0 0 0 ${mapX(100 - THREE_PT_CORNER_X)} ${mapY(THREE_PT_TRANSITION_Y)}`);
 }
 
 function drawArrow(svg, points, { dashed = false, color = "#4ade80" } = {}) {

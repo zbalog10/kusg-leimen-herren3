@@ -1,6 +1,7 @@
 // All editable content lives in this file. Add, remove, or edit entries below —
 // the pages render automatically from these arrays. See README.md for the
-// diagram coordinate format (x/y both run 0-100, hoop at y=0).
+// diagram coordinate format (x/y both run 0-100 as % of the court's own
+// width/length, hoop at y=0; the free-throw line sits at y=41.4).
 
 const TRAINING_PLANS = [
   {
@@ -68,18 +69,18 @@ const SET_PLAYS = [
     ],
     diagram: {
       players: [
-        { id: "1", label: "1", x: 50, y: 85 },
-        { id: "2", label: "2", x: 6, y: 15 },
-        { id: "3", label: "3", x: 94, y: 15 },
-        { id: "4", label: "4", x: 38, y: 55 },
-        { id: "5", label: "5", x: 62, y: 55 },
+        { id: "1", label: "1", x: 50, y: 68 },
+        { id: "2", label: "2", x: 6, y: 6 },
+        { id: "3", label: "3", x: 94, y: 6 },
+        { id: "4", label: "4", x: 38, y: 41 },
+        { id: "5", label: "5", x: 62, y: 41 },
       ],
       actions: [
-        { type: "pass", from: { x: 50, y: 85 }, to: { x: 38, y: 55 } },
-        { type: "cut", path: [{ x: 50, y: 85 }, { x: 55, y: 60 }, { x: 66, y: 45 }] },
-        { type: "screen", at: { x: 62, y: 55 }, angle: 90 },
-        { type: "cut", path: [{ x: 94, y: 15 }, { x: 70, y: 30 }, { x: 55, y: 30 }] },
-        { type: "screen", at: { x: 70, y: 30 }, angle: 0 },
+        { type: "pass", from: { x: 50, y: 68 }, to: { x: 38, y: 41 } },
+        { type: "cut", path: [{ x: 50, y: 68 }, { x: 54, y: 50 }, { x: 60, y: 30 }] },
+        { type: "screen", at: { x: 62, y: 41 }, angle: 90 },
+        { type: "cut", path: [{ x: 94, y: 6 }, { x: 74, y: 32 }, { x: 56, y: 46 }] },
+        { type: "screen", at: { x: 74, y: 32 }, angle: 0 },
       ],
     },
   },
@@ -95,16 +96,16 @@ const SET_PLAYS = [
     ],
     diagram: {
       players: [
-        { id: "1", label: "1", x: 50, y: 85 },
-        { id: "2", label: "2", x: 44, y: 8 },
-        { id: "3", label: "3", x: 6, y: 20 },
+        { id: "1", label: "1", x: 50, y: 68 },
+        { id: "2", label: "2", x: 44, y: 5 },
+        { id: "3", label: "3", x: 6, y: 6 },
         { id: "4", label: "4", x: 34, y: 25 },
         { id: "5", label: "5", x: 66, y: 25 },
       ],
       actions: [
         { type: "screen", at: { x: 34, y: 25 }, angle: 90 },
-        { type: "cut", path: [{ x: 44, y: 8 }, { x: 40, y: 30 }, { x: 45, y: 60 }] },
-        { type: "pass", from: { x: 50, y: 85 }, to: { x: 45, y: 60 } },
+        { type: "cut", path: [{ x: 44, y: 5 }, { x: 40, y: 32 }, { x: 46, y: 58 }] },
+        { type: "pass", from: { x: 50, y: 68 }, to: { x: 46, y: 58 } },
       ],
     },
   },
@@ -121,16 +122,16 @@ const SET_PLAYS = [
     diagram: {
       players: [
         { id: "1", label: "1", x: 50, y: 2 },
-        { id: "2", label: "2", x: 20, y: 20 },
-        { id: "3", label: "3", x: 80, y: 20 },
-        { id: "4", label: "4", x: 44, y: 40 },
-        { id: "5", label: "5", x: 56, y: 40 },
+        { id: "2", label: "2", x: 20, y: 15 },
+        { id: "3", label: "3", x: 80, y: 15 },
+        { id: "4", label: "4", x: 44, y: 41 },
+        { id: "5", label: "5", x: 56, y: 41 },
       ],
       actions: [
-        { type: "cut", path: [{ x: 20, y: 20 }, { x: 50, y: 40 }, { x: 50, y: 55 }] },
-        { type: "screen", at: { x: 44, y: 40 }, angle: 90 },
-        { type: "screen", at: { x: 56, y: 40 }, angle: 90 },
-        { type: "pass", from: { x: 50, y: 2 }, to: { x: 50, y: 55 } },
+        { type: "cut", path: [{ x: 20, y: 15 }, { x: 50, y: 38 }, { x: 50, y: 50 }] },
+        { type: "screen", at: { x: 44, y: 41 }, angle: 90 },
+        { type: "screen", at: { x: 56, y: 41 }, angle: 90 },
+        { type: "pass", from: { x: 50, y: 2 }, to: { x: 50, y: 50 } },
       ],
     },
   },
@@ -146,19 +147,19 @@ const SET_PLAYS = [
     ],
     diagram: {
       players: [
-        { id: "1", label: "1", x: 4, y: 24 },
-        { id: "2", label: "2", x: 34, y: 19 },
-        { id: "3", label: "3", x: 68, y: 5 },
-        { id: "4", label: "4", x: 29, y: 7 },
-        { id: "5", label: "5", x: 66, y: 19 },
+        { id: "1", label: "1", x: 4, y: 55 },
+        { id: "2", label: "2", x: 34, y: 40 },
+        { id: "3", label: "3", x: 68, y: 8 },
+        { id: "4", label: "4", x: 29, y: 10 },
+        { id: "5", label: "5", x: 66, y: 41 },
       ],
       actions: [
-        { type: "screen", at: { x: 29, y: 7 }, angle: 0 },
-        { type: "cut", path: [{ x: 68, y: 5 }, { x: 38, y: 5 }, { x: 3, y: 5 }] },
-        { type: "cut", path: [{ x: 66, y: 19 }, { x: 33, y: 24 }, { x: 26, y: 29 }] },
-        { type: "cut", path: [{ x: 34, y: 19 }, { x: 24, y: 26 }, { x: 52, y: 22 }, { x: 58, y: 11 }] },
-        { type: "pass", from: { x: 4, y: 24 }, to: { x: 58, y: 11 } },
-        { type: "cut", path: [{ x: 58, y: 11 }, { x: 51, y: 7 }] },
+        { type: "screen", at: { x: 29, y: 10 }, angle: 0 },
+        { type: "cut", path: [{ x: 68, y: 8 }, { x: 38, y: 3 }, { x: 3, y: 3 }] },
+        { type: "cut", path: [{ x: 66, y: 41 }, { x: 33, y: 54 }, { x: 26, y: 67 }] },
+        { type: "cut", path: [{ x: 34, y: 40 }, { x: 24, y: 60 }, { x: 52, y: 50 }, { x: 61, y: 23 }] },
+        { type: "pass", from: { x: 4, y: 55 }, to: { x: 56, y: 20 } },
+        { type: "cut", path: [{ x: 56, y: 20 }, { x: 51, y: 10 }] },
       ],
     },
   },
