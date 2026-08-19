@@ -55,7 +55,7 @@ function drawCourtLines(svg) {
   // Restricted (no-charge) arc under the hoop, 1.25m radius
   const raR = m(1.25);
   const raXOffset = (raR / COURT_W_PX) * 100;
-  arcPath(`M ${mapX(50 - raXOffset)} ${mapY(0)} A ${raR} ${raR} 0 0 0 ${mapX(50 + raXOffset)} ${mapY(0)}`);
+  arcPath(`M ${mapX(50 - raXOffset)} ${mapY(0)} A ${raR} ${raR} 0 0 1 ${mapX(50 + raXOffset)} ${mapY(0)}`);
 
   // Backboard (1.2m from baseline) + rim (center 1.575m from baseline)
   line(47, BACKBOARD_Y, 53, BACKBOARD_Y, { "stroke-width": 2.2 });
@@ -65,7 +65,7 @@ function drawCourtLines(svg) {
   line(THREE_PT_CORNER_X, 0, THREE_PT_CORNER_X, THREE_PT_TRANSITION_Y);
   line(100 - THREE_PT_CORNER_X, 0, 100 - THREE_PT_CORNER_X, THREE_PT_TRANSITION_Y);
   const tpR = m(6.75);
-  arcPath(`M ${mapX(THREE_PT_CORNER_X)} ${mapY(THREE_PT_TRANSITION_Y)} A ${tpR} ${tpR} 0 0 0 ${mapX(100 - THREE_PT_CORNER_X)} ${mapY(THREE_PT_TRANSITION_Y)}`);
+  arcPath(`M ${mapX(THREE_PT_CORNER_X)} ${mapY(THREE_PT_TRANSITION_Y)} A ${tpR} ${tpR} 0 0 1 ${mapX(100 - THREE_PT_CORNER_X)} ${mapY(THREE_PT_TRANSITION_Y)}`);
 }
 
 function drawArrow(svg, points, { dashed = false, color = "#4ade80" } = {}) {
