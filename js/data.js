@@ -61,11 +61,11 @@ const SET_PLAYS = [
     id: "box-elbow-curl",
     name: "Box Elbow Curl",
     category: "Out of Bounds (SLOB)",
-    description: "Sideline out-of-bounds set from a box alignment: 3 clears baseline off a screen from 4 as a decoy, while 2 fakes out to the three-point line before curling backdoor off a back screen from 5 for a score at the rim.",
+    description: "Sideline out-of-bounds set from a box alignment: 3 clears baseline off a screen from 4 as a decoy, while 2 fakes toward the ball outside the three-point line before curling backdoor off a back screen from 5 for a score at the rim.",
     keyPoints: [
       "1 inbounds from the sideline.",
       "4 sets a baseline screen for 3, who cuts from the block to the far corner as the decoy/second option.",
-      "2 leaves the elbow for the top of the key, faking like he wants the catch.",
+      "2 leaves the elbow and cuts toward the ball, staying outside the three-point line, faking like he wants the catch.",
       "5 follows and sets a back screen; 2 curls backdoor to the rim.",
       "1 hits 2 cutting to the basket for the score.",
     ],
@@ -80,9 +80,9 @@ const SET_PLAYS = [
       actions: [
         { type: "screen", at: { x: 29, y: 10 }, angle: 0 },
         { type: "cut", path: [{ x: 68, y: 8 }, { x: 38, y: 3 }, { x: 3, y: 3 }] },
-        { type: "cut", path: [{ x: 66, y: 41 }, { x: 58, y: 58 }, { x: 50, y: 64 }] },
-        { type: "screen", at: { x: 50, y: 64 }, angle: 0 },
-        { type: "cut", path: [{ x: 34, y: 40 }, { x: 40, y: 50 }, { x: 46, y: 56 }, { x: 40, y: 35 }, { x: 46, y: 12 }] },
+        { type: "cut", path: [{ x: 66, y: 41 }, { x: 45, y: 50 }, { x: 20, y: 58 }] },
+        { type: "screen", at: { x: 20, y: 58 }, angle: 0 },
+        { type: "cut", path: [{ x: 34, y: 40 }, { x: 22, y: 46 }, { x: 14, y: 50 }, { x: 25, y: 33 }, { x: 46, y: 12 }] },
         { type: "pass", from: { x: -4, y: 55 }, to: { x: 46, y: 12 } },
       ],
     },
@@ -105,10 +105,10 @@ const SET_PLAYS = [
       },
       {
         title: "Baseline Screen & Decoy Relocate",
-        narrative: "4 sets a baseline screen; 3 cuts off it from the block to the far corner as the decoy. At the same time, 2 leaves the elbow for the top of the key, faking like he wants the catch.",
+        narrative: "4 sets a baseline screen; 3 cuts off it from the block to the far corner as the decoy. At the same time, 2 leaves the elbow and cuts toward the ball, staying outside the three-point line, faking like he wants the catch.",
         players: [
           { id: "1", label: "1", x: -4, y: 55 },
-          { id: "2", label: "2", x: 46, y: 56 },
+          { id: "2", label: "2", x: 14, y: 50 },
           { id: "3", label: "3", x: 3, y: 3 },
           { id: "4", label: "4", x: 29, y: 10 },
           { id: "5", label: "5", x: 66, y: 41 },
@@ -116,22 +116,22 @@ const SET_PLAYS = [
         actions: [
           { type: "screen", at: { x: 29, y: 10 }, angle: 0 },
           { type: "cut", path: [{ x: 68, y: 8 }, { x: 38, y: 3 }, { x: 3, y: 3 }] },
-          { type: "cut", path: [{ x: 34, y: 40 }, { x: 40, y: 50 }, { x: 46, y: 56 }] },
+          { type: "cut", path: [{ x: 34, y: 40 }, { x: 22, y: 46 }, { x: 14, y: 50 }] },
         ],
       },
       {
         title: "Back Screen",
-        narrative: "5 follows behind 2 and sets a back screen at the top, freeing him from the defender chasing the fake catch.",
+        narrative: "5 follows behind 2 and sets a back screen just above him, freeing him from the defender chasing the fake catch.",
         players: [
           { id: "1", label: "1", x: -4, y: 55 },
-          { id: "2", label: "2", x: 46, y: 56 },
+          { id: "2", label: "2", x: 14, y: 50 },
           { id: "3", label: "3", x: 3, y: 3 },
           { id: "4", label: "4", x: 29, y: 10 },
-          { id: "5", label: "5", x: 50, y: 64 },
+          { id: "5", label: "5", x: 20, y: 58 },
         ],
         actions: [
-          { type: "cut", path: [{ x: 66, y: 41 }, { x: 58, y: 58 }, { x: 50, y: 64 }] },
-          { type: "screen", at: { x: 50, y: 64 }, angle: 0 },
+          { type: "cut", path: [{ x: 66, y: 41 }, { x: 45, y: 50 }, { x: 20, y: 58 }] },
+          { type: "screen", at: { x: 20, y: 58 }, angle: 0 },
         ],
       },
       {
@@ -142,10 +142,10 @@ const SET_PLAYS = [
           { id: "2", label: "2", x: 46, y: 12 },
           { id: "3", label: "3", x: 3, y: 3 },
           { id: "4", label: "4", x: 29, y: 10 },
-          { id: "5", label: "5", x: 50, y: 64 },
+          { id: "5", label: "5", x: 20, y: 58 },
         ],
         actions: [
-          { type: "cut", path: [{ x: 46, y: 56 }, { x: 40, y: 35 }, { x: 46, y: 12 }] },
+          { type: "cut", path: [{ x: 14, y: 50 }, { x: 25, y: 33 }, { x: 46, y: 12 }] },
         ],
       },
       {
@@ -156,7 +156,7 @@ const SET_PLAYS = [
           { id: "2", label: "2", x: 46, y: 12 },
           { id: "3", label: "3", x: 3, y: 3 },
           { id: "4", label: "4", x: 29, y: 10 },
-          { id: "5", label: "5", x: 50, y: 64 },
+          { id: "5", label: "5", x: 20, y: 58 },
         ],
         actions: [
           { type: "pass", from: { x: -4, y: 55 }, to: { x: 46, y: 12 } },
