@@ -86,6 +86,7 @@ function renderSetPlays(filter = "All") {
         <span><span class="swatch pass"></span>pass</span>
         <span><span class="swatch screen"></span>screen</span>
       </div>
+      ${p.steps ? `<a class="btn-link" href="play.html?id=${p.id}">View step-by-step →</a>` : ""}
     </div>`
     )
     .join("");
@@ -112,6 +113,54 @@ function renderPlayFilters() {
   });
 }
 
+function renderPlayDetail() {
+  const container = document.getElementById("play-detail");
+  if (!container) return;
+
+  const id = new URLSearchParams(window.location.search).get("id");
+  const play = SET_PLAYS.find((p) => p.id === id);
+
+  if (!play) {
+    container.innerHTML = `<div class="page-header"><h1>Play not found</h1><p>That play doesn't exist. <a href="plays.html">Back to Set Plays</a>.</p></div>`;
+    return;
+  }
+
+  container.innerHTML = `
+    <div class="page-header">
+      <div class="play-card-head">
+        <h1>${play.name}</h1>
+        <span class="badge">${play.category}</span>
+      </div>
+      <p>${play.description}</p>
+    </div>
+    <div class="step-list">
+      ${(play.steps || [])
+        .map(
+          (s, i) => `
+        <div class="step-card">
+          <div class="step-number">${i + 1}</div>
+          <div class="step-body">
+            <h3>${s.title}</h3>
+            <div class="court-wrap" id="step-court-${i}"></div>
+            <p>${s.narrative}</p>
+          </div>
+        </div>`
+        )
+        .join("")}
+    </div>
+    <div class="legend">
+      <span><span class="swatch cut"></span>cut / move</span>
+      <span><span class="swatch pass"></span>pass</span>
+      <span><span class="swatch screen"></span>screen</span>
+    </div>
+  `;
+
+  (play.steps || []).forEach((s, i) => {
+    const el = document.getElementById(`step-court-${i}`);
+    if (el) renderCourt(el, { players: s.players, actions: s.actions });
+  });
+}
+
 function formatDate(iso) {
   const d = new Date(iso + "T00:00:00");
   return d.toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
@@ -123,4 +172,5 @@ document.addEventListener("DOMContentLoaded", () => {
   renderTrainingPlans();
   renderPlayFilters();
   renderSetPlays();
+  renderPlayDetail();
 });

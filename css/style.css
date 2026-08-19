@@ -242,6 +242,22 @@ footer {
 
 .play-card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; }
 .play-card-head h3 { margin: 0; font-size: 1.05rem; }
+.play-card-head h1 { margin: 0; font-size: 1.6rem; }
+
+.btn-link {
+  align-self: flex-start;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--green-bright);
+}
+
+.back-link {
+  display: inline-block;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  margin-bottom: 1.25rem;
+}
+.back-link:hover { color: var(--text); text-decoration: none; }
 
 .court-wrap {
   background: #0d150d;
@@ -261,8 +277,47 @@ footer {
 .legend .swatch.pass { background: var(--text-muted); border-top: 2px dashed var(--text-muted); height: 0; }
 .legend .swatch.screen { width: 3px; height: 12px; background: var(--danger); }
 
+/* ---------- Play detail (step-by-step) ---------- */
+
+.step-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.step-card {
+  display: flex;
+  gap: 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem;
+}
+
+.step-number {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--green-dim);
+  color: var(--green-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.step-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+.step-body h3 { margin: 0; font-size: 1rem; }
+.step-body p { margin: 0; color: var(--text-muted); font-size: 0.9rem; }
+.step-body .court-wrap { max-width: 380px; }
+
 @media (max-width: 640px) {
   .nav-inner { flex-wrap: wrap; }
   nav.main-nav { width: 100%; justify-content: space-between; }
   nav.main-nav a { padding: 0.5rem 0.5rem; font-size: 0.85rem; }
+  .step-card { flex-direction: column; }
+  .step-body .court-wrap { max-width: none; }
 }

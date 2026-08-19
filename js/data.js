@@ -85,5 +85,81 @@ const SET_PLAYS = [
         { type: "cut", path: [{ x: 56, y: 20 }, { x: 51, y: 10 }] },
       ],
     },
+    // Step-by-step breakdown for the play detail page. Each step's `players`
+    // are positions as of the END of that step (so earlier steps' movement
+    // is already reflected), and `actions` are only the arrows that happen
+    // during that step, keeping each diagram focused on one beat of the play.
+    steps: [
+      {
+        title: "Initial Alignment",
+        narrative: "Box set: 4 and 3 on the blocks, 2 and 5 at the elbows. 1 takes the ball out of bounds on the sideline.",
+        players: [
+          { id: "1", label: "1", x: -4, y: 55 },
+          { id: "2", label: "2", x: 34, y: 40 },
+          { id: "3", label: "3", x: 68, y: 8 },
+          { id: "4", label: "4", x: 29, y: 10 },
+          { id: "5", label: "5", x: 66, y: 41 },
+        ],
+        actions: [],
+      },
+      {
+        title: "Baseline Screen & Clear",
+        narrative: "4 sets a baseline screen; 3 cuts off it from the block to the far corner as the decoy. At the same time, 5 clears from the elbow through the lane up to the top, opening the middle.",
+        players: [
+          { id: "1", label: "1", x: -4, y: 55 },
+          { id: "2", label: "2", x: 34, y: 40 },
+          { id: "3", label: "3", x: 3, y: 3 },
+          { id: "4", label: "4", x: 29, y: 10 },
+          { id: "5", label: "5", x: 26, y: 67 },
+        ],
+        actions: [
+          { type: "screen", at: { x: 29, y: 10 }, angle: 0 },
+          { type: "cut", path: [{ x: 68, y: 8 }, { x: 38, y: 3 }, { x: 3, y: 3 }] },
+          { type: "cut", path: [{ x: 66, y: 41 }, { x: 33, y: 54 }, { x: 26, y: 67 }] },
+        ],
+      },
+      {
+        title: "The Curl",
+        narrative: "2 curls the opposite way — off the elbow, across the lane through the traffic 5 and 4 just created, down to the short corner looking for the catch.",
+        players: [
+          { id: "1", label: "1", x: -4, y: 55 },
+          { id: "2", label: "2", x: 61, y: 23 },
+          { id: "3", label: "3", x: 3, y: 3 },
+          { id: "4", label: "4", x: 29, y: 10 },
+          { id: "5", label: "5", x: 26, y: 67 },
+        ],
+        actions: [
+          { type: "cut", path: [{ x: 34, y: 40 }, { x: 24, y: 60 }, { x: 52, y: 50 }, { x: 61, y: 23 }] },
+        ],
+      },
+      {
+        title: "Inbound Pass",
+        narrative: "1 hits 2 on the move as they curl into the short corner.",
+        players: [
+          { id: "1", label: "1", x: -4, y: 55 },
+          { id: "2", label: "2", x: 61, y: 23 },
+          { id: "3", label: "3", x: 3, y: 3 },
+          { id: "4", label: "4", x: 29, y: 10 },
+          { id: "5", label: "5", x: 26, y: 67 },
+        ],
+        actions: [
+          { type: "pass", from: { x: -4, y: 55 }, to: { x: 56, y: 20 } },
+        ],
+      },
+      {
+        title: "Attack the Rim",
+        narrative: "2 catches in rhythm, attacks middle, and finishes strong at the rim.",
+        players: [
+          { id: "1", label: "1", x: -4, y: 55 },
+          { id: "2", label: "2", x: 51, y: 10 },
+          { id: "3", label: "3", x: 3, y: 3 },
+          { id: "4", label: "4", x: 29, y: 10 },
+          { id: "5", label: "5", x: 26, y: 67 },
+        ],
+        actions: [
+          { type: "cut", path: [{ x: 56, y: 20 }, { x: 51, y: 10 }] },
+        ],
+      },
+    ],
   },
 ];
