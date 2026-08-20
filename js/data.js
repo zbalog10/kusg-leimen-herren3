@@ -700,6 +700,20 @@ const DEFENSIVE_SETS = [
           ball: { x: 95, y: 8 },
         },
       },
+      {
+        title: "Ball Reverses to the Weak Side",
+        narrative: "When the offense swings the ball back through the top and out to the opposite wing, the whole zone mirrors itself. The wing that had dropped to the weak-side block sprints out to close on the new ball side. The chaser slides back across, staying in the passing lane between the top and the new ball side. The center slides across to stay in front of the ball, the warrior crosses the lane to front the new ball-side block, and the wing that just contained the ball drops down to become the new weak-side defender on the block.",
+        diagram: {
+          players: [
+            { id: "CH", label: "CH", team: "defense", x: 38, y: 58 },
+            { id: "WL", label: "W", team: "defense", x: 22, y: 38 },
+            { id: "WRight", label: "W", team: "defense", x: 80, y: 12 },
+            { id: "C", label: "C", team: "defense", x: 42, y: 38 },
+            { id: "WR", label: "WR", team: "defense", x: 38, y: 10 },
+          ],
+          ball: { x: 18, y: 35 },
+        },
+      },
     ],
   },
 ];
