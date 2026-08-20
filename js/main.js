@@ -161,6 +161,129 @@ function renderPlayDetail() {
   });
 }
 
+function renderDefenseSets(filter = "All") {
+  const grid = document.getElementById("defense-grid");
+  if (!grid) return;
+  const sets = DEFENSIVE_SETS.filter((d) => filter === "All" || d.category === filter);
+  grid.innerHTML = sets
+    .map(
+      (d) => `
+    <div class="defense-card">
+      <div class="play-card-head">
+        <h3>${d.name}</h3>
+        <span class="badge">${d.category}</span>
+      </div>
+      <div class="court-wrap" id="defcourt-${d.id}"></div>
+      <p class="defense-summary">${d.summary}</p>
+      <a class="btn-link" href="defense-set.html?id=${d.id}">View full tutorial →</a>
+    </div>`
+    )
+    .join("");
+
+  sets.forEach((d) => {
+    const el = document.getElementById(`defcourt-${d.id}`);
+    if (el) renderCourt(el, d.baseDiagram);
+  });
+}
+
+function renderDefenseFilters() {
+  const bar = document.getElementById("defense-filters");
+  if (!bar) return;
+  const categories = ["All", ...new Set(DEFENSIVE_SETS.map((d) => d.category))];
+  bar.innerHTML = categories
+    .map((c, i) => `<button class="filter-btn${i === 0 ? " active" : ""}" data-cat="${c}">${c}</button>`)
+    .join("");
+  bar.querySelectorAll(".filter-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      bar.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderDefenseSets(btn.dataset.cat);
+    });
+  });
+}
+
+function renderDefenseDetail() {
+  const container = document.getElementById("defense-detail");
+  if (!container) return;
+
+  const id = new URLSearchParams(window.location.search).get("id");
+  const set = DEFENSIVE_SETS.find((d) => d.id === id);
+
+  if (!set) {
+    container.innerHTML = `<div class="page-header"><h1>Defensive set not found</h1><p>That page doesn't exist. <a href="defense.html">Back to Defensive Sets</a>.</p></div>`;
+    return;
+  }
+
+  container.innerHTML = `
+    <div class="page-header">
+      <div class="play-card-head">
+        <h1>${set.name}</h1>
+        <span class="badge">${set.category}</span>
+      </div>
+    </div>
+    <p class="prose">${set.overview}</p>
+
+    <h2 class="section-heading">Strengths &amp; Weaknesses</h2>
+    <div class="two-col-list">
+      <div class="strengths">
+        <h3>Strengths</h3>
+        <ul>${set.strengths.map((s) => `<li>${s}</li>`).join("")}</ul>
+      </div>
+      <div class="weaknesses">
+        <h3>Weaknesses</h3>
+        <ul>${set.weaknesses.map((w) => `<li>${w}</li>`).join("")}</ul>
+      </div>
+    </div>
+
+    <h2 class="section-heading">Coaching Keys</h2>
+    <ul class="rules-list">${set.rules.map((r) => `<li>${r}</li>`).join("")}</ul>
+
+    <h2 class="section-heading">Positions</h2>
+    <div class="position-grid">
+      ${set.positions
+        .map(
+          (p) => `
+        <div class="position-card">
+          <div class="position-badge">${p.label}</div>
+          <div>
+            <h4>${p.name}</h4>
+            <p>${p.desc}</p>
+          </div>
+        </div>`
+        )
+        .join("")}
+    </div>
+
+    <h2 class="section-heading">Base Alignment</h2>
+    <div class="court-wrap" id="def-base-court" style="max-width: 420px;"></div>
+
+    <h2 class="section-heading">Reads &amp; Rotations</h2>
+    <div class="step-list">
+      ${set.reads
+        .map(
+          (r, i) => `
+        <div class="step-card">
+          <div class="step-number">${i + 1}</div>
+          <div class="step-body">
+            <h3>${r.title}</h3>
+            <div class="court-wrap" id="def-read-court-${i}"></div>
+            <p>${r.narrative}</p>
+          </div>
+        </div>`
+        )
+        .join("")}
+    </div>
+  `;
+
+  const baseEl = document.getElementById("def-base-court");
+  if (baseEl) renderCourt(baseEl, set.baseDiagram);
+
+  set.reads.forEach((r, i) => {
+    const el = document.getElementById(`def-read-court-${i}`);
+    if (el) renderCourt(el, r.diagram);
+  });
+}
+
 function formatDate(iso) {
   const d = new Date(iso + "T00:00:00");
   return d.toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
@@ -173,4 +296,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPlayFilters();
   renderSetPlays();
   renderPlayDetail();
+  renderDefenseFilters();
+  renderDefenseSets();
+  renderDefenseDetail();
 });

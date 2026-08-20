@@ -95,18 +95,24 @@ function drawPlayer(svg, p) {
   svg.appendChild(svgEl("circle", {
     cx, cy, r: 11,
     fill: isDefense ? "none" : "#22c55e",
-    stroke: isDefense ? "#96a391" : "#0a0d0a",
-    "stroke-width": isDefense ? 1.5 : 2,
+    stroke: isDefense ? "#f59e0b" : "#0a0d0a",
+    "stroke-width": isDefense ? 2 : 2,
     "stroke-dasharray": isDefense ? "3 2" : "none",
   }));
-  if (!isDefense) {
+  if (p.label) {
     const text = svgEl("text", {
       x: cx, y: cy + 4, "text-anchor": "middle",
-      fill: "#04120a", "font-size": 11, "font-weight": 700, "font-family": "inherit",
+      fill: isDefense ? "#f59e0b" : "#04120a", "font-size": isDefense ? 10 : 11, "font-weight": 700, "font-family": "inherit",
     });
     text.textContent = p.label;
     svg.appendChild(text);
   }
+}
+
+function drawBall(svg, at) {
+  const cx = mapX(at.x), cy = mapY(at.y);
+  svg.appendChild(svgEl("circle", { cx, cy, r: 6, fill: "#e0663f", stroke: "#0a0d0a", "stroke-width": 1.5 }));
+  svg.appendChild(svgEl("path", { d: `M ${cx - 5} ${cy} H ${cx + 5} M ${cx} ${cy - 5} V ${cy + 5}`, stroke: "#0a0d0a", "stroke-width": 0.8 }));
 }
 
 function ensureArrowMarker(svg) {
@@ -151,6 +157,7 @@ function renderCourt(container, diagram) {
   }
 
   for (const p of diagram.players || []) drawPlayer(svg, p);
+  if (diagram.ball) drawBall(svg, diagram.ball);
 
   container.innerHTML = "";
   container.appendChild(svg);

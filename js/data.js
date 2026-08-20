@@ -612,3 +612,94 @@ const SET_PLAYS = [
     ],
   },
 ];
+
+// Defensive schemes. Same coordinate system as SET_PLAYS. Diagram players use
+// team: "defense" for the orange outlined/labelled markers, and an optional
+// `ball` field on a diagram/read draws the ball marker at that spot.
+const DEFENSIVE_SETS = [
+  {
+    id: "1-3-1-zone",
+    name: "1-3-1 Zone Defense",
+    category: "Zone Defense",
+    summary: "An aggressive, passing-lane-denying zone built around one chaser, two wings, a center, and a baseline warrior — trades size and rebounding risk for deflections, steals, and transition offense.",
+    overview: "The 1-3-1 zone defense sets up exactly like the name says: one defender up top, three across the middle, and one at the bottom. Instead of guarding a specific player, each defender owns a zone of the floor and reads the ball. Rather than sitting between the ball and the basket the way a standard man defense does, the 1-3-1 crowds passing lanes — it dares the offense to throw lob or bounce passes over and around the defense, which is exactly when deflections and steals happen. Because of that, it's a high-effort, high-reward defense: it can turn into easy baskets in transition, but it also gives up more offensive rebounds and open shots than a standard zone if players aren't disciplined about their stance and rotations.",
+    strengths: [
+      "Disrupts the offense's normal sets — most teams have no rehearsed answer for it.",
+      "Generates deflections, steals, and transition scoring chances.",
+      "Great tempo-change weapon mid-game, or to close out a half.",
+      "Only really vulnerable to one or two counters (usually a 2-1-2 or 1-3-1 alignment on offense), so it's quick to scout for.",
+    ],
+    weaknesses: [
+      "The high post and short corners are its soft spots — a team that finds the gap there can score easily.",
+      "Gives up offensive rebounds since nobody is boxing out a matched-up opponent.",
+      "Wears players out fast; needs a deep rotation to sustain it for a full game.",
+      "Takes real practice time to teach the rotations well.",
+    ],
+    rules: [
+      "No straight-line passes allowed — always stay in a passing lane, not between the ball and the man.",
+      "Move on the pass's air time, not after the catch — anticipate where it's going.",
+      "Everyone crashes the boards on a shot; nobody has a check to box out, so it has to be a team effort.",
+      "Stay in a low defensive stance with hands active — a standing defender is always a step late.",
+      "Watch the passer's eyes, not the ball — that's what lets you jump the passing lane.",
+    ],
+    positions: [
+      { label: "CH", name: "Chaser", desc: "Top of the zone, on the free-throw line. Pressures the ball to one side and denies it coming back the other way — feet always pointed toward the sideline they're pushing the ball to." },
+      { label: "W", name: "Wings", desc: "The two outside players in the middle line. Whoever is on the ball side contains the wing/corner; the weak-side wing drops all the way to the weak-side block, the zone's only defender over there." },
+      { label: "C", name: "Center", desc: "The lone middle defender. Job is simple to say, hard to do: stay between the ball and the rim, and never let the ball into the post." },
+      { label: "WR", name: "Warrior", desc: "Bottom of the zone. Fronts the ball-side low block and sprints corner to corner to help trap, closing out under control so the corner can't be driven baseline." },
+    ],
+    baseDiagram: {
+      players: [
+        { id: "CH", label: "CH", team: "defense", x: 50, y: 47 },
+        { id: "WL", label: "W", team: "defense", x: 15, y: 32 },
+        { id: "WRight", label: "W", team: "defense", x: 85, y: 32 },
+        { id: "C", label: "C", team: "defense", x: 50, y: 22 },
+        { id: "WR", label: "WR", team: "defense", x: 50, y: 8 },
+      ],
+    },
+    reads: [
+      {
+        title: "Ball at the Top",
+        narrative: "Base alignment. The chaser pressures the ball-handler up around the free-throw line, angling their body to push the dribble toward one sideline — the ball must never come straight down the middle.",
+        diagram: {
+          players: [
+            { id: "CH", label: "CH", team: "defense", x: 50, y: 47 },
+            { id: "WL", label: "W", team: "defense", x: 15, y: 32 },
+            { id: "WRight", label: "W", team: "defense", x: 85, y: 32 },
+            { id: "C", label: "C", team: "defense", x: 50, y: 22 },
+            { id: "WR", label: "WR", team: "defense", x: 50, y: 8 },
+          ],
+          ball: { x: 50, y: 62 },
+        },
+      },
+      {
+        title: "Ball on the Wing",
+        narrative: "Once the ball is pushed to a side, the ball-side wing closes out to contain it. The chaser slides over to take away the pass back to the top. The center shifts toward the ball to stay in front of the post, the warrior shifts ball-side to front the low block, and the weak-side wing drops all the way to the weak-side block — the zone's only defender on that whole side of the floor.",
+        diagram: {
+          players: [
+            { id: "CH", label: "CH", team: "defense", x: 62, y: 52 },
+            { id: "WL", label: "W", team: "defense", x: 20, y: 12 },
+            { id: "WRight", label: "W", team: "defense", x: 78, y: 38 },
+            { id: "C", label: "C", team: "defense", x: 58, y: 24 },
+            { id: "WR", label: "WR", team: "defense", x: 62, y: 10 },
+          ],
+          ball: { x: 82, y: 35 },
+        },
+      },
+      {
+        title: "Ball in the Corner (Trap)",
+        narrative: "If the ball goes further down to the corner, the ball-side wing and the warrior close down together for a soft trap — angled so there's no sideline release, forcing a lob back out that the defense can jump. The chaser shifts further over to deny the skip pass to the top, the center holds the ball-side block, and the weak-side wing stays home on the weak-side block reading the skip pass.",
+        diagram: {
+          players: [
+            { id: "CH", label: "CH", team: "defense", x: 70, y: 45 },
+            { id: "WL", label: "W", team: "defense", x: 20, y: 10 },
+            { id: "WRight", label: "W", team: "defense", x: 90, y: 14 },
+            { id: "C", label: "C", team: "defense", x: 58, y: 15 },
+            { id: "WR", label: "WR", team: "defense", x: 78, y: 8 },
+          ],
+          ball: { x: 95, y: 8 },
+        },
+      },
+    ],
+  },
+];
