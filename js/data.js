@@ -643,44 +643,44 @@ const DEFENSIVE_SETS = [
       "Watch the passer's eyes, not the ball — that's what lets you jump the passing lane.",
     ],
     positions: [
-      { label: "CH", name: "Chaser", desc: "Top of the zone, on the free-throw line. Pressures the ball to one side and denies it coming back the other way — feet always pointed toward the sideline they're pushing the ball to." },
+      { label: "CH", name: "Chaser", desc: "Top of the zone, set up outside the three-point line. Pressures the ball to one side and denies it coming back the other way — feet always pointed toward the sideline they're pushing the ball to." },
       { label: "W", name: "Wings", desc: "The two outside players in the middle line. Whoever is on the ball side contains the wing/corner; the weak-side wing drops all the way to the weak-side block, the zone's only defender over there." },
-      { label: "C", name: "Center", desc: "The lone middle defender. Job is simple to say, hard to do: stay between the ball and the rim, and never let the ball into the post." },
+      { label: "C", name: "Center", desc: "The lone middle defender, starting up at the free-throw line to defend the high post. Job is simple to say, hard to do: stay between the ball and the rim, and never let the ball into the post." },
       { label: "WR", name: "Warrior", desc: "Bottom of the zone. Fronts the ball-side low block and sprints corner to corner to help trap, closing out under control so the corner can't be driven baseline." },
     ],
     baseDiagram: {
       players: [
-        { id: "CH", label: "CH", team: "defense", x: 50, y: 47 },
+        { id: "CH", label: "CH", team: "defense", x: 50, y: 65 },
         { id: "WL", label: "W", team: "defense", x: 15, y: 32 },
         { id: "WRight", label: "W", team: "defense", x: 85, y: 32 },
-        { id: "C", label: "C", team: "defense", x: 50, y: 22 },
+        { id: "C", label: "C", team: "defense", x: 50, y: 41 },
         { id: "WR", label: "WR", team: "defense", x: 50, y: 8 },
       ],
     },
     reads: [
       {
         title: "Ball at the Top",
-        narrative: "Base alignment. The chaser pressures the ball-handler up around the free-throw line, angling their body to push the dribble toward one sideline — the ball must never come straight down the middle.",
+        narrative: "Base alignment. The chaser sets up outside the three-point line and pressures the ball-handler as soon as they cross half-court, angling their body to push the dribble toward one sideline — the ball must never come straight down the middle. The center comes up to the free-throw line to take away the high post.",
         diagram: {
           players: [
-            { id: "CH", label: "CH", team: "defense", x: 50, y: 47 },
+            { id: "CH", label: "CH", team: "defense", x: 50, y: 65 },
             { id: "WL", label: "W", team: "defense", x: 15, y: 32 },
             { id: "WRight", label: "W", team: "defense", x: 85, y: 32 },
-            { id: "C", label: "C", team: "defense", x: 50, y: 22 },
+            { id: "C", label: "C", team: "defense", x: 50, y: 41 },
             { id: "WR", label: "WR", team: "defense", x: 50, y: 8 },
           ],
-          ball: { x: 50, y: 62 },
+          ball: { x: 50, y: 75 },
         },
       },
       {
         title: "Ball on the Wing",
-        narrative: "Once the ball is pushed to a side, the ball-side wing closes out to contain it. The chaser slides over to take away the pass back to the top. The center shifts toward the ball to stay in front of the post, the warrior shifts ball-side to front the low block, and the weak-side wing drops all the way to the weak-side block — the zone's only defender on that whole side of the floor.",
+        narrative: "Once the ball is pushed to a side, the ball-side wing closes out to contain it. The chaser slides over to take away the pass back to the top. The center shifts toward the ball, staying at free-throw line height to hold the high post, the warrior shifts ball-side to front the low block, and the weak-side wing drops all the way to the weak-side block — the zone's only defender on that whole side of the floor.",
         diagram: {
           players: [
-            { id: "CH", label: "CH", team: "defense", x: 62, y: 52 },
+            { id: "CH", label: "CH", team: "defense", x: 62, y: 58 },
             { id: "WL", label: "W", team: "defense", x: 20, y: 12 },
             { id: "WRight", label: "W", team: "defense", x: 78, y: 38 },
-            { id: "C", label: "C", team: "defense", x: 58, y: 24 },
+            { id: "C", label: "C", team: "defense", x: 58, y: 38 },
             { id: "WR", label: "WR", team: "defense", x: 62, y: 10 },
           ],
           ball: { x: 82, y: 35 },
@@ -688,10 +688,10 @@ const DEFENSIVE_SETS = [
       },
       {
         title: "Ball in the Corner (Trap)",
-        narrative: "If the ball goes further down to the corner, the ball-side wing and the warrior close down together for a soft trap — angled so there's no sideline release, forcing a lob back out that the defense can jump. The chaser shifts further over to deny the skip pass to the top, the center holds the ball-side block, and the weak-side wing stays home on the weak-side block reading the skip pass.",
+        narrative: "If the ball goes further down to the corner, the ball-side wing and the warrior close down together for a soft trap — angled so there's no sideline release, forcing a lob back out that the defense can jump. The chaser shifts further over to deny the skip pass to the top, the center drops from the free-throw line down to the ball-side block, and the weak-side wing stays home on the weak-side block reading the skip pass.",
         diagram: {
           players: [
-            { id: "CH", label: "CH", team: "defense", x: 70, y: 45 },
+            { id: "CH", label: "CH", team: "defense", x: 68, y: 50 },
             { id: "WL", label: "W", team: "defense", x: 20, y: 10 },
             { id: "WRight", label: "W", team: "defense", x: 90, y: 14 },
             { id: "C", label: "C", team: "defense", x: 58, y: 15 },
