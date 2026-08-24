@@ -611,6 +611,119 @@ const SET_PLAYS = [
       },
     ],
   },
+  {
+    id: "rot-vs-zone",
+    name: "Rot (vs. Zone)",
+    category: "Zone Offense",
+    description: "A continuity built to attack zone defenses: feed the post as it flashes to the ball, and if there's no shot, swing the ball all the way around the horn while the team rotates back into its starting shape, ready to run it again.",
+    keyPoints: [
+      "2 enters with the ball, 1 up top, 4 on the weak wing, 3 on the strong wing, and 5 flashing in the high post.",
+      "5 flashes down to post up on the ball side; 2 feeds the post, then cuts hard through the middle to the opposite short corner.",
+      "If the post doesn't have a shot, kick it back out to 4 in the corner. 1 fills the vacated wing spot as 2 continues out of the corner to the middle.",
+      "The ball reverses guard to guard — 4 to 1, then 1 to 3 — as 3 lifts to the top and 5 resets to the high post.",
+      "2 sprints back out to the wing, resetting the whole team into the same alignment to run it again.",
+    ],
+    diagram: {
+      players: [
+        { id: "1", label: "1", x: 58, y: 66 },
+        { id: "2", label: "2", x: 25, y: 62 },
+        { id: "3", label: "3", x: 90, y: 42 },
+        { id: "4", label: "4", x: 10, y: 32 },
+        { id: "5", label: "5", x: 50, y: 38 },
+      ],
+      actions: [
+        { type: "pass", from: { x: 25, y: 62 }, to: { x: 38, y: 10 } },
+        { type: "cut", path: [{ x: 50, y: 38 }, { x: 38, y: 10 }] },
+        { type: "cut", path: [{ x: 25, y: 62 }, { x: 50, y: 35 }, { x: 68, y: 10 }] },
+        { type: "cut", path: [{ x: 10, y: 32 }, { x: 10, y: 10 }] },
+        { type: "pass", from: { x: 38, y: 10 }, to: { x: 10, y: 10 } },
+        { type: "cut", path: [{ x: 58, y: 66 }, { x: 30, y: 58 }] },
+        { type: "pass", from: { x: 10, y: 10 }, to: { x: 30, y: 58 } },
+        { type: "cut", path: [{ x: 90, y: 42 }, { x: 65, y: 60 }] },
+        { type: "pass", from: { x: 30, y: 58 }, to: { x: 65, y: 60 } },
+        { type: "cut", path: [{ x: 55, y: 30 }, { x: 25, y: 62 }] },
+      ],
+    },
+    steps: [
+      {
+        title: "Initial Alignment",
+        narrative: "1-3-1 shape against the zone: 2 has the ball on the left with 1 up top, 4 on the weak-side wing, 3 on the strong-side wing, and 5 flashing in the high post.",
+        players: [
+          { id: "1", label: "1", x: 58, y: 66 },
+          { id: "2", label: "2", x: 25, y: 62 },
+          { id: "3", label: "3", x: 90, y: 42 },
+          { id: "4", label: "4", x: 10, y: 32 },
+          { id: "5", label: "5", x: 50, y: 38 },
+        ],
+        actions: [],
+      },
+      {
+        title: "Post Flash & Feed",
+        narrative: "5 flashes down from the high post to post up on the ball side. 2 feeds it directly, then cuts hard through the middle to the opposite short corner. 4 relocates down to the corner as the outlet if the post feed isn't there.",
+        players: [
+          { id: "1", label: "1", x: 58, y: 66 },
+          { id: "2", label: "2", x: 68, y: 10 },
+          { id: "3", label: "3", x: 90, y: 42 },
+          { id: "4", label: "4", x: 10, y: 10 },
+          { id: "5", label: "5", x: 38, y: 10 },
+        ],
+        actions: [
+          { type: "pass", from: { x: 25, y: 62 }, to: { x: 38, y: 10 } },
+          { type: "cut", path: [{ x: 50, y: 38 }, { x: 38, y: 10 }] },
+          { type: "cut", path: [{ x: 25, y: 62 }, { x: 50, y: 35 }, { x: 68, y: 10 }] },
+          { type: "cut", path: [{ x: 10, y: 32 }, { x: 10, y: 10 }] },
+        ],
+      },
+      {
+        title: "Kick Out & Reset",
+        narrative: "No shot for the post, so it kicks the ball back out to 4 in the corner. 1 slides over to fill the wing spot 2 vacated, and 2 continues cutting up out of the corner into the middle.",
+        players: [
+          { id: "1", label: "1", x: 30, y: 58 },
+          { id: "2", label: "2", x: 55, y: 30 },
+          { id: "3", label: "3", x: 90, y: 42 },
+          { id: "4", label: "4", x: 10, y: 10 },
+          { id: "5", label: "5", x: 38, y: 10 },
+        ],
+        actions: [
+          { type: "pass", from: { x: 38, y: 10 }, to: { x: 10, y: 10 } },
+          { type: "cut", path: [{ x: 58, y: 66 }, { x: 30, y: 58 }] },
+          { type: "cut", path: [{ x: 68, y: 10 }, { x: 55, y: 30 }] },
+        ],
+      },
+      {
+        title: "Ball Reverses to the Other Guard",
+        narrative: "4 swings it to 1, now filling the wing. 3 lifts up to the top to open the reversal lane as 5 holds the middle.",
+        players: [
+          { id: "1", label: "1", x: 30, y: 58 },
+          { id: "2", label: "2", x: 55, y: 30 },
+          { id: "3", label: "3", x: 65, y: 60 },
+          { id: "4", label: "4", x: 10, y: 10 },
+          { id: "5", label: "5", x: 38, y: 10 },
+        ],
+        actions: [
+          { type: "pass", from: { x: 10, y: 10 }, to: { x: 30, y: 58 } },
+          { type: "cut", path: [{ x: 90, y: 42 }, { x: 65, y: 60 }] },
+        ],
+      },
+      {
+        title: "Back to the Start",
+        narrative: "1 swings it across to 3, who has filled the new guard spot. 2 sprints out to fill the vacant wing on the left, resetting the whole team into the same 1-3-1 shape, ready to run it again.",
+        players: [
+          { id: "1", label: "1", x: 30, y: 58 },
+          { id: "2", label: "2", x: 25, y: 62 },
+          { id: "3", label: "3", x: 65, y: 60 },
+          { id: "4", label: "4", x: 10, y: 32 },
+          { id: "5", label: "5", x: 50, y: 38 },
+        ],
+        actions: [
+          { type: "pass", from: { x: 30, y: 58 }, to: { x: 65, y: 60 } },
+          { type: "cut", path: [{ x: 55, y: 30 }, { x: 25, y: 62 }] },
+          { type: "cut", path: [{ x: 10, y: 10 }, { x: 10, y: 32 }] },
+          { type: "cut", path: [{ x: 38, y: 10 }, { x: 50, y: 38 }] },
+        ],
+      },
+    ],
+  },
 ];
 
 // Defensive schemes. Same coordinate system as SET_PLAYS. Diagram players use
