@@ -648,10 +648,13 @@ const SET_PLAYS = [
     id: "rot-vs-zone",
     name: "Rot (vs. Zone)",
     category: "Zone Offense",
-    description: "Continuity to attack zone defenses from a two-guard set: 2 enters to 4 and cuts to the low block as the guards rotate up to fill behind the pass.",
+    description: "Continuity to attack zone defenses from a two-guard set: the ball-side guard enters to the wing and cuts to the low block while the guards rotate up behind, and if the cutter isn't fed, they clear to the weak wing — the whole shape then mirrors and repeats to the other side, on and on.",
     keyPoints: [
       "1 and 2 start in the slots, slightly above the three-point line; 3 and 4 are on the wings, slightly above free-throw line height and outside the three-point line. 2 has the ball.",
       "2 passes to 4 and cuts to the low block. At the same time, 1 fills 2's vacated slot, and 3 fills 1's vacated slot.",
+      "If 2 doesn't get the ball at the block, it clears to the far wing, taking over 3's original spot.",
+      "4 reverses the ball to 1, who reverses it to 3, who passes to 2 and cuts to the low block the same way 2 did at the start — 1 fills 3's vacated slot, and 4 fills 1's vacated slot.",
+      "The pattern now repeats indefinitely, mirroring to the other side each time the ball reverses.",
     ],
     diagram: {
       players: [
@@ -666,6 +669,13 @@ const SET_PLAYS = [
         { type: "cut", path: [{ x: 65, y: 61 }, { x: 60, y: 35 }, { x: 68, y: 8 }] },
         { type: "cut", path: [{ x: 35, y: 61 }, { x: 65, y: 61 }] },
         { type: "cut", path: [{ x: 10, y: 44 }, { x: 35, y: 61 }] },
+        { type: "cut", path: [{ x: 68, y: 8 }, { x: 35, y: 15 }, { x: 10, y: 44 }] },
+        { type: "pass", from: { x: 90, y: 44 }, to: { x: 65, y: 61 } },
+        { type: "pass", from: { x: 65, y: 61 }, to: { x: 35, y: 61 } },
+        { type: "pass", from: { x: 35, y: 61 }, to: { x: 10, y: 44 } },
+        { type: "cut", path: [{ x: 35, y: 61 }, { x: 30, y: 35 }, { x: 32, y: 8 }] },
+        { type: "cut", path: [{ x: 65, y: 61 }, { x: 35, y: 61 }] },
+        { type: "cut", path: [{ x: 90, y: 44 }, { x: 65, y: 61 }] },
       ],
     },
     steps: [
@@ -696,6 +706,39 @@ const SET_PLAYS = [
           { type: "cut", path: [{ x: 65, y: 61 }, { x: 60, y: 35 }, { x: 68, y: 8 }] },
           { type: "cut", path: [{ x: 35, y: 61 }, { x: 65, y: 61 }] },
           { type: "cut", path: [{ x: 10, y: 44 }, { x: 35, y: 61 }] },
+        ],
+      },
+      {
+        title: "2 Clears to the Weak Side",
+        narrative: "2 doesn't get the ball at the low block, so it clears across to the far wing, taking over the spot 3 started in.",
+        players: [
+          { id: "1", label: "1", x: 65, y: 61 },
+          { id: "2", label: "2", x: 10, y: 44 },
+          { id: "3", label: "3", x: 35, y: 61 },
+          { id: "4", label: "4", x: 90, y: 44 },
+          { id: "5", label: "5", x: 50, y: 38 },
+        ],
+        actions: [
+          { type: "cut", path: [{ x: 68, y: 8 }, { x: 35, y: 15 }, { x: 10, y: 44 }] },
+        ],
+      },
+      {
+        title: "Reversal & Mirror Cut",
+        narrative: "4 reverses the ball to 1, who reverses it to 3, who passes to 2 and cuts to the low block the same way 2 did at the start. 1 fills 3's vacated slot, and 4 fills 1's vacated slot — the team is now in the same shape as after the first entry, just mirrored. From here the pattern repeats indefinitely, flipping sides with every reversal.",
+        players: [
+          { id: "1", label: "1", x: 35, y: 61 },
+          { id: "2", label: "2", x: 10, y: 44 },
+          { id: "3", label: "3", x: 32, y: 8 },
+          { id: "4", label: "4", x: 65, y: 61 },
+          { id: "5", label: "5", x: 50, y: 38 },
+        ],
+        actions: [
+          { type: "pass", from: { x: 90, y: 44 }, to: { x: 65, y: 61 } },
+          { type: "pass", from: { x: 65, y: 61 }, to: { x: 35, y: 61 } },
+          { type: "pass", from: { x: 35, y: 61 }, to: { x: 10, y: 44 } },
+          { type: "cut", path: [{ x: 35, y: 61 }, { x: 30, y: 35 }, { x: 32, y: 8 }] },
+          { type: "cut", path: [{ x: 65, y: 61 }, { x: 35, y: 61 }] },
+          { type: "cut", path: [{ x: 90, y: 44 }, { x: 65, y: 61 }] },
         ],
       },
     ],
