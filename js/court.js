@@ -51,10 +51,19 @@ function drawCourtLines(svg) {
   // Free-throw circle (1.8m radius)
   svg.appendChild(svgEl("circle", { cx: mapX(50), cy: mapY(FT_LINE_Y), r: m(1.8), fill: "none", stroke: "#48603f", "stroke-width": 1.5, "stroke-dasharray": "4 3" }));
 
-  // Restricted (no-charge) arc under the hoop, 1.25m radius
+  // Restricted (no-charge) area: a true semicircle centered on the rim's
+  // floor projection (1.575m from the baseline), 1.25m radius, connected to
+  // the baseline by two straight lines perpendicular to it. Since the
+  // radius equals the endpoints' x-offset from center, those connector
+  // lines run from the baseline up to exactly the rim's height — not the
+  // baseline itself and not the backboard.
   const raR = m(1.25);
   const raXOffset = (raR / COURT_W_PX) * 100;
-  arcPath(`M ${mapX(50 - raXOffset)} ${mapY(0)} A ${raR} ${raR} 0 0 1 ${mapX(50 + raXOffset)} ${mapY(0)}`);
+  const raLeftX = 50 - raXOffset;
+  const raRightX = 50 + raXOffset;
+  line(raLeftX, 0, raLeftX, RIM_Y);
+  line(raRightX, 0, raRightX, RIM_Y);
+  arcPath(`M ${mapX(raLeftX)} ${mapY(RIM_Y)} A ${raR} ${raR} 0 0 1 ${mapX(raRightX)} ${mapY(RIM_Y)}`);
 
   // Backboard (1.2m from baseline) + rim (center 1.575m from baseline)
   line(47, BACKBOARD_Y, 53, BACKBOARD_Y, { "stroke-width": 2.2 });
