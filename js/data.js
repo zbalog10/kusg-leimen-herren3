@@ -753,7 +753,7 @@ const SET_PLAYS = [
       "After 1 clears, 2 cuts in front of 5 to the opposite low block the same way, also screened by 5.",
       "After 2 clears, 4 lifts to the top of the key to receive from 3, as 1 lifts to fill 4's original spot.",
       "3 runs to the low block, uses a screen from 2, and continues to the opposite low block. At the same time, 4 reverses the ball back to 1.",
-      "5 and 4 set a staggered screen for 2, who curls up to the top for the catch-and-shoot — or all the way to the rim if the defense chases.",
+      "5 sets the first screen and 4 sets the one behind him, staggered for 2, who curls up to the top for the catch-and-shoot — or all the way to the rim if the defense chases.",
     ],
     diagram: {
       players: [
@@ -774,8 +774,8 @@ const SET_PLAYS = [
         { type: "cut", path: [{ x: 90, y: 44 }, { x: 70, y: 15 }, { x: 30, y: 8 }] },
         { type: "screen", at: { x: 70, y: 8 }, angle: 90 },
         { type: "pass", from: { x: 50, y: 64 }, to: { x: 10, y: 44 } },
-        { type: "cut", path: [{ x: 50, y: 64 }, { x: 60, y: 25 }] },
-        { type: "cut", path: [{ x: 50, y: 45 }, { x: 55, y: 35 }] },
+        { type: "cut", path: [{ x: 50, y: 64 }, { x: 55, y: 35 }] },
+        { type: "cut", path: [{ x: 50, y: 45 }, { x: 60, y: 25 }] },
         { type: "screen", at: { x: 60, y: 25 }, angle: 0 },
         { type: "screen", at: { x: 55, y: 35 }, angle: 0 },
         { type: "cut", path: [{ x: 70, y: 8 }, { x: 68, y: 22 }, { x: 63, y: 38 }, { x: 50, y: 55 }] },
@@ -860,17 +860,17 @@ const SET_PLAYS = [
       },
       {
         title: "Staggered Screen",
-        narrative: "5 and 4 set a staggered screen for 2, who curls up to the top for the catch-and-shoot — or all the way to the rim if the defense chases over the top.",
+        narrative: "5 sets the first screen and 4 sets the one behind him, staggered for 2, who curls up to the top for the catch-and-shoot — or all the way to the rim if the defense chases over the top.",
         players: [
           { id: "1", label: "1", x: 10, y: 44 },
           { id: "2", label: "2", x: 50, y: 55 },
           { id: "3", label: "3", x: 30, y: 8 },
-          { id: "4", label: "4", x: 60, y: 25 },
-          { id: "5", label: "5", x: 55, y: 35 },
+          { id: "4", label: "4", x: 55, y: 35 },
+          { id: "5", label: "5", x: 60, y: 25 },
         ],
         actions: [
-          { type: "cut", path: [{ x: 50, y: 64 }, { x: 60, y: 25 }] },
-          { type: "cut", path: [{ x: 50, y: 45 }, { x: 55, y: 35 }] },
+          { type: "cut", path: [{ x: 50, y: 64 }, { x: 55, y: 35 }] },
+          { type: "cut", path: [{ x: 50, y: 45 }, { x: 60, y: 25 }] },
           { type: "screen", at: { x: 60, y: 25 }, angle: 0 },
           { type: "screen", at: { x: 55, y: 35 }, angle: 0 },
           { type: "cut", path: [{ x: 70, y: 8 }, { x: 68, y: 22 }, { x: 63, y: 38 }, { x: 50, y: 55 }] },
