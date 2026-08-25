@@ -16,7 +16,7 @@ function amClose(a, b, eps) { return amDist(a, b) <= (eps || 3); }
 function amFindPath(actions, from, to) {
   for (const a of actions || []) {
     if ((a.type === "cut" || a.type === "move") && a.path && a.path.length >= 2) {
-      if (amClose(a.path[0], from) && amClose(a.path[a.path.length - 1], to)) return a.path;
+      if (amClose(a.path[0], from) && amClose(a.path[a.path.length - 1], to)) return a;
     }
   }
   return null;
@@ -137,54 +137,82 @@ function renderAnimatedPlayback(container, steps) {
     if (el.text) { el.text.setAttribute("x", cx); el.text.setAttribute("y", cy + 4); }
   }
 
+  // A step's actions can optionally carry a `beat` number (0, 1, 2, ...) to
+  // sequence them within the step instead of animating everything at once —
+  // e.g. three passes in a row should show the ball hopping player to
+  // player, not all three arrows animating simultaneously. Actions without
+  // a `beat` default to 0, so every step written before this existed still
+  // animates exactly as one simultaneous beat.
   function animateStep(fromIdx, toIdx, onDone) {
     const fromStep = steps[fromIdx];
     const toStep = steps[toIdx];
     drawStatic(toIdx);
 
-    const moves = {};
+    const moves = {}; // id -> { path, beat }
     for (const p of toStep.players || []) {
       const prev = (fromStep.players || []).find((q) => q.id === p.id);
       if (!prev || amClose(prev, p, 0.4)) continue;
-      moves[p.id] = amFindPath(toStep.actions, prev, p) || [prev, p];
+      const matched = amFindPath(toStep.actions, prev, p);
+      moves[p.id] = { path: matched ? matched.path : [prev, p], beat: matched ? (matched.beat || 0) : 0 };
     }
 
-    const passAction = (toStep.actions || []).find((a) => a.type === "pass");
-    if (!Object.keys(moves).length && !passAction) { onDone(); return; }
+    const passesByBeat = {};
+    for (const a of toStep.actions || []) {
+      if (a.type === "pass") {
+        const b = a.beat || 0;
+        (passesByBeat[b] = passesByBeat[b] || []).push(a);
+      }
+    }
+
+    if (!Object.keys(moves).length && !Object.keys(passesByBeat).length) { onDone(); return; }
 
     for (const id of Object.keys(moves)) {
       const prev = (fromStep.players || []).find((q) => q.id === id);
       setPlayerPos(id, prev);
     }
 
-    let ballEl = null;
-    if (passAction) {
-      ballEl = svgEl("circle", {
-        cx: mapX(passAction.from.x), cy: mapY(passAction.from.y),
-        r: 6, fill: "#e0663f", stroke: "#0a0d0a", "stroke-width": 1.5,
-      });
-      svg.appendChild(ballEl);
-    }
+    const beatSet = new Set([0]);
+    Object.values(moves).forEach((m) => beatSet.add(m.beat));
+    Object.keys(passesByBeat).forEach((b) => beatSet.add(Number(b)));
+    const beatList = Array.from(beatSet).sort((a, b) => a - b);
 
-    const start = performance.now();
-    function frame(now) {
-      const t = Math.min(1, (now - start) / AM_STEP_MS);
-      const et = amEase(t);
-      for (const [id, path] of Object.entries(moves)) setPlayerPos(id, amPointAt(path, et));
-      if (ballEl) {
-        const bx = passAction.from.x + (passAction.to.x - passAction.from.x) * et;
-        const by = passAction.from.y + (passAction.to.y - passAction.from.y) * et;
-        ballEl.setAttribute("cx", mapX(bx));
-        ballEl.setAttribute("cy", mapY(by));
+    function runBeat(i) {
+      if (i >= beatList.length) { onDone(); return; }
+      const beat = beatList[i];
+      const beatMoves = Object.entries(moves).filter(([, m]) => m.beat === beat);
+      const beatPasses = passesByBeat[beat] || [];
+      if (!beatMoves.length && !beatPasses.length) { runBeat(i + 1); return; }
+
+      const ballEls = beatPasses.map((passAction) => {
+        const el = svgEl("circle", {
+          cx: mapX(passAction.from.x), cy: mapY(passAction.from.y),
+          r: 6, fill: "#e0663f", stroke: "#0a0d0a", "stroke-width": 1.5,
+        });
+        svg.appendChild(el);
+        return el;
+      });
+
+      const start = performance.now();
+      function frame(now) {
+        const t = Math.min(1, (now - start) / AM_STEP_MS);
+        const et = amEase(t);
+        beatMoves.forEach(([id, m]) => setPlayerPos(id, amPointAt(m.path, et)));
+        beatPasses.forEach((passAction, bi) => {
+          const bx = passAction.from.x + (passAction.to.x - passAction.from.x) * et;
+          const by = passAction.from.y + (passAction.to.y - passAction.from.y) * et;
+          ballEls[bi].setAttribute("cx", mapX(bx));
+          ballEls[bi].setAttribute("cy", mapY(by));
+        });
+        if (t < 1) {
+          rafId = requestAnimationFrame(frame);
+        } else {
+          ballEls.forEach((el) => el.remove());
+          runBeat(i + 1);
+        }
       }
-      if (t < 1) {
-        rafId = requestAnimationFrame(frame);
-      } else {
-        if (ballEl) ballEl.remove();
-        onDone();
-      }
+      rafId = requestAnimationFrame(frame);
     }
-    rafId = requestAnimationFrame(frame);
+    runBeat(0);
   }
 
   function updatePlayBtn() { playBtn.textContent = playing ? "⏸ Pause" : "▶ Play"; }
