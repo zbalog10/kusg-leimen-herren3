@@ -865,8 +865,8 @@ const SET_PLAYS = [
           { id: "1", label: "1", x: 10, y: 44 },
           { id: "2", label: "2", x: 50, y: 55 },
           { id: "3", label: "3", x: 30, y: 8 },
-          { id: "4", label: "4", x: 40, y: 25 },
-          { id: "5", label: "5", x: 45, y: 35 },
+          { id: "4", label: "4", x: 60, y: 25 },
+          { id: "5", label: "5", x: 55, y: 35 },
         ],
         actions: [
           { type: "cut", path: [{ x: 50, y: 64 }, { x: 60, y: 25 }] },
