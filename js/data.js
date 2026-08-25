@@ -171,7 +171,7 @@ const SET_PLAYS = [
     description: "Baseline out-of-bounds set: 4 screens for 2 at the elbow and 5 sets a diagonal screen for 4, freeing a big for a catch and drive from the short post while the perimeter clears out.",
     keyPoints: [
       "1 inbounds from under the basket.",
-      "4 sets a screen parallel to the baseline for 2 at the elbow; 2 fakes a cut to the baseline off it, then clears out to the corner.",
+      "4 sets a screen parallel to the baseline for 2 at the elbow; 2 cuts off it toward the baseline, then redirects out to the corner.",
       "At the same time, 5 sets a screen at 45° to the baseline for 4, who curls off it up to the short post. 3 clears from the right elbow to the top.",
       "1 hits 4 at the short post; 4 attacks the rim.",
     ],
@@ -186,7 +186,7 @@ const SET_PLAYS = [
       actions: [
         { type: "cut", path: [{ x: 67, y: 41 }, { x: 61, y: 65 }] },
         { type: "screen", at: { x: 29, y: 6 }, angle: 0 },
-        { type: "cut", path: [{ x: 29, y: 41 }, { x: 29, y: 20 }, { x: -5, y: 24 }] },
+        { type: "cut", path: [{ x: 29, y: 41 }, { x: 27, y: 12 }, { x: -5, y: 24 }] },
         { type: "cut", path: [{ x: 72, y: 7 }, { x: 40, y: 14 }] },
         { type: "screen", at: { x: 40, y: 14 }, angle: 45 },
         { type: "cut", path: [{ x: 29, y: 6 }, { x: 35, y: 10 }, { x: 40, y: 14 }, { x: 50, y: 21 }] },
@@ -209,7 +209,7 @@ const SET_PLAYS = [
       },
       {
         title: "Screens & Clears",
-        narrative: "4 sets a screen parallel to the baseline for 2 at the elbow; 2 fakes a cut to the baseline off it, then clears out to the corner. At the same time, 5 sets a screen at 45° to the baseline for 4, who curls off it up to the short post, and 3 clears from the right elbow up to the top.",
+        narrative: "4 sets a screen parallel to the baseline for 2 at the elbow; 2 cuts off it toward the baseline, then redirects out to the corner. At the same time, 5 sets a screen at 45° to the baseline for 4, who curls off it up to the short post, and 3 clears from the right elbow up to the top.",
         players: [
           { id: "1", label: "1", x: 9, y: -3 },
           { id: "2", label: "2", x: -5, y: 24 },
@@ -220,7 +220,7 @@ const SET_PLAYS = [
         actions: [
           { type: "cut", path: [{ x: 67, y: 41 }, { x: 61, y: 65 }] },
           { type: "screen", at: { x: 29, y: 6 }, angle: 0 },
-          { type: "cut", path: [{ x: 29, y: 41 }, { x: 29, y: 20 }, { x: -5, y: 24 }] },
+          { type: "cut", path: [{ x: 29, y: 41 }, { x: 27, y: 12 }, { x: -5, y: 24 }] },
           { type: "cut", path: [{ x: 72, y: 7 }, { x: 40, y: 14 }] },
           { type: "screen", at: { x: 40, y: 14 }, angle: 45 },
           { type: "cut", path: [{ x: 29, y: 6 }, { x: 35, y: 10 }, { x: 40, y: 14 }, { x: 50, y: 21 }] },
