@@ -61,13 +61,13 @@ const SET_PLAYS = [
     id: "box-elbow-curl",
     name: "Box Elbow Curl",
     category: "Out of Bounds (SLOB)",
-    description: "Sideline out-of-bounds set from a box alignment: 3 clears baseline off a screen from 4 as a decoy, while 2 fakes toward the ball outside the three-point line before curling backdoor off a back screen from 5 for a score at the rim.",
+    description: "Sideline out-of-bounds set from a box alignment: 3 clears baseline off a screen from 4 as a decoy, while 2 fakes toward the ball outside the three-point line before curling off a back screen from 5 and cutting across the lane to finish on the weak side, away from the traffic on the strong side.",
     keyPoints: [
       "1 inbounds from the sideline.",
       "4 sets a baseline screen for 3, who cuts from the block to the far corner as the decoy/second option.",
       "2 leaves the elbow and cuts toward the ball, staying outside the three-point line, faking like he wants the catch.",
-      "5 follows and sets a back screen; 2 curls backdoor to the rim.",
-      "1 hits 2 cutting to the basket for the score.",
+      "5 follows and sets a back screen; 2 curls around it and cuts across the lane to the weak side.",
+      "1 hits 2 cutting to the weak-side rim for the score.",
     ],
     diagram: {
       players: [
@@ -82,8 +82,8 @@ const SET_PLAYS = [
         { type: "cut", path: [{ x: 68, y: 8 }, { x: 38, y: 3 }, { x: 3, y: 3 }] },
         { type: "cut", path: [{ x: 66, y: 41 }, { x: 45, y: 50 }, { x: 20, y: 58 }] },
         { type: "screen", at: { x: 20, y: 58 }, angle: 90 },
-        { type: "cut", path: [{ x: 34, y: 40 }, { x: 22, y: 46 }, { x: 14, y: 50 }, { x: 22, y: 68 }, { x: 46, y: 12 }] },
-        { type: "pass", from: { x: -4, y: 55 }, to: { x: 46, y: 12 } },
+        { type: "cut", path: [{ x: 34, y: 40 }, { x: 22, y: 46 }, { x: 14, y: 50 }, { x: 22, y: 68 }, { x: 42, y: 42 }, { x: 62, y: 10 }] },
+        { type: "pass", from: { x: -4, y: 55 }, to: { x: 62, y: 10 } },
       ],
     },
     // Step-by-step breakdown for the play detail page. Each step's `players`
@@ -136,30 +136,30 @@ const SET_PLAYS = [
       },
       {
         title: "Curl to the Rim",
-        narrative: "2 curls off the back screen and cuts hard backdoor to the basket.",
+        narrative: "2 curls off the back screen and cuts hard across the lane to finish on the weak side, away from the crowd the screen and baseline cut left on the strong side.",
         players: [
           { id: "1", label: "1", x: -4, y: 55 },
-          { id: "2", label: "2", x: 46, y: 12 },
+          { id: "2", label: "2", x: 62, y: 10 },
           { id: "3", label: "3", x: 3, y: 3 },
           { id: "4", label: "4", x: 29, y: 10 },
           { id: "5", label: "5", x: 20, y: 58 },
         ],
         actions: [
-          { type: "cut", path: [{ x: 14, y: 50 }, { x: 22, y: 68 }, { x: 46, y: 12 }] },
+          { type: "cut", path: [{ x: 14, y: 50 }, { x: 22, y: 68 }, { x: 42, y: 42 }, { x: 62, y: 10 }] },
         ],
       },
       {
         title: "Inbound Pass & Score",
-        narrative: "1 delivers the pass to 2 cutting to the basket for the finish.",
+        narrative: "1 delivers the pass to 2 cutting to the weak-side rim for the finish.",
         players: [
           { id: "1", label: "1", x: -4, y: 55 },
-          { id: "2", label: "2", x: 46, y: 12 },
+          { id: "2", label: "2", x: 62, y: 10 },
           { id: "3", label: "3", x: 3, y: 3 },
           { id: "4", label: "4", x: 29, y: 10 },
           { id: "5", label: "5", x: 20, y: 58 },
         ],
         actions: [
-          { type: "pass", from: { x: -4, y: 55 }, to: { x: 46, y: 12 } },
+          { type: "pass", from: { x: -4, y: 55 }, to: { x: 62, y: 10 } },
         ],
       },
     ],
