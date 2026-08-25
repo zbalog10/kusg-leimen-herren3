@@ -190,7 +190,7 @@ const SET_PLAYS = [
         { type: "screen", at: { x: 29, y: 36 }, angle: 0 },
         { type: "cut", path: [{ x: 29, y: 41 }, { x: 27, y: 14 }, { x: -5, y: 24 }] },
         { type: "cut", path: [{ x: 72, y: 7 }, { x: 40, y: 30 }] },
-        { type: "screen", at: { x: 40, y: 30 }, angle: 45 },
+        { type: "screen", at: { x: 40, y: 30 }, angle: 135 },
         { type: "cut", path: [{ x: 29, y: 36 }, { x: 38, y: 32 }, { x: 56, y: 24 }] },
         { type: "pass", from: { x: 9, y: -3 }, to: { x: 56, y: 24 } },
         { type: "cut", path: [{ x: 56, y: 24 }, { x: 52, y: 10 }] },
@@ -238,7 +238,7 @@ const SET_PLAYS = [
         actions: [
           { type: "cut", path: [{ x: 29, y: 41 }, { x: 27, y: 14 }, { x: -5, y: 24 }] },
           { type: "cut", path: [{ x: 72, y: 7 }, { x: 40, y: 30 }] },
-          { type: "screen", at: { x: 40, y: 30 }, angle: 45 },
+          { type: "screen", at: { x: 40, y: 30 }, angle: 135 },
         ],
       },
       {
