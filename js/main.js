@@ -133,6 +133,7 @@ function renderPlayDetail() {
       </div>
       <p>${play.description}</p>
     </div>
+    <div class="anim-section" id="anim-playback"></div>
     <div class="step-list">
       ${(play.steps || [])
         .map(
@@ -159,6 +160,9 @@ function renderPlayDetail() {
     const el = document.getElementById(`step-court-${i}`);
     if (el) renderCourt(el, { players: s.players, actions: s.actions });
   });
+
+  const animEl = document.getElementById("anim-playback");
+  if (animEl && play.steps) renderAnimatedPlayback(animEl, play.steps);
 }
 
 function renderDefenseSets(filter = "All") {
@@ -257,6 +261,9 @@ function renderDefenseDetail() {
     <h2 class="section-heading">Base Alignment</h2>
     <div class="court-wrap" id="def-base-court" style="max-width: 420px;"></div>
 
+    <h2 class="section-heading">Animated Walkthrough</h2>
+    <div class="anim-section" id="anim-playback"></div>
+
     <h2 class="section-heading">Reads &amp; Rotations</h2>
     <div class="step-list">
       ${set.reads
@@ -282,6 +289,21 @@ function renderDefenseDetail() {
     const el = document.getElementById(`def-read-court-${i}`);
     if (el) renderCourt(el, r.diagram);
   });
+
+  const animEl = document.getElementById("anim-playback");
+  if (animEl) {
+    const animSteps = [
+      { title: "Base Alignment", narrative: "", players: set.baseDiagram.players, actions: [] },
+      ...set.reads.map((r) => ({
+        title: r.title,
+        narrative: r.narrative,
+        players: r.diagram.players,
+        actions: r.diagram.actions,
+        ball: r.diagram.ball,
+      })),
+    ];
+    renderAnimatedPlayback(animEl, animSteps);
+  }
 }
 
 function formatDate(iso) {

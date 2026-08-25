@@ -740,7 +740,7 @@ const SET_PLAYS = [
     diagram: {
       players: [
         { id: "1", label: "1", x: 55, y: 62 },
-        { id: "2", label: "2", x: 30, y: 55 },
+        { id: "2", label: "2", x: 30, y: 62 },
         { id: "3", label: "3", x: 85, y: 62 },
         { id: "4", label: "4", x: 10, y: 68 },
         { id: "5", label: "5", x: 50, y: 45 },
@@ -766,10 +766,10 @@ const SET_PLAYS = [
         title: "Initial Alignment",
         narrative: "2-3 set with 5 on the high post. 1 has the ball up top, 2 on the left, 4 wide on the left wing, 3 wide on the right wing.",
         players: [
-          { id: "1", label: "1", x: 55, y: 62 },
-          { id: "2", label: "2", x: 30, y: 55 },
-          { id: "3", label: "3", x: 85, y: 62 },
-          { id: "4", label: "4", x: 10, y: 68 },
+          { id: "1", label: "1", x: 67, y: 68 },
+          { id: "2", label: "2", x: 32, y: 68 },
+          { id: "3", label: "3", x: 89, y: 47 },
+          { id: "4", label: "4", x: 10, y: 47 },
           { id: "5", label: "5", x: 50, y: 45 },
         ],
         actions: [],
