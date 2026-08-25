@@ -78,11 +78,11 @@ const SET_PLAYS = [
         { id: "5", label: "5", x: 66, y: 41 },
       ],
       actions: [
-        { type: "screen", at: { x: 29, y: 10 }, angle: 0 },
+        { type: "screen", at: { x: 29, y: 10 }, angle: 90 },
         { type: "cut", path: [{ x: 68, y: 8 }, { x: 38, y: 3 }, { x: 3, y: 3 }] },
         { type: "cut", path: [{ x: 66, y: 41 }, { x: 45, y: 50 }, { x: 20, y: 58 }] },
-        { type: "screen", at: { x: 20, y: 58 }, angle: 0 },
-        { type: "cut", path: [{ x: 34, y: 40 }, { x: 22, y: 46 }, { x: 14, y: 50 }, { x: 25, y: 33 }, { x: 46, y: 12 }] },
+        { type: "screen", at: { x: 20, y: 58 }, angle: 90 },
+        { type: "cut", path: [{ x: 34, y: 40 }, { x: 22, y: 46 }, { x: 14, y: 50 }, { x: 22, y: 68 }, { x: 46, y: 12 }] },
         { type: "pass", from: { x: -4, y: 55 }, to: { x: 46, y: 12 } },
       ],
     },
@@ -114,7 +114,7 @@ const SET_PLAYS = [
           { id: "5", label: "5", x: 66, y: 41 },
         ],
         actions: [
-          { type: "screen", at: { x: 29, y: 10 }, angle: 0 },
+          { type: "screen", at: { x: 29, y: 10 }, angle: 90 },
           { type: "cut", path: [{ x: 68, y: 8 }, { x: 38, y: 3 }, { x: 3, y: 3 }] },
           { type: "cut", path: [{ x: 34, y: 40 }, { x: 22, y: 46 }, { x: 14, y: 50 }] },
         ],
@@ -131,7 +131,7 @@ const SET_PLAYS = [
         ],
         actions: [
           { type: "cut", path: [{ x: 66, y: 41 }, { x: 45, y: 50 }, { x: 20, y: 58 }] },
-          { type: "screen", at: { x: 20, y: 58 }, angle: 0 },
+          { type: "screen", at: { x: 20, y: 58 }, angle: 90 },
         ],
       },
       {
@@ -145,7 +145,7 @@ const SET_PLAYS = [
           { id: "5", label: "5", x: 20, y: 58 },
         ],
         actions: [
-          { type: "cut", path: [{ x: 14, y: 50 }, { x: 25, y: 33 }, { x: 46, y: 12 }] },
+          { type: "cut", path: [{ x: 14, y: 50 }, { x: 22, y: 68 }, { x: 46, y: 12 }] },
         ],
       },
       {
