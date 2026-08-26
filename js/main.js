@@ -542,7 +542,7 @@ function renderPlayerStats() {
 
   const stand = new Date(PLAYER_STATS.standDate + "T00:00:00").toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
   if (subhead) {
-    subhead.textContent = `Top scorers, ${PLAYER_STATS.season} season — ${PLAYER_STATS.league}. Standings as of ${stand}.`;
+    subhead.textContent = `Players returning for next season, ranked by ${PLAYER_STATS.season} scoring — ${PLAYER_STATS.league}. Stats as of ${stand}; players not continuing with the team have been removed.`;
   }
 
   listEl.innerHTML = `
@@ -573,7 +573,9 @@ function renderPlayerStats() {
       </tbody>
     </table>
     </div>
-    <p class="schedule-source">Source: <a href="${PLAYER_STATS.source}" target="_blank" rel="noopener">${PLAYER_STATS.source}</a> — two players' names are withheld by the league itself, not by us.</p>`;
+    <p class="schedule-source">Source: <a href="${PLAYER_STATS.source}" target="_blank" rel="noopener">${PLAYER_STATS.source}</a>${
+      PLAYER_STATS.players.some((p) => !p.lastName) ? " — some players' names are withheld by the league itself, not by us." : ""
+    }</p>`;
 }
 
 function formatDate(iso) {
