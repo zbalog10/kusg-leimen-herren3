@@ -127,6 +127,56 @@ function renderSeasonSchedule() {
   }
 }
 
+function renderGameSchedule() {
+  const nextEl = document.getElementById("next-game");
+  const listEl = document.getElementById("game-list");
+  if (!nextEl || !listEl || typeof GAME_SCHEDULE === "undefined") return;
+
+  const today = todayISO();
+  const opponentLabel = (g) => g.opponent || "Opponent TBD";
+  const timeLabel = (g) => g.time || "TBD";
+  const venueLabel = (g) => g.venue || "Venue TBD";
+
+  const upcoming = GAME_SCHEDULE.find((g) => g.date >= today);
+  if (upcoming) {
+    const d = new Date(upcoming.date + "T00:00:00");
+    const longDate = d.toLocaleDateString("en-GB", { weekday: "long", day: "2-digit", month: "long", year: "numeric" });
+    nextEl.innerHTML = `
+      <div class="next-session-card">
+        <div class="next-session-label">Next game — Matchday ${upcoming.matchday}</div>
+        <div class="next-session-date">${longDate}</div>
+        <div class="next-session-meta">
+          <span class="badge">${timeLabel(upcoming)}</span>
+          <span class="badge ${upcoming.home ? "" : "muted"}">${upcoming.home ? "Home" : "Away"}</span>
+          <span class="badge muted">vs ${opponentLabel(upcoming)}</span>
+          <span class="badge muted">${venueLabel(upcoming)}</span>
+        </div>
+      </div>`;
+  } else {
+    nextEl.innerHTML = `<p class="schedule-intro">No more games scheduled in the current fixture list.</p>`;
+  }
+
+  listEl.innerHTML = `
+    <div class="table-scroll">
+    <table class="schedule-table game-table">
+      <tbody>
+        ${GAME_SCHEDULE.map((g) => {
+          const isPast = g.date < today;
+          return `
+          <tr class="${isPast ? "schedule-row-past" : ""}">
+            <td class="schedule-day">MD ${g.matchday}</td>
+            <td class="schedule-date">${formatDate(g.date)}</td>
+            <td class="schedule-time">${timeLabel(g)}</td>
+            <td class="game-side"><span class="badge ${g.home ? "" : "muted"}">${g.home ? "Home" : "Away"}</span></td>
+            <td class="game-opponent">${g.opponent ? `vs ${g.opponent}` : `<span class="text-muted">Opponent TBD</span>`}</td>
+            <td class="game-venue">${g.venue ? g.venue : `<span class="text-muted">TBD</span>`}</td>
+          </tr>`;
+        }).join("")}
+      </tbody>
+    </table>
+    </div>`;
+}
+
 function renderPlanFilters() {
   const bar = document.getElementById("plan-filters");
   if (!bar) return;
@@ -393,6 +443,7 @@ function formatDate(iso) {
 document.addEventListener("DOMContentLoaded", () => {
   markActiveNavLink();
   renderSeasonSchedule();
+  renderGameSchedule();
   renderPlanFilters();
   renderTrainingPlans();
   renderPlayFilters();

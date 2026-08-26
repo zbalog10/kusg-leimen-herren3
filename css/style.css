@@ -207,6 +207,16 @@ footer {
 .schedule-table .text-muted { color: var(--text-faint); }
 .schedule-row-past { opacity: 0.5; }
 
+/* ---------- Games ---------- */
+
+.table-scroll { overflow-x: auto; }
+.game-table { min-width: 640px; }
+.game-table .game-side { white-space: nowrap; }
+.game-table .game-opponent { font-weight: 600; white-space: nowrap; }
+.game-table .game-venue { color: var(--text-muted); text-align: right; white-space: nowrap; }
+
+.schedule-source { color: var(--text-faint); font-size: 0.82rem; margin-top: 1.5rem; max-width: 70ch; }
+
 /* ---------- Training plans ---------- */
 
 .plan-card {
