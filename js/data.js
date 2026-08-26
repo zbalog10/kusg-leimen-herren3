@@ -1244,4 +1244,12 @@ const PLAYER_STATS = {
     { rank: 11, lastName: "Hauck", firstName: "Axel", points: 4, games: 2, average: 2.0 },
     { rank: 12, lastName: "Balog", firstName: "Adam", points: 3, games: 7, average: 0.4 },
   ],
+  // New to the team this season — no stats with KuSG Leimen 3 yet, so they're
+  // listed separately rather than jammed into the ranked scoring table above.
+  newcomers: [
+    { firstName: "Ishak", lastName: "Haïne" },
+    { firstName: "Danyel", lastName: "Noman" },
+    { firstName: "Elijas", lastName: "Efimov" },
+    { firstName: "Rafael", lastName: "Großmann" },
+  ],
 };

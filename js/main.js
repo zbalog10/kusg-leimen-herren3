@@ -575,7 +575,17 @@ function renderPlayerStats() {
     </div>
     <p class="schedule-source">Source: <a href="${PLAYER_STATS.source}" target="_blank" rel="noopener">${PLAYER_STATS.source}</a>${
       PLAYER_STATS.players.some((p) => !p.lastName) ? " — some players' names are withheld by the league itself, not by us." : ""
-    }</p>`;
+    }</p>
+    ${
+      PLAYER_STATS.newcomers && PLAYER_STATS.newcomers.length
+        ? `
+    <h2 class="section-heading">Newcomers</h2>
+    <p class="schedule-intro">New to the team this season — no stats with KuSG Leimen 3 yet.</p>
+    <div class="newcomer-grid">
+      ${PLAYER_STATS.newcomers.map((n) => `<div class="newcomer-card">${n.firstName} ${n.lastName}</div>`).join("")}
+    </div>`
+        : ""
+    }`;
 }
 
 function formatDate(iso) {
