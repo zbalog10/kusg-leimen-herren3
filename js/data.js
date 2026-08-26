@@ -1058,6 +1058,105 @@ const DEFENSIVE_SETS = [
       },
     ],
   },
+  {
+    id: "2-3-zone",
+    name: "2-3 Zone Defense",
+    category: "Zone Defense",
+    source: "https://www.coachesclipboard.net/23zonedefense.html",
+    summary: "The standard, low-risk zone: two guards up top, two forwards on the wings, and a center anchoring the rim — packs the paint and controls tempo at the cost of the perimeter.",
+    overview: "The 2-3 zone is the most common zone in the sport for a reason: it's simple to teach, it keeps your tallest players near the basket where they do the most good, and it takes away dribble penetration and the inside post game almost by default. Unlike the 1-3-1, it isn't built to gamble for steals — it's built to make the offense beat you with outside shots rather than easy looks at the rim. The trade-off is exactly that: the wings, the point, and the high post are all soft spots, so it lives or dies on ball pressure up top and disciplined rotations underneath, especially the center's slide to the block whenever the ball goes to the corner.",
+    strengths: [
+      "Protects the paint and the defensive glass — your post players stay home near the rim instead of chasing shooters.",
+      "Shuts down dribble penetration through the middle and takes away the inside post game.",
+      "Low foul risk and low fitness demand compared to the 1-3-1 — easy to play for a full game.",
+      "Controls tempo and is simple to teach, so it's reliable even with less practice time.",
+    ],
+    weaknesses: [
+      "Vulnerable to outside shooting — the wings, the top of the key, and the high post are all open by design.",
+      "A skip pass or a good high-post feed can collapse the shape quickly if the rotations are slow.",
+      "Offers no ball pressure by default, which gives good perimeter shooting teams all the time they need.",
+      "Rebounding on the wings/corners is a scramble — nobody has a specific man to box out.",
+    ],
+    rules: [
+      "Never let the ball-handler split the two guards and drive straight through the gap between them — that's the one shot the zone can't give up.",
+      "On any pass to the corner, the center slides immediately to the vacated low block — a slow center rotation there is the single most common way this zone gets scored on.",
+      "Forwards defend with their back roughly to the baseline, low stance, head on a swivel — watching the ball and the cutters behind them at the same time.",
+      "Move on the ball's flight, not after the catch — rotations are a step late if they start once the pass has already arrived.",
+      "Ball reversals are covered with quick \"on-the-line, up-the-line\" bump movements between neighboring defenders, not a mad scramble.",
+    ],
+    positions: [
+      { label: "TL/TR", name: "Guards", desc: "The top two defenders, lined up roughly elbow to elbow above the key. Whoever is ball-side pressures and contains; the other guard shifts to cover the gap left behind and the high post — the two of them never both chase the ball at once." },
+      { label: "WL/WR", name: "Forwards", desc: "The two wing defenders, set up at short-corner/wing height. Ball-side forward closes out on the wing or corner; weak-side forward holds the far side, reading the skip pass and ready to help." },
+      { label: "C", name: "Center", desc: "The lone low defender, anchored at the front of the rim between the two forwards. Protects the basket on post touches and slides block-to-block the instant the ball reaches either corner." },
+    ],
+    baseDiagram: {
+      players: [
+        { id: "TL", label: "TL", team: "defense", x: 32, y: 62 },
+        { id: "TR", label: "TR", team: "defense", x: 68, y: 62 },
+        { id: "WL", label: "WL", team: "defense", x: 12, y: 30 },
+        { id: "WR", label: "WR", team: "defense", x: 88, y: 30 },
+        { id: "C", label: "C", team: "defense", x: 50, y: 14 },
+      ],
+    },
+    reads: [
+      {
+        title: "Ball at the Top",
+        narrative: "Base alignment. The two guards line up roughly elbow to elbow above the key — never so far apart that a ball-handler can drive straight through the gap between them. The forwards hold the wings at short-corner height, and the center sits low at the front of the rim, protecting the basket and ready to step up to either block.",
+        diagram: {
+          players: [
+            { id: "TL", label: "TL", team: "defense", x: 32, y: 62 },
+            { id: "TR", label: "TR", team: "defense", x: 68, y: 62 },
+            { id: "WL", label: "WL", team: "defense", x: 12, y: 30 },
+            { id: "WR", label: "WR", team: "defense", x: 88, y: 30 },
+            { id: "C", label: "C", team: "defense", x: 50, y: 14 },
+          ],
+          ball: { x: 50, y: 75 },
+        },
+      },
+      {
+        title: "Ball on the Wing",
+        narrative: "When the ball goes to a wing, the ball-side guard closes out hard to contain it and cut off the baseline drive angle. The opposite guard slides across to cover the gap left at the top and the high post — he's on the gap, not chasing air. The ball-side forward stays low, holding the corner and baseline rather than jumping out at the ball. The center shifts a step toward the ball side but stays anchored near the rim, and the weak-side forward shades in toward the paint, reading for a skip pass across.",
+        diagram: {
+          players: [
+            { id: "TL", label: "TL", team: "defense", x: 20, y: 45 },
+            { id: "TR", label: "TR", team: "defense", x: 48, y: 55 },
+            { id: "WL", label: "WL", team: "defense", x: 10, y: 24 },
+            { id: "WR", label: "WR", team: "defense", x: 78, y: 20 },
+            { id: "C", label: "C", team: "defense", x: 40, y: 14 },
+          ],
+          ball: { x: 15, y: 45 },
+        },
+      },
+      {
+        title: "Ball in the Corner",
+        narrative: "If the ball is thrown into the corner, the ball-side forward closes out to take it away, denying the baseline. The center's job is to slide immediately to the low block that forward just vacated — the most important rotation in the whole zone, since a slow center here means an easy pass and lay-up underneath. The ball-side guard drops down to deny the pass back out to the wing, the weak-side guard shifts toward the middle to cover the high post, and the weak-side forward stays home on the far side, reading the skip pass.",
+        diagram: {
+          players: [
+            { id: "TL", label: "TL", team: "defense", x: 25, y: 35 },
+            { id: "TR", label: "TR", team: "defense", x: 55, y: 48 },
+            { id: "WL", label: "WL", team: "defense", x: 10, y: 12 },
+            { id: "WR", label: "WR", team: "defense", x: 88, y: 28 },
+            { id: "C", label: "C", team: "defense", x: 25, y: 13 },
+          ],
+          ball: { x: 8, y: 15 },
+        },
+      },
+      {
+        title: "Ball Reverses to the Weak Side",
+        narrative: "On a swing pass back through the top and out to the opposite side, the whole zone mirrors itself. The forward on the new ball side closes out to contain it, the guard on that side steps down to cover the gap and high post, and the center slides back across the front of the rim to anchor the new ball side. The forward who had been containing the ball now drops away to become the new weak-side defender, reading for the next skip pass.",
+        diagram: {
+          players: [
+            { id: "TL", label: "TL", team: "defense", x: 52, y: 55 },
+            { id: "TR", label: "TR", team: "defense", x: 80, y: 45 },
+            { id: "WL", label: "WL", team: "defense", x: 20, y: 20 },
+            { id: "WR", label: "WR", team: "defense", x: 90, y: 25 },
+            { id: "C", label: "C", team: "defense", x: 60, y: 14 },
+          ],
+          ball: { x: 85, y: 45 },
+        },
+      },
+    ],
+  },
 ];
 
 // Drill library. `diagrams` (optional) are static court snapshots — no steps

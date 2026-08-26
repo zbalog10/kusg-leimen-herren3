@@ -409,6 +409,7 @@ function renderDefenseDetail() {
         )
         .join("")}
     </div>
+    ${set.source ? `<p class="schedule-source">Source: <a href="${set.source}" target="_blank" rel="noopener">${set.source}</a></p>` : ""}
   `;
 
   const baseEl = document.getElementById("def-base-court");
