@@ -542,7 +542,7 @@ function renderPlayerStats() {
 
   const stand = new Date(PLAYER_STATS.standDate + "T00:00:00").toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
   if (subhead) {
-    subhead.textContent = `Players returning for next season, ranked by ${PLAYER_STATS.season} scoring — ${PLAYER_STATS.league}. Stats as of ${stand}; players not continuing with the team have been removed.`;
+    subhead.textContent = `Next season's roster, ranked by ${PLAYER_STATS.season} scoring — ${PLAYER_STATS.league}. Stats as of ${stand}; players not continuing with the team have been removed, and newcomers are listed at the end with no stats yet.`;
   }
 
   listEl.innerHTML = `
@@ -559,33 +559,27 @@ function renderPlayerStats() {
       </thead>
       <tbody>
         ${PLAYER_STATS.players
-          .map(
-            (p) => `
+          .map((p, i) => {
+            const prev = PLAYER_STATS.players[i - 1];
+            const separator = p.newcomer && (!prev || !prev.newcomer)
+              ? `<tr class="table-separator-row"><td colspan="5">Newcomers</td></tr>`
+              : "";
+            return `${separator}
           <tr>
             <td class="schedule-day">${p.rank}.</td>
             <td class="player-name">${p.lastName ? `${p.lastName}, ${p.firstName}` : `<span class="text-muted">Name withheld</span>`}</td>
             <td class="player-points">${p.points}</td>
             <td class="schedule-time">${p.games}</td>
             <td class="player-avg">${p.average.toFixed(1)}</td>
-          </tr>`
-          )
+          </tr>`;
+          })
           .join("")}
       </tbody>
     </table>
     </div>
     <p class="schedule-source">Source: <a href="${PLAYER_STATS.source}" target="_blank" rel="noopener">${PLAYER_STATS.source}</a>${
       PLAYER_STATS.players.some((p) => !p.lastName) ? " — some players' names are withheld by the league itself, not by us." : ""
-    }</p>
-    ${
-      PLAYER_STATS.newcomers && PLAYER_STATS.newcomers.length
-        ? `
-    <h2 class="section-heading">Newcomers</h2>
-    <p class="schedule-intro">New to the team this season — no stats with KuSG Leimen 3 yet.</p>
-    <div class="newcomer-grid">
-      ${PLAYER_STATS.newcomers.map((n) => `<div class="newcomer-card">${n.firstName} ${n.lastName}</div>`).join("")}
-    </div>`
-        : ""
-    }`;
+    }</p>`;
 }
 
 function formatDate(iso) {

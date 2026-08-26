@@ -1243,13 +1243,12 @@ const PLAYER_STATS = {
     { rank: 10, lastName: "Rieger", firstName: "Lukas", points: 12, games: 8, average: 1.5 },
     { rank: 11, lastName: "Hauck", firstName: "Axel", points: 4, games: 2, average: 2.0 },
     { rank: 12, lastName: "Balog", firstName: "Adam", points: 3, games: 7, average: 0.4 },
-  ],
-  // New to the team this season — no stats with KuSG Leimen 3 yet, so they're
-  // listed separately rather than jammed into the ranked scoring table above.
-  newcomers: [
-    { firstName: "Ishak", lastName: "Haïne" },
-    { firstName: "Danyel", lastName: "Noman" },
-    { firstName: "Elijas", lastName: "Efimov" },
-    { firstName: "Rafael", lastName: "Großmann" },
+    // New to the team this season — no games played with KuSG Leimen 3 yet,
+    // so stats are 0. `newcomer: true` draws the "Newcomers" separator above
+    // the first one on the players page.
+    { rank: 13, lastName: "Haïne", firstName: "Ishak", points: 0, games: 0, average: 0, newcomer: true },
+    { rank: 14, lastName: "Noman", firstName: "Danyel", points: 0, games: 0, average: 0, newcomer: true },
+    { rank: 15, lastName: "Efimov", firstName: "Elijas", points: 0, games: 0, average: 0, newcomer: true },
+    { rank: 16, lastName: "Großmann", firstName: "Rafael", points: 0, games: 0, average: 0, newcomer: true },
   ],
 };
