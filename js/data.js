@@ -1219,3 +1219,41 @@ const DRILLS = [
     ],
   },
 ];
+
+// Last season's top-scorer stats for the team, sourced from basketball-bund.net
+// ("Beste Werfer", BBW1 Kreisliga A Männer, Senioren Rhein/Neckar). Two players
+// have their names withheld by the league itself (shown as **** / *** in the
+// source) — kept as `null` here rather than guessed, and rendered as
+// "Name withheld".
+const PLAYER_STATS = {
+  season: "2025/2026",
+  league: "BBW1 Kreisliga A Männer (Senioren Rhein/Neckar)",
+  standDate: "2026-04-20",
+  source: "http://basketball-bund.net",
+  players: [
+    { rank: 1, lastName: "Köhler", firstName: "Jannik", points: 169, games: 8, average: 21.1 },
+    { rank: 2, lastName: "Gantert", firstName: "Leif", points: 116, games: 11, average: 10.5 },
+    { rank: 3, lastName: "Blättel", firstName: "Oliver", points: 80, games: 17, average: 4.7 },
+    { rank: 4, lastName: "Albay", firstName: "Atilla", points: 66, games: 8, average: 8.2 },
+    { rank: 5, lastName: "Neureither", firstName: "Lasse", points: 66, games: 8, average: 8.2 },
+    { rank: 6, lastName: "Tshiang", firstName: "Luciano", points: 58, games: 7, average: 8.3 },
+    { rank: 7, lastName: "Balog", firstName: "Zoltan", points: 53, games: 17, average: 3.1 },
+    { rank: 8, lastName: "Kühnau", firstName: "René", points: 51, games: 14, average: 3.6 },
+    { rank: 9, lastName: "Baglaroglu", firstName: "Faruk", points: 37, games: 8, average: 4.6 },
+    { rank: 10, lastName: "Sarkisyan", firstName: "Alexander", points: 35, games: 5, average: 7.0 },
+    { rank: 11, lastName: "Antuna Meana", firstName: "Pelayo", points: 32, games: 7, average: 4.6 },
+    { rank: 12, lastName: "Moller", firstName: "Raphael", points: 28, games: 5, average: 5.6 },
+    { rank: 13, lastName: "Araouzos", firstName: "Alexandros", points: 27, games: 3, average: 9.0 },
+    { rank: 14, lastName: "Mathai", firstName: "Jayce", points: 23, games: 6, average: 3.8 },
+    { rank: 15, lastName: null, firstName: null, points: 23, games: 11, average: 2.1 },
+    { rank: 16, lastName: "Callao", firstName: "Erwin", points: 21, games: 3, average: 7.0 },
+    { rank: 17, lastName: null, firstName: null, points: 19, games: 3, average: 6.3 },
+    { rank: 18, lastName: "Merten", firstName: "Thomas", points: 16, games: 3, average: 5.3 },
+    { rank: 19, lastName: "Velarde", firstName: "James Andrew", points: 16, games: 5, average: 3.2 },
+    { rank: 20, lastName: "Rieger", firstName: "Lukas", points: 12, games: 8, average: 1.5 },
+    { rank: 21, lastName: "Hauck", firstName: "Axel", points: 4, games: 2, average: 2.0 },
+    { rank: 22, lastName: "Gantert", firstName: "Oliver", points: 4, games: 7, average: 0.6 },
+    { rank: 23, lastName: "Balog", firstName: "Adam", points: 3, games: 7, average: 0.4 },
+    { rank: 24, lastName: "Rausch", firstName: "Tobias", points: 2, games: 4, average: 0.5 },
+  ],
+};

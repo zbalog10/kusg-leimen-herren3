@@ -535,6 +535,47 @@ function renderDrillDetail() {
   });
 }
 
+function renderPlayerStats() {
+  const subhead = document.getElementById("players-subhead");
+  const listEl = document.getElementById("player-list");
+  if (!listEl || typeof PLAYER_STATS === "undefined") return;
+
+  const stand = new Date(PLAYER_STATS.standDate + "T00:00:00").toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
+  if (subhead) {
+    subhead.textContent = `Top scorers, ${PLAYER_STATS.season} season — ${PLAYER_STATS.league}. Standings as of ${stand}.`;
+  }
+
+  listEl.innerHTML = `
+    <div class="table-scroll">
+    <table class="schedule-table player-table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Points</th>
+          <th>Games</th>
+          <th>Avg / Game</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${PLAYER_STATS.players
+          .map(
+            (p) => `
+          <tr>
+            <td class="schedule-day">${p.rank}.</td>
+            <td class="player-name">${p.lastName ? `${p.lastName}, ${p.firstName}` : `<span class="text-muted">Name withheld</span>`}</td>
+            <td class="player-points">${p.points}</td>
+            <td class="schedule-time">${p.games}</td>
+            <td class="player-avg">${p.average.toFixed(1)}</td>
+          </tr>`
+          )
+          .join("")}
+      </tbody>
+    </table>
+    </div>
+    <p class="schedule-source">Source: <a href="${PLAYER_STATS.source}" target="_blank" rel="noopener">${PLAYER_STATS.source}</a> — two players' names are withheld by the league itself, not by us.</p>`;
+}
+
 function formatDate(iso) {
   const d = new Date(iso + "T00:00:00");
   return d.toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
@@ -555,4 +596,5 @@ document.addEventListener("DOMContentLoaded", () => {
   renderDrillFilters();
   renderDrills();
   renderDrillDetail();
+  renderPlayerStats();
 });

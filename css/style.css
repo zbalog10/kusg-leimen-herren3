@@ -22,6 +22,7 @@ html, body {
   padding: 0;
   background: var(--bg);
   color: var(--text);
+  overflow-x: hidden;
 }
 
 body {
@@ -216,6 +217,12 @@ footer {
 .game-table .game-venue { color: var(--text-muted); text-align: right; white-space: nowrap; }
 
 .schedule-source { color: var(--text-faint); font-size: 0.82rem; margin-top: 1.5rem; max-width: 70ch; }
+
+/* ---------- Players ---------- */
+
+.player-table thead th { text-align: left; padding: 0.55rem 0.85rem; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); border-bottom: 1px solid var(--border); }
+.player-table .player-name { font-weight: 600; }
+.player-table .player-points, .player-table .player-avg { color: var(--green-bright); font-weight: 700; }
 
 /* ---------- Training plans ---------- */
 
@@ -462,8 +469,8 @@ footer {
 
 @media (max-width: 640px) {
   .nav-inner { flex-wrap: wrap; }
-  nav.main-nav { width: 100%; justify-content: space-between; }
-  nav.main-nav a { padding: 0.5rem 0.5rem; font-size: 0.85rem; }
+  nav.main-nav { width: 100%; flex-wrap: wrap; gap: 0.35rem; }
+  nav.main-nav a { padding: 0.4rem 0.6rem; font-size: 0.82rem; }
   .step-card { flex-direction: column; }
   .step-body .court-wrap { max-width: none; }
 }
