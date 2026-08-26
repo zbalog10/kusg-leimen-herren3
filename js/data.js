@@ -1059,3 +1059,64 @@ const DEFENSIVE_SETS = [
     ],
   },
 ];
+
+// Drill library. `diagrams` (optional) are static court snapshots — no steps
+// or animation needed, just illustrative alignments — shown side by side on
+// the drill's detail page.
+const DRILLS = [
+  {
+    id: "shell-drill",
+    name: "Shell Drill",
+    category: "Defense",
+    source: "https://www.basketballforcoaches.com/shell-drill-basketball/",
+    summary: "Progressive 4-on-4 half-court drill for teaching team defense: ball-you-man positioning, deny, help side on the split line, and closeouts.",
+    objective: "Teach team defense and off-ball positioning — help side, one-pass-away denial, rotations, and closeouts — through controlled, repeatable reps instead of live scrimmage chaos.",
+    setup: "4 offensive players spaced around the three-point arc: two guards up top (slots) and two wings, each matched by a defender. No live offense at first — the ball just moves player to player. 3-on-3 and 5-on-5 versions of the same shape work too.",
+    steps: [
+      "Walk-through: coach places each defender in the correct position for where the ball currently is, so the shape is understood before anyone moves.",
+      "Ball movement: offense passes around the perimeter (holding the ball ~3 seconds per catch) while defenders adjust their positioning on every pass — no dribbling, no defense pressuring the pass.",
+      "Add closeouts: on each catch, the on-ball defender sprints out and closes out under control (chop steps, high hand, low base) instead of just being placed there.",
+      "Live phase: offense rotates the ball around the perimeter twice, then the drill goes live 4-on-4 with a defensive-only point of emphasis — offense can drive and score, but the coaching focus stays on the defense's shape and rotations.",
+    ],
+    coachingPoints: [
+      "Ball-you-man: every defender should be able to see both their matchup and the ball at all times — point with the non-denying hand to reinforce this with younger players.",
+      "Call it out loud: standard defensive calls — \"ball\", \"deny\", \"help\" — should be communicated on every pass, not just known silently.",
+      "On-ball defender pressures without fouling or over-committing; one-pass-away defender denies with a hand in the passing lane; the two help-side defenders sit on the split line (the imaginary line through the ball and the rim) so they can help a driver and still recover to their own man.",
+      "The farther a help defender is from the ball, the deeper into the paint they sit — the farthest player is the last line of help at the rim.",
+    ],
+    diagrams: [
+      {
+        title: "Ball on Wing",
+        diagram: {
+          players: [
+            { id: "p1", label: "1", team: "offense", x: 62, y: 70 },
+            { id: "p2", label: "2", team: "offense", x: 38, y: 70 },
+            { id: "p3", label: "3", team: "offense", x: 88, y: 45 },
+            { id: "p4", label: "4", team: "offense", x: 12, y: 45 },
+            { id: "x3", label: "x3", team: "defense", x: 80, y: 38 },
+            { id: "x1", label: "x1", team: "defense", x: 72, y: 58 },
+            { id: "x2", label: "x2", team: "defense", x: 50, y: 45 },
+            { id: "x4", label: "x4", team: "defense", x: 50, y: 25 },
+          ],
+          ball: { x: 88, y: 45 },
+        },
+      },
+      {
+        title: "Ball in Slot",
+        diagram: {
+          players: [
+            { id: "p1", label: "1", team: "offense", x: 62, y: 70 },
+            { id: "p2", label: "2", team: "offense", x: 38, y: 70 },
+            { id: "p3", label: "3", team: "offense", x: 88, y: 45 },
+            { id: "p4", label: "4", team: "offense", x: 12, y: 45 },
+            { id: "x1", label: "x1", team: "defense", x: 58, y: 62 },
+            { id: "x3", label: "x3", team: "defense", x: 78, y: 52 },
+            { id: "x4", label: "x4", team: "defense", x: 25, y: 50 },
+            { id: "x2", label: "x2", team: "defense", x: 50, y: 55 },
+          ],
+          ball: { x: 62, y: 70 },
+        },
+      },
+    ],
+  },
+];

@@ -328,6 +328,12 @@ footer {
 .legend .swatch.cut { background: var(--green-bright); }
 .legend .swatch.pass { background: var(--text-muted); border-top: 2px dashed var(--text-muted); height: 0; }
 .legend .swatch.screen { width: 3px; height: 12px; background: var(--danger); }
+.legend .swatch.dot { width: 12px; height: 12px; border-radius: 50%; }
+.legend .swatch.dot.offense { background: var(--green); }
+.legend .swatch.dot.defense { background: none; border: 2px dashed #f59e0b; }
+
+.diagram-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 0.75rem; }
+.diagram-col h4 { margin: 0 0 0.5rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); }
 
 /* ---------- Animated playback ---------- */
 

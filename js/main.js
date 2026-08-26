@@ -435,6 +435,105 @@ function renderDefenseDetail() {
   }
 }
 
+function renderDrills(filter = "All") {
+  const grid = document.getElementById("drill-grid");
+  if (!grid || typeof DRILLS === "undefined") return;
+  const drills = DRILLS.filter((d) => filter === "All" || d.category === filter);
+  grid.innerHTML = drills
+    .map(
+      (d) => `
+    <div class="play-card">
+      <div class="play-card-head">
+        <h3>${d.name}</h3>
+        <span class="badge">${d.category}</span>
+      </div>
+      <p class="play-desc">${d.summary}</p>
+      <a class="btn-link" href="drill.html?id=${d.id}">View full drill →</a>
+    </div>`
+    )
+    .join("");
+}
+
+function renderDrillFilters() {
+  const bar = document.getElementById("drill-filters");
+  if (!bar || typeof DRILLS === "undefined") return;
+  const categories = ["All", ...new Set(DRILLS.map((d) => d.category))];
+  bar.innerHTML = categories
+    .map((c, i) => `<button class="filter-btn${i === 0 ? " active" : ""}" data-cat="${c}">${c}</button>`)
+    .join("");
+  bar.querySelectorAll(".filter-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      bar.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderDrills(btn.dataset.cat);
+    });
+  });
+}
+
+function renderDrillDetail() {
+  const container = document.getElementById("drill-detail");
+  if (!container || typeof DRILLS === "undefined") return;
+
+  const id = new URLSearchParams(window.location.search).get("id");
+  const drill = DRILLS.find((d) => d.id === id);
+
+  if (!drill) {
+    container.innerHTML = `<div class="page-header"><h1>Drill not found</h1><p>That drill doesn't exist. <a href="drills.html">Back to Drills</a>.</p></div>`;
+    return;
+  }
+
+  container.innerHTML = `
+    <div class="page-header">
+      <div class="play-card-head">
+        <h1>${drill.name}</h1>
+        <span class="badge">${drill.category}</span>
+      </div>
+      <p>${drill.summary}</p>
+    </div>
+
+    <h2 class="section-heading">Objective</h2>
+    <p class="prose">${drill.objective}</p>
+
+    <h2 class="section-heading">Setup</h2>
+    <p class="prose">${drill.setup}</p>
+
+    ${
+      drill.diagrams && drill.diagrams.length
+        ? `
+    <h2 class="section-heading">Alignment</h2>
+    <div class="diagram-row">
+      ${drill.diagrams
+        .map(
+          (dg, i) => `
+        <div class="diagram-col">
+          <h4>${dg.title}</h4>
+          <div class="court-wrap" id="drill-diagram-${i}"></div>
+        </div>`
+        )
+        .join("")}
+    </div>
+    <div class="legend">
+      <span><span class="swatch dot offense"></span>offense</span>
+      <span><span class="swatch dot defense"></span>defense</span>
+    </div>`
+        : ""
+    }
+
+    <h2 class="section-heading">How It's Run</h2>
+    <ul class="rules-list">${(drill.steps || []).map((s) => `<li>${s}</li>`).join("")}</ul>
+
+    <h2 class="section-heading">Coaching Points</h2>
+    <ul class="rules-list">${(drill.coachingPoints || []).map((c) => `<li>${c}</li>`).join("")}</ul>
+
+    ${drill.source ? `<p class="schedule-source">Source: <a href="${drill.source}" target="_blank" rel="noopener">${drill.source}</a></p>` : ""}
+  `;
+
+  (drill.diagrams || []).forEach((dg, i) => {
+    const el = document.getElementById(`drill-diagram-${i}`);
+    if (el) renderCourt(el, dg.diagram);
+  });
+}
+
 function formatDate(iso) {
   const d = new Date(iso + "T00:00:00");
   return d.toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
@@ -452,4 +551,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderDefenseFilters();
   renderDefenseSets();
   renderDefenseDetail();
+  renderDrillFilters();
+  renderDrills();
+  renderDrillDetail();
 });
