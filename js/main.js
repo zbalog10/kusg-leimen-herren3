@@ -19,7 +19,8 @@ function renderTrainingPlans(filter = "All") {
           <div class="plan-meta">
             <span class="badge">${p.category}</span>
             <span class="badge muted">${p.duration}</span>
-            <span class="badge muted">${formatDate(p.date)}</span>
+            <span class="badge muted">${formatDate(p.date)}${p.time ? ` · ${p.time}` : ""}</span>
+            ${p.location ? `<span class="badge muted">${p.location}</span>` : ""}
           </div>
         </div>
         <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -46,6 +47,84 @@ function renderTrainingPlans(filter = "All") {
     </div>`
     )
     .join("");
+}
+
+function todayISO() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
+function renderSeasonSchedule() {
+  const nextEl = document.getElementById("next-session");
+  const fullEl = document.getElementById("schedule-full");
+  const toggleBtn = document.getElementById("schedule-toggle");
+  if (!nextEl || !fullEl || typeof SEASON_SCHEDULE === "undefined") return;
+
+  const today = todayISO();
+  const planByDate = new Map(TRAINING_PLANS.map((p) => [p.date, p]));
+
+  const upcoming = SEASON_SCHEDULE.find((s) => s.date >= today);
+  if (upcoming) {
+    const plan = planByDate.get(upcoming.date);
+    const d = new Date(upcoming.date + "T00:00:00");
+    const longDate = d.toLocaleDateString("en-GB", { weekday: "long", day: "2-digit", month: "long", year: "numeric" });
+    nextEl.innerHTML = `
+      <div class="next-session-card">
+        <div class="next-session-label">Next session</div>
+        <div class="next-session-date">${longDate}</div>
+        <div class="next-session-meta">
+          <span class="badge">${upcoming.time} · ${upcoming.duration}</span>
+          <span class="badge muted">${upcoming.location}</span>
+          ${plan ? `<a class="badge" href="#plan-${plan.id}">${plan.title}</a>` : `<span class="badge muted">Not planned yet</span>`}
+        </div>
+      </div>`;
+  } else {
+    nextEl.innerHTML = `<p class="schedule-intro">No more sessions scheduled in the template.</p>`;
+  }
+
+  const groups = new Map();
+  for (const s of SEASON_SCHEDULE) {
+    const d = new Date(s.date + "T00:00:00");
+    const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(s);
+  }
+
+  fullEl.innerHTML = Array.from(groups.entries())
+    .map(([key, sessions]) => {
+      const [y, m] = key.split("-").map(Number);
+      const monthLabel = new Date(y, m - 1, 1).toLocaleDateString("en-GB", { month: "long", year: "numeric" });
+      return `
+      <div class="schedule-month">
+        <h3 class="schedule-month-title">${monthLabel}</h3>
+        <table class="schedule-table">
+          <tbody>
+            ${sessions
+              .map((s) => {
+                const plan = planByDate.get(s.date);
+                const wd = new Date(s.date + "T00:00:00").toLocaleDateString("en-GB", { weekday: "short" });
+                return `
+              <tr class="${s.date < today ? "schedule-row-past" : ""}">
+                <td class="schedule-day">${wd}</td>
+                <td class="schedule-date">${formatDate(s.date)}</td>
+                <td class="schedule-time">${s.time}</td>
+                <td class="schedule-status">${plan ? `<a href="#plan-${plan.id}">Planned →</a>` : `<span class="text-muted">Not planned yet</span>`}</td>
+              </tr>`;
+              })
+              .join("")}
+          </tbody>
+        </table>
+      </div>`;
+    })
+    .join("");
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      const isHidden = fullEl.hasAttribute("hidden");
+      fullEl.toggleAttribute("hidden", !isHidden);
+      toggleBtn.textContent = isHidden ? "Hide full schedule ↑" : "Show full schedule ↓";
+    });
+  }
 }
 
 function renderPlanFilters() {
@@ -313,6 +392,7 @@ function formatDate(iso) {
 
 document.addEventListener("DOMContentLoaded", () => {
   markActiveNavLink();
+  renderSeasonSchedule();
   renderPlanFilters();
   renderTrainingPlans();
   renderPlayFilters();

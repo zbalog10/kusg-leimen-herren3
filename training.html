@@ -25,9 +25,19 @@
   <main>
     <div class="page-header">
       <h1>Training Plans</h1>
-      <p>Click a session to expand the full drill breakdown.</p>
+      <p>Season schedule plus the full drill breakdown for planned sessions.</p>
     </div>
 
+    <section class="schedule-section">
+      <h2 class="section-heading">Season Schedule</h2>
+      <p class="schedule-intro">Training is every Monday and Wednesday at 18:30 in the Fritz-Zugck-Halle, Leimen, through the end of May 2027. This is a raw weekly template — it doesn't know about school holidays, tournaments, or other cancellations, so remove or adjust individual dates as the season firms up.</p>
+      <div id="next-session"></div>
+      <button type="button" class="btn-link schedule-toggle" id="schedule-toggle">Show full schedule ↓</button>
+      <div id="schedule-full" class="schedule-full" hidden></div>
+    </section>
+
+    <h2 class="section-heading">Detailed Session Plans</h2>
+    <p class="schedule-intro">Click a session to expand the full drill breakdown.</p>
     <div class="filter-bar" id="plan-filters"></div>
     <div id="plan-list"></div>
   </main>

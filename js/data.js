@@ -3,11 +3,53 @@
 // diagram coordinate format (x/y both run 0-100 as % of the court's own
 // width/length, hoop at y=0; the free-throw line sits at y=41.4).
 
+// Recurring season template: Mondays and Wednesdays, 18:30, at the
+// Fritz-Zugck-Halle in Leimen. To change the schedule, edit the dates/days
+// here — SEASON_SCHEDULE (built further down) regenerates from this
+// automatically. This is a raw weekly template: it does NOT know about
+// school holidays, tournaments, or other cancellations, so remove/adjust
+// individual dates yourself as the season firms up.
+const SEASON_SCHEDULE_CONFIG = {
+  startDate: "2026-08-26", // first generated session
+  endDate: "2027-05-31",
+  daysOfWeek: [1, 3], // 1 = Monday, 3 = Wednesday
+  time: "18:30",
+  duration: "90 min",
+  location: "Fritz-Zugck-Halle, Leimen",
+};
+
+function generateSeasonDates(config) {
+  const { startDate, endDate, daysOfWeek } = config;
+  const start = new Date(startDate + "T00:00:00");
+  const end = new Date(endDate + "T00:00:00");
+  const dates = [];
+  // Format from local getters, not toISOString() — that converts to UTC
+  // first, which silently shifts the date by a day in timezones ahead of
+  // UTC (most of Europe included).
+  const fmt = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+    if (daysOfWeek.includes(d.getDay())) dates.push(fmt(d));
+  }
+  return dates;
+}
+
+// Every session in the template, as plain {date, time, duration, location}.
+// Training Plans below with a matching `date` are shown as already planned;
+// every other date here renders as "not planned yet" on the schedule page.
+const SEASON_SCHEDULE = generateSeasonDates(SEASON_SCHEDULE_CONFIG).map((date) => ({
+  date,
+  time: SEASON_SCHEDULE_CONFIG.time,
+  duration: SEASON_SCHEDULE_CONFIG.duration,
+  location: SEASON_SCHEDULE_CONFIG.location,
+}));
+
 const TRAINING_PLANS = [
   {
     id: "week1-defense",
-    title: "Week 1 · Session 1 — Defensive Fundamentals",
-    date: "2026-08-25",
+    title: "Session 1 — Defensive Fundamentals",
+    date: "2026-08-26",
+    time: "18:30",
+    location: "Fritz-Zugck-Halle, Leimen",
     category: "Defense",
     duration: "90 min",
     objective: "Rebuild individual defensive stance, closeouts, and help-side positioning before installing team defense.",
@@ -22,8 +64,10 @@ const TRAINING_PLANS = [
   },
   {
     id: "week1-offense",
-    title: "Week 1 · Session 2 — Motion Offense Install",
-    date: "2026-08-27",
+    title: "Session 2 — Motion Offense Install",
+    date: "2026-08-31",
+    time: "18:30",
+    location: "Fritz-Zugck-Halle, Leimen",
     category: "Offense",
     duration: "90 min",
     objective: "Introduce spacing principles and the first two reads of our motion offense.",
@@ -38,16 +82,18 @@ const TRAINING_PLANS = [
   },
   {
     id: "week2-conditioning",
-    title: "Week 2 · Session 1 — Conditioning & Shooting",
-    date: "2026-09-01",
+    title: "Session 3 — Conditioning & Shooting",
+    date: "2026-09-02",
+    time: "18:30",
+    location: "Fritz-Zugck-Halle, Leimen",
     category: "Conditioning",
-    duration: "75 min",
+    duration: "90 min",
     objective: "Build game-speed conditioning while keeping shot mechanics sharp under fatigue.",
     warmup: "5 min jog + dynamic mobility",
     drills: [
       { name: "17s (suicides)", time: "10 min", desc: "Line conditioning, target time per rep posted on the board." },
-      { name: "Shooting Circuit", time: "25 min", desc: "5 spots, catch-and-shoot, 2 makes per spot before rotating, track team total." },
-      { name: "Full-Court 3-on-2 / 2-on-1", time: "20 min", desc: "Continuous transition drill, sprint back on defense after each rep." },
+      { name: "Shooting Circuit", time: "30 min", desc: "5 spots, catch-and-shoot, 2 makes per spot before rotating, track team total." },
+      { name: "Full-Court 3-on-2 / 2-on-1", time: "30 min", desc: "Continuous transition drill, sprint back on defense after each rep." },
       { name: "Free Throws Under Fatigue", time: "10 min", desc: "Immediately after sprints, 1-and-1 free throw pressure reps." },
     ],
     notes: "Hydration breaks every 15 minutes — late August heat.",

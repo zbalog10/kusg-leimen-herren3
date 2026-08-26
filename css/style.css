@@ -165,6 +165,48 @@ footer {
 .filter-btn:hover { color: var(--text); }
 .filter-btn.active { background: var(--green); border-color: var(--green); color: #04120a; }
 
+/* ---------- Season schedule ---------- */
+
+.schedule-section { margin-bottom: 2.5rem; }
+.schedule-intro { color: var(--text-muted); font-size: 0.9rem; margin: 0 0 1.1rem; max-width: 70ch; }
+
+.next-session-card {
+  background: var(--bg-card);
+  border: 1px solid var(--green-dim);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 1rem;
+}
+.next-session-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--green-bright); margin-bottom: 0.3rem; }
+.next-session-date { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.55rem; }
+.next-session-meta { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+
+.schedule-toggle {
+  background: none;
+  border: none;
+  color: var(--green-bright);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+.schedule-toggle:hover { text-decoration: underline; }
+
+.schedule-full { display: flex; flex-direction: column; gap: 1.25rem; }
+.schedule-full[hidden] { display: none; }
+.schedule-month-title { font-size: 0.95rem; margin: 0 0 0.5rem; color: var(--text); }
+
+.schedule-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.schedule-table td { padding: 0.55rem 0.85rem; border-top: 1px solid var(--border); font-size: 0.88rem; }
+.schedule-table tr:first-child td { border-top: none; }
+.schedule-table .schedule-day { color: var(--text-muted); width: 3.5rem; }
+.schedule-table .schedule-date { font-weight: 600; }
+.schedule-table .schedule-time { color: var(--text-muted); white-space: nowrap; }
+.schedule-table .schedule-status { text-align: right; white-space: nowrap; }
+.schedule-table .text-muted { color: var(--text-faint); }
+.schedule-row-past { opacity: 0.5; }
+
 /* ---------- Training plans ---------- */
 
 .plan-card {
