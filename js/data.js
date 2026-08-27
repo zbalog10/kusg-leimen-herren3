@@ -71,9 +71,9 @@ const TRAINING_PLANS = [
     category: "Conditioning",
     duration: "90 min",
     objective: "Walk through the offensive system at low intensity, then push full-court transition speed and conditioning while keeping shot quality under fatigue, finishing in a fast-paced, competitive 5-on-5.",
-    warmup: "12 min movement with ball: jogging/dribbling, lateral dribble, retreat dribble, change of direction, layups, progressive full-court runs.",
+    walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
+    warmup: "10 min movement with ball: jogging/dribbling, lateral dribble, retreat dribble, change of direction, layups, progressive full-court runs, then 5 min individual stretching.",
     drills: [
-      { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
       { name: "Transition Drill (3-Man Weave / Fast-Break Variations)", time: "15 min", desc: "Run full court, emphasizing wide lanes, sprinting, passing ahead, and finishing at speed. Approximately 6 × 2 min, 1 min recovery." },
       { name: "Full-Court Basketball Conditioning", time: "12 min", desc: "Pairs rotate continuously through: 1) sprint baseline → baseline, 2) defensive slide baseline → half court, 3) sprint half court → baseline, 4) receive ball and finish. 4 × 2 min, 90 sec recovery." },
       { name: "Shooting Under Fatigue", time: "15 min", desc: "Pairs. Player A sprints sideline-to-sideline, receives a pass, shoots, rebounds, and repeats on the opposite side — 5 shots, then switch. 4 rounds." },
