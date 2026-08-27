@@ -67,7 +67,7 @@ const TRAINING_PLANS = [
     title: "Session 2 — Conditioning & Movement",
     date: "2026-08-28",
     time: "18:30",
-    location: "Fritz-Zugck-Halle, Leimen",
+    location: "Outside",
     category: "Conditioning",
     duration: "80 min",
     objective: "Build an aerobic base and reinforce basketball-specific movement patterns (shuffle, closeout, backpedal) at moderate, controlled intensity — no max-effort work today.",

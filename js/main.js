@@ -54,18 +54,43 @@ function todayISO() {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 
+// Merges the recurring Mon/Wed template (SEASON_SCHEDULE) with the detailed,
+// possibly ad-hoc plans (TRAINING_PLANS) into one sorted list of unique
+// dates — so a one-off extra session (different day, different location,
+// like an outdoor conditioning day) shows up correctly everywhere instead of
+// only in the detailed plan list below. Where a date has a planned session,
+// its own time/duration/location win over the generic recurring ones, since
+// it's the authoritative, possibly-overridden info for that date.
+function buildMergedSchedule() {
+  const planByDate = new Map(TRAINING_PLANS.map((p) => [p.date, p]));
+  const seasonByDate = new Map((typeof SEASON_SCHEDULE !== "undefined" ? SEASON_SCHEDULE : []).map((s) => [s.date, s]));
+  const dates = new Set([...seasonByDate.keys(), ...planByDate.keys()]);
+  return Array.from(dates)
+    .sort()
+    .map((date) => {
+      const plan = planByDate.get(date);
+      const season = seasonByDate.get(date);
+      return {
+        date,
+        time: (plan && plan.time) || (season && season.time),
+        duration: (plan && plan.duration) || (season && season.duration),
+        location: (plan && plan.location) || (season && season.location),
+        plan,
+      };
+    });
+}
+
 function renderSeasonSchedule() {
   const nextEl = document.getElementById("next-session");
   const fullEl = document.getElementById("schedule-full");
   const toggleBtn = document.getElementById("schedule-toggle");
-  if (!nextEl || !fullEl || typeof SEASON_SCHEDULE === "undefined") return;
+  if (!nextEl || !fullEl) return;
 
   const today = todayISO();
-  const planByDate = new Map(TRAINING_PLANS.map((p) => [p.date, p]));
+  const merged = buildMergedSchedule();
 
-  const upcoming = SEASON_SCHEDULE.find((s) => s.date >= today);
+  const upcoming = merged.find((s) => s.date >= today);
   if (upcoming) {
-    const plan = planByDate.get(upcoming.date);
     const d = new Date(upcoming.date + "T00:00:00");
     const longDate = d.toLocaleDateString("en-GB", { weekday: "long", day: "2-digit", month: "long", year: "numeric" });
     nextEl.innerHTML = `
@@ -75,7 +100,7 @@ function renderSeasonSchedule() {
         <div class="next-session-meta">
           <span class="badge">${upcoming.time} · ${upcoming.duration}</span>
           <span class="badge muted">${upcoming.location}</span>
-          ${plan ? `<a class="badge" href="#plan-${plan.id}">${plan.title}</a>` : `<span class="badge muted">Not planned yet</span>`}
+          ${upcoming.plan ? `<a class="badge" href="#plan-${upcoming.plan.id}">${upcoming.plan.title}</a>` : `<span class="badge muted">Not planned yet</span>`}
         </div>
       </div>`;
   } else {
@@ -83,7 +108,7 @@ function renderSeasonSchedule() {
   }
 
   const groups = new Map();
-  for (const s of SEASON_SCHEDULE) {
+  for (const s of merged) {
     const d = new Date(s.date + "T00:00:00");
     const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
     if (!groups.has(key)) groups.set(key, []);
@@ -101,14 +126,13 @@ function renderSeasonSchedule() {
           <tbody>
             ${sessions
               .map((s) => {
-                const plan = planByDate.get(s.date);
                 const wd = new Date(s.date + "T00:00:00").toLocaleDateString("en-GB", { weekday: "short" });
                 return `
               <tr class="${s.date < today ? "schedule-row-past" : ""}">
                 <td class="schedule-day">${wd}</td>
                 <td class="schedule-date">${formatDate(s.date)}</td>
                 <td class="schedule-time">${s.time}</td>
-                <td class="schedule-status">${plan ? `<a href="#plan-${plan.id}">Planned →</a>` : `<span class="text-muted">Not planned yet</span>`}</td>
+                <td class="schedule-status">${s.plan ? `<a href="#plan-${s.plan.id}">Planned →</a>` : `<span class="text-muted">Not planned yet</span>`}</td>
               </tr>`;
               })
               .join("")}
