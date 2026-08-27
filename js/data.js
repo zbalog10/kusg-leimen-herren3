@@ -177,9 +177,9 @@ const TRAINING_PLANS = [
     category: "Team",
     duration: "95 min",
     objective: "Walk through the offensive system, then blend transition offense, advantage situations, high-intensity defense, and live 5-on-5 as the final tune-up before the season starts.",
-    warmup: "15 min dynamic warm-up + ballhandling.",
+    walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
+    warmup: "10 min dynamic warm-up + ballhandling, then 5 min individual stretching.",
     drills: [
-      { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
       { name: "Fast Break / Transition", time: "15 min", desc: "Continuous fast-break and transition work." },
       { name: "Advantage Situations", time: "15 min", desc: "2v1, 3v2, 4v3." },
       { name: "High-Intensity Defensive Work", time: "15 min", desc: "Closeouts, help and recover, shell drill, transition defence." },

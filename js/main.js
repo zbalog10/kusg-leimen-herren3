@@ -28,6 +28,11 @@ function renderTrainingPlans(filter = "All") {
       <div class="plan-body">
         <h4>Objective</h4>
         <p>${p.objective}</p>
+        ${
+          p.walkthrough
+            ? `<h4>${p.walkthrough.name}${p.walkthrough.time ? ` — ${p.walkthrough.time}` : ""}</h4><p>${p.walkthrough.desc}</p>`
+            : ""
+        }
         <h4>Warm-up</h4>
         <p>${p.warmup}</p>
         <h4>Drills</h4>
