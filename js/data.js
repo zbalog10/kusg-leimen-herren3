@@ -168,6 +168,23 @@ const TRAINING_PLANS = [
     ],
     notes: "This is the hardest outdoor session of the preseason conditioning block.",
   },
+  {
+    id: "week4-basketball-tuneup",
+    title: "Session 8 — Basketball Tune-Up",
+    date: "2026-09-14",
+    time: "18:30",
+    location: "Outdoor",
+    category: "Team",
+    duration: "85 min",
+    objective: "Blend transition offense, advantage situations, high-intensity defense, and live 5-on-5 as the final tune-up before the season starts.",
+    warmup: "15 min dynamic warm-up + ballhandling.",
+    drills: [
+      { name: "Fast Break / Transition", time: "15 min", desc: "Continuous fast-break and transition work." },
+      { name: "Advantage Situations", time: "15 min", desc: "2v1, 3v2, 4v3." },
+      { name: "High-Intensity Defensive Work", time: "15 min", desc: "Closeouts, help and recover, shell drill, transition defence." },
+      { name: "5-on-5", time: "20–25 min", desc: "4 × 5 min at high intensity." },
+    ],
+  },
 ];
 
 // Full-season league fixture list, sourced from basketball-bund.net (league
