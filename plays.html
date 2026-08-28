@@ -26,13 +26,27 @@
   </header>
 
   <main>
-    <div class="page-header">
-      <h1>Set Plays</h1>
-      <p>Court diagrams: solid green arrows are cuts, dashed grey arrows are passes, red bars are screens.</p>
+    <div class="password-gate" id="plays-gate">
+      <div class="password-gate-box">
+        <h2>Set Plays — Team Only</h2>
+        <p>Enter the team password to view our play diagrams.</p>
+        <form id="plays-gate-form">
+          <input type="password" id="plays-gate-input" placeholder="Password" autocomplete="off" />
+          <button type="submit" class="btn-primary">Unlock</button>
+        </form>
+        <p class="gate-error" id="plays-gate-error" hidden>Incorrect password — try again.</p>
+      </div>
     </div>
 
-    <div class="filter-bar" id="play-filters"></div>
-    <div class="play-grid" id="play-grid"></div>
+    <div id="plays-content" hidden>
+      <div class="page-header">
+        <h1>Set Plays</h1>
+        <p>Court diagrams: solid green arrows are cuts, dashed grey arrows are passes, red bars are screens.</p>
+      </div>
+
+      <div class="filter-bar" id="play-filters"></div>
+      <div class="play-grid" id="play-grid"></div>
+    </div>
   </main>
 
   <footer>KuSG Leimen Herren 3 — Team Playbook</footer>

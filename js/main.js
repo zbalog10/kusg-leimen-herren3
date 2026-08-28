@@ -222,9 +222,81 @@ function renderPlanFilters() {
   });
 }
 
+// Set Plays password gate — a soft deterrent, not real security. This is a
+// static site with no server, so nothing here can truly hide the play data:
+// js/plays-data.js is a public URL anyone can fetch directly, gate or no
+// gate. This just keeps it out of the normal page load / search engines and
+// stops a casual visitor from stumbling onto it.
+//
+// PLAYS_PASSWORD_HASH is the SHA-256 hex digest of the team password, not
+// the password itself. To change the password, compute the new hash (e.g.
+// `node -e "console.log(require('crypto').createHash('sha256').update('newpassword').digest('hex'))"`)
+// and replace the constant below.
+const PLAYS_PASSWORD_HASH = "e9a1f1861e2f5dbf46de928a5e92086f863e98a46bcab67815acd58b7332ecb5";
+const PLAYS_UNLOCK_KEY = "kusg-plays-unlocked";
+
+async function sha256Hex(text) {
+  const bytes = new TextEncoder().encode(text);
+  const digest = await crypto.subtle.digest("SHA-256", bytes);
+  return Array.from(new Uint8Array(digest))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+function loadPlaysDataAndRender(onLoaded) {
+  if (typeof SET_PLAYS !== "undefined") {
+    onLoaded();
+    return;
+  }
+  const script = document.createElement("script");
+  script.src = "js/plays-data.js";
+  script.onload = onLoaded;
+  document.body.appendChild(script);
+}
+
+function initPlaysGate() {
+  const gate = document.getElementById("plays-gate");
+  const content = document.getElementById("plays-content");
+  if (!gate || !content) return;
+
+  const unlock = () => {
+    gate.hidden = true;
+    content.hidden = false;
+    loadPlaysDataAndRender(() => {
+      renderPlayFilters();
+      renderSetPlays();
+      renderPlayDetail();
+    });
+  };
+
+  if (localStorage.getItem(PLAYS_UNLOCK_KEY) === "true") {
+    unlock();
+    return;
+  }
+
+  const form = document.getElementById("plays-gate-form");
+  const input = document.getElementById("plays-gate-input");
+  const error = document.getElementById("plays-gate-error");
+  if (!form || !input) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const hash = await sha256Hex(input.value);
+    if (hash === PLAYS_PASSWORD_HASH) {
+      localStorage.setItem(PLAYS_UNLOCK_KEY, "true");
+      if (error) error.hidden = true;
+      unlock();
+    } else {
+      if (error) error.hidden = false;
+      input.value = "";
+      input.focus();
+    }
+  });
+}
+
 function renderSetPlays(filter = "All") {
   const grid = document.getElementById("play-grid");
-  if (!grid) return;
+  if (!grid || typeof SET_PLAYS === "undefined") return;
   const plays = SET_PLAYS.filter((p) => filter === "All" || p.category === filter);
   grid.innerHTML = plays
     .map(
@@ -257,7 +329,7 @@ function renderSetPlays(filter = "All") {
 
 function renderPlayFilters() {
   const bar = document.getElementById("play-filters");
-  if (!bar) return;
+  if (!bar || typeof SET_PLAYS === "undefined") return;
   const categories = ["All", ...new Set(SET_PLAYS.map((p) => p.category))];
   bar.innerHTML = categories
     .map((c, i) => `<button class="filter-btn${i === 0 ? " active" : ""}" data-cat="${c}">${c}</button>`)
@@ -273,7 +345,7 @@ function renderPlayFilters() {
 
 function renderPlayDetail() {
   const container = document.getElementById("play-detail");
-  if (!container) return;
+  if (!container || typeof SET_PLAYS === "undefined") return;
 
   const id = new URLSearchParams(window.location.search).get("id");
   const play = SET_PLAYS.find((p) => p.id === id);
@@ -622,9 +694,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderGameSchedule();
   renderPlanFilters();
   renderTrainingPlans();
-  renderPlayFilters();
-  renderSetPlays();
-  renderPlayDetail();
+  initPlaysGate();
   renderDefenseFilters();
   renderDefenseSets();
   renderDefenseDetail();

@@ -469,6 +469,45 @@ footer {
 .step-body p { margin: 0; color: var(--text-muted); font-size: 0.9rem; }
 .step-body .court-wrap { max-width: 380px; }
 
+/* ---------- Password gate ---------- */
+
+.password-gate { display: flex; justify-content: center; padding: 3rem 0; }
+.password-gate[hidden] { display: none; }
+.password-gate-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  max-width: 340px;
+  width: 100%;
+  text-align: center;
+}
+.password-gate-box h2 { margin: 0 0 0.5rem; font-size: 1.2rem; }
+.password-gate-box p { margin: 0 0 1.25rem; color: var(--text-muted); font-size: 0.9rem; }
+.password-gate-box form { display: flex; flex-direction: column; gap: 0.75rem; }
+.password-gate-box input[type="password"] {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.65rem 0.85rem;
+  color: var(--text);
+  font-size: 0.95rem;
+  text-align: center;
+}
+.password-gate-box input[type="password"]:focus { outline: none; border-color: var(--green-dim); }
+.btn-primary {
+  background: var(--green);
+  border: none;
+  color: #04120a;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn-primary:hover { background: var(--green-bright); }
+.gate-error { margin: 0.9rem 0 0; color: var(--danger); font-size: 0.85rem; }
+
 @media (max-width: 640px) {
   .nav-inner { flex-wrap: wrap; }
   nav.main-nav { width: 100%; flex-wrap: wrap; gap: 0.35rem; }

@@ -26,8 +26,22 @@
   </header>
 
   <main>
-    <a class="back-link" href="plays.html">← Back to Set Plays</a>
-    <div id="play-detail"></div>
+    <div class="password-gate" id="plays-gate">
+      <div class="password-gate-box">
+        <h2>Set Plays — Team Only</h2>
+        <p>Enter the team password to view our play diagrams.</p>
+        <form id="plays-gate-form">
+          <input type="password" id="plays-gate-input" placeholder="Password" autocomplete="off" />
+          <button type="submit" class="btn-primary">Unlock</button>
+        </form>
+        <p class="gate-error" id="plays-gate-error" hidden>Incorrect password — try again.</p>
+      </div>
+    </div>
+
+    <div id="plays-content" hidden>
+      <a class="back-link" href="plays.html">← Back to Set Plays</a>
+      <div id="play-detail"></div>
+    </div>
   </main>
 
   <footer>KuSG Leimen Herren 3 — Team Playbook</footer>
