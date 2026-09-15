@@ -188,6 +188,45 @@ const TRAINING_PLANS = [
       { name: "5-on-5", time: "20–25 min", desc: "4 × 5 min at high intensity." },
     ],
   },
+  {
+    id: "week4-shooting-defense-systems",
+    title: "Session 9 — Shooting Series + Shell/1-3-1 Systems",
+    date: "2026-09-16",
+    time: "18:30",
+    location: "Fritz-Zugck-Halle, Leimen",
+    category: "Team",
+    duration: "90 min",
+    objective: "Connect shooting directly to game-speed reads (form → catch-and-shoot → drive-and-kick), then build man-to-man shell defense and the 1-3-1 zone progressively before combining both systems live, closing with competitive and pressure shooting.",
+    warmup: "10 min warm-up + finishing: 3–4 min dynamic movement (jogging, defensive slides, backpedal, closeouts, hip opening), then with balls — right-hand layups, left-hand layups, reverse finishes, jump stop → power finish, 2–3 pull-up jumpers from each side. Keep everybody moving, no standing in long lines.",
+    drills: [
+      { name: "Form/Rhythm Shooting", time: "5 min", desc: "Pairs, one ball. Start close to the basket and gradually move out. Emphasis: feet set before the catch, hands ready, balance, hold the follow-through, rebound → pass → relocate." },
+      { name: "Catch-and-Shoot", time: "5 min", desc: "Five positions: both corners, both wings, top. Player makes 2 shots from each location, then switch. Don't count attempts — count makes." },
+      { name: "Drive-and-Kick Shooting", time: "5 min", desc: "Three players if numbers allow: 1) player attacks the paint, 2) a help defender or cone represents the defensive rotation, 3) kick-out pass, 4) shooter catches and shoots. Connects the shooting directly to what you'll later attack against zones." },
+      {
+        name: "Shell Defense",
+        time: "20 min",
+        drillRef: "shell-drill",
+        desc: "Built progressively in 4 stages rather than going straight to live: (1) 4-on-4 positioning, no penetration — perimeter ball movement, defense calls \"Ball!\", \"Help!\", \"Deny!\", on-ball pressure without getting beaten, one-pass-away deny/gap, two-passes-away help, moving on the flight of the pass, not after the catch; (2) add penetration — stop the ball, help from the correct position, rotate, recover (help does not mean everyone runs at the ball — the next defender rotates and the rest shift accordingly); (3) closeout + drive — coach passes to an offensive player, defender closes out (sprint first, short choppy steps at the end, high hand, stay balanced, force toward your preferred direction), then play one live possession; (4) live shell, scored — +1 stop, +1 defensive rebound, +1 forced turnover, offense scores normally.",
+      },
+      {
+        name: "1-3-1 Defense",
+        time: "20 min",
+        drillRef: "1-3-1-zone-drill",
+        desc: "Same four-stage progression as the drill library, prioritizing rotations over traps: a walk-through of team shifts, then a wing trap, a corner trap, and a guided live 5-on-5 requiring at least three passes before a shot, with the coach stopping the possession whenever defensive spacing collapses.",
+      },
+      {
+        name: "Live Defensive Segment",
+        time: "15 min",
+        desc: "Connects the two systems. 5-on-5, three possessions at a time. Round 1: defense must play man-to-man using shell principles. Round 2: defense must play 1-3-1. Round 3: coach calls the defense before the possession — eventually call it after the offense crosses half court, forcing quick communication. Scoring: normal basket = offensive points; defensive stop = 1; steal = 2; defensive rebound after a good possession = +1; offensive rebound conceded = the defense loses the stop point. A defensive possession isn't over until you secure the rebound.",
+      },
+      {
+        name: "Competitive Shooting",
+        time: "10 min",
+        desc: "Finish with shooting, not conditioning. Two teams at opposite baskets, 5 spots × 5 makes as a team (corner, wing, top, opposite wing, opposite corner) — a team can't move to the next spot until it has made 5. Finish with pressure free throws: each player shoots 2, team target e.g. 80% overall. If they miss the target, don't punish with endless running — give another pressure round or a very short team consequence instead.",
+      },
+    ],
+    notes: "The three defensive messages for this session — repeat only these, not fifteen different points: 1) Talk early, before the pass or drive develops, not after. 2) Move on the pass, not after the catch — applies equally to shell defense and the 1-3-1. 3) Finish the possession — a good 20 seconds of defense followed by an offensive rebound is not a stop. For the 1-3-1 specifically, make one rule clear: we trap only when the ball is in a position where the other three defenders can cover the available passes, not because trapping looks aggressive — that's what keeps the zone structured rather than chaotic.",
+  },
 ];
 
 // Full-season league fixture list, sourced from basketball-bund.net (league

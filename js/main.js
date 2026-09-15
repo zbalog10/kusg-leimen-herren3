@@ -38,13 +38,15 @@ function renderTrainingPlans(filter = "All") {
         <h4>Drills</h4>
         <ul class="drill-list">
           ${p.drills
-            .map(
-              (d) => `
+            .map((d) => {
+              const drill = d.drillRef && typeof DRILLS !== "undefined" ? DRILLS.find((dr) => dr.id === d.drillRef) : null;
+              return `
             <li class="drill-item">
               <div class="drill-head"><span>${d.name}</span><span class="drill-time">${d.time}</span></div>
               <p>${d.desc}</p>
-            </li>`
-            )
+              ${drill ? `<a class="btn-link" href="drill.html?id=${drill.id}">Full drill breakdown: ${drill.name} →</a>` : ""}
+            </li>`;
+            })
             .join("")}
         </ul>
         ${p.notes ? `<h4>Notes</h4><div class="notes-box">${p.notes}</div>` : ""}

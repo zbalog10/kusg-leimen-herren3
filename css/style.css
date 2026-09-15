@@ -280,6 +280,7 @@ footer {
 .drill-item .drill-head { display: flex; justify-content: space-between; gap: 1rem; font-weight: 600; font-size: 0.92rem; }
 .drill-item .drill-time { color: var(--green-bright); font-size: 0.8rem; font-weight: 700; white-space: nowrap; }
 .drill-item p { margin: 0.3rem 0 0; color: var(--text-muted); font-size: 0.88rem; }
+.drill-item .btn-link { display: inline-block; margin-top: 0.5rem; font-size: 0.82rem; }
 
 .notes-box { color: var(--text-muted); font-size: 0.9rem; background: var(--bg-elevated); border-left: 3px solid var(--green-dim); padding: 0.7rem 0.9rem; border-radius: 0 6px 6px 0; }
 
