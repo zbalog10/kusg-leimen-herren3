@@ -45,6 +45,11 @@ const SEASON_SCHEDULE = generateSeasonDates(SEASON_SCHEDULE_CONFIG).map((date) =
   location: SEASON_SCHEDULE_CONFIG.location,
 }));
 
+// Standing convention (as of the 16.09 session): every session from here on
+// should open with the 10-min Offensive System Walk-Through, via the
+// `walkthrough` field (rendered before Warm-up — see renderTrainingPlans in
+// js/main.js). Copy the `walkthrough` object from an existing session below
+// when adding a new one.
 const TRAINING_PLANS = [
   {
     id: "week1-conditioning-movement",
@@ -195,8 +200,9 @@ const TRAINING_PLANS = [
     time: "18:30",
     location: "Fritz-Zugck-Halle, Leimen",
     category: "Team",
-    duration: "90 min",
+    duration: "100 min",
     objective: "Connect shooting directly to game-speed reads (form → catch-and-shoot → drive-and-kick), then build man-to-man shell defense and the 1-3-1 zone progressively before combining both systems live, closing with competitive and pressure shooting.",
+    walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
     warmup: "10 min warm-up + finishing: 3–4 min dynamic movement (jogging, defensive slides, backpedal, closeouts, hip opening), then with balls — right-hand layups, left-hand layups, reverse finishes, jump stop → power finish, 2–3 pull-up jumpers from each side. Keep everybody moving, no standing in long lines.",
     drills: [
       { name: "Form/Rhythm Shooting", time: "5 min", desc: "Pairs, one ball. Start close to the basket and gradually move out. Emphasis: feet set before the catch, hands ready, balance, hold the follow-through, rebound → pass → relocate." },
