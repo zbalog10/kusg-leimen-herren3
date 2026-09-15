@@ -429,27 +429,41 @@ const DEFENSIVE_SETS = [
 const DRILLS = [
   {
     id: "shell-drill",
-    name: "Shell Drill",
+    name: "Shell Drill: Ball–Gap Progression",
     category: "Defense",
     source: "https://www.basketballforcoaches.com/shell-drill-basketball/",
-    summary: "Progressive 4-on-4 half-court drill for teaching team defense: ball-you-man positioning, deny, help side on the split line, and closeouts.",
-    objective: "Teach team defense and off-ball positioning — help side, one-pass-away denial, rotations, and closeouts — through controlled, repeatable reps instead of live scrimmage chaos.",
-    setup: "4 offensive players spaced around the three-point arc: two guards up top (slots) and two wings, each matched by a defender. No live offense at first — the ball just moves player to player. 3-on-3 and 5-on-5 versions of the same shape work too.",
+    summary: "Progressive shell defense drill: starts 2-on-2 to build the core ball-gap relationship, then scales to a full 4-on-4 shell with denial, help side, closeouts, and a live scored scrimmage.",
+    objective: "Teach the ball-gap relationship — one defender pressures the ball while every other defender sits in a gap ready to help — and scale it from 2-on-2 up into a live, scored 4-on-4 shell: off-ball positioning, one-pass-away denial, help side, rotations, and closeouts through controlled, repeatable reps before going fully live.",
+    setup: "Starts 2-on-2 on the perimeter (two offensive players 4–5 m apart, matched by two defenders) to build the individual ball-gap relationship. Then scales to a full 4-on-4 shell: four offensive players spaced around the three-point arc — two guards up top (slots) and two wings — each matched by a defender. 3-on-3 and 5-on-5 versions of the 4-on-4 shape work too.",
     steps: [
-      "Walk-through: coach places each defender in the correct position for where the ball currently is, so the shape is understood before anyone moves.",
-      "Ball movement: offense passes around the perimeter (holding the ball ~3 seconds per catch) while defenders adjust their positioning on every pass — no dribbling, no defense pressuring the pass.",
-      "Add closeouts: on each catch, the on-ball defender sprints out and closes out under control (chop steps, high hand, low base) instead of just being placed there.",
-      "Live phase: offense rotates the ball around the perimeter twice, then the drill goes live 4-on-4 with a defensive-only point of emphasis — offense can drive and score, but the coaching focus stays on the defense's shape and rotations.",
+      "2-on-2 Ball–Gap + Transition — 7 min. Two offensive players start on the perimeter, 4–5 m apart, matched by two defenders (X1 on the ball, X2 in the gap). O1 starts with the ball and the two make 5–6 passes without driving; on every pass the defenders swap roles — the new ball defender closes out, the other drops into the gap — moving on the flight of the pass, not after the catch. The offense then deliberately throws the ball to one of the defenders to simulate a turnover: with no pause, the two defenders become offense and the two offensive players become transition defenders, playing live 2-on-2 to the opposite basket. Rotate pairs quickly so players get reps from both sides.",
+      "4-on-4 Walk-Through + Ball Movement — 4 min. Coach first places each defender in the correct position for where the ball currently is, so the shape is understood before anyone moves. Then the offense passes around the perimeter (holding the ball ~3 seconds per catch, no dribbling) while every pass triggers the same ball-gap swap from the 2-on-2 stage — the new ball defender closes out, the other three adjust into their gaps together.",
+      "4-on-4 with Closeouts and Penetration — 5 min. Closeouts are now live and full speed — sprint out and close under control (chop steps, high hand, low base) — and dribble penetration is allowed. The focus becomes gap → help → recover: the gap defender should already be positioned so helping doesn't require a desperate sprint, and after every drive the defense rotates and recovers to open players rather than blindly returning to their original matchup.",
+      "Live 4-on-4, Scored — 4 min. Offense rotates the ball around the perimeter twice, then the drill goes fully live: 1 point for a defensive stop, +1 for a defensive rebound, 2 points for forcing a turnover/steal, and 0 points if the defense forces a miss but gives up the offensive rebound — reinforcing that a possession isn't over until the defense controls the ball.",
     ],
     coachingPoints: [
       "Ball-you-man: every defender should be able to see both their matchup and the ball at all times — point with the non-denying hand to reinforce this with younger players.",
-      "Call it out loud: standard defensive calls — \"ball\", \"deny\", \"help\" — should be communicated on every pass, not just known silently.",
-      "On-ball defender pressures without fouling or over-committing; one-pass-away defender denies with a hand in the passing lane; the two help-side defenders sit on the split line (the imaginary line through the ball and the rim) so they can help a driver and still recover to their own man.",
+      "Ball defender: pressure the ball without fouling or overreaching, stay in a balanced stance, and influence the dribble toward the sideline or desired direction.",
+      "Gap/help defender: sit one or two steps into the passing or driving lane — deny the pass if you're one pass away, or sag toward the split line (the imaginary line through the ball and the rim) if you're farther away — always ready to help and still recover to your own man.",
       "The farther a help defender is from the ball, the deeper into the paint they sit — the farthest player is the last line of help at the rim.",
+      "Communicate on every pass — standard calls like \"ball\", \"deny\", \"help\", or simply \"Ball — Gap — Ball — Gap\" — and shout \"Go!\" the instant the simulated turnover happens in the 2-on-2 stage.",
+      "The transition portion of the 2-on-2 stage doubles as conditioning without needing any artificial extra running — rotate pairs quickly so players get reps from both sides.",
     ],
     diagrams: [
       {
-        title: "Ball on Wing",
+        title: "2-on-2 Ball-Gap Setup",
+        diagram: {
+          players: [
+            { id: "o1", label: "O1", team: "offense", x: 38, y: 65 },
+            { id: "o2", label: "O2", team: "offense", x: 62, y: 65 },
+            { id: "x1", label: "X1", team: "defense", x: 38, y: 50 },
+            { id: "x2", label: "X2", team: "defense", x: 55, y: 42 },
+          ],
+          ball: { x: 38, y: 65 },
+        },
+      },
+      {
+        title: "4-on-4: Ball on Wing",
         diagram: {
           players: [
             { id: "p1", label: "1", team: "offense", x: 62, y: 70 },
@@ -465,7 +479,7 @@ const DRILLS = [
         },
       },
       {
-        title: "Ball in Slot",
+        title: "4-on-4: Ball in Slot",
         diagram: {
           players: [
             { id: "p1", label: "1", team: "offense", x: 62, y: 70 },
@@ -478,40 +492,6 @@ const DRILLS = [
             { id: "x2", label: "x2", team: "defense", x: 50, y: 55 },
           ],
           ball: { x: 62, y: 70 },
-        },
-      },
-    ],
-  },
-  {
-    id: "shell-defense-ballgap-progression",
-    name: "Shell Defense: Ball–Gap Progression",
-    category: "Defense",
-    summary: "A 20-minute progression from 2-on-2 ball-gap principles into full 4-on-4 shell defense — pass-only, then with penetration, then live and scored.",
-    objective: "Teach the ball-gap relationship — one defender pressures the ball while the other sits in the gap ready to help — and scale it from 2-on-2 up into a live, scored 4-on-4 shell.",
-    setup: "Four connected stages run back to back: a 2-on-2 perimeter drill that explodes into full-court transition on a simulated turnover, then 4-on-4 shell at increasing levels of live play (pass only, then with dribble penetration, then fully live and scored).",
-    steps: [
-      "A. 2-on-2 Ball–Gap + Transition — 7 min. Two offensive players start on the perimeter, 4–5 m apart, matched by two defenders (X1 on the ball, X2 in the gap). O1 starts with the ball and the two make 5–6 passes without driving; on every pass the defenders swap roles — the new ball defender closes out, the other drops into the gap — moving on the flight of the pass, not after the catch. The offense then deliberately throws the ball to one of the defenders to simulate a turnover: with no pause, the two defenders become offense and the two offensive players become transition defenders, playing live 2-on-2 to the opposite basket. Rotate pairs quickly so players get reps from both sides.",
-      "B. 4-on-4 Shell, Pass Only — 4 min. Same ball-gap principle in a full four-player shell: every pass triggers a new closeout from the ball defender while the other three adjust into their gaps together. No drives yet.",
-      "C. 4-on-4 Shell with Penetration — 5 min. Now allow drives. The focus becomes gap → help → recover: the gap defender should already be positioned so helping doesn't require a desperate sprint, and after every drive the defense rotates and recovers to open players rather than blindly returning to their original matchup.",
-      "D. Live 4-on-4 Shell — 4 min. Fully live and scored: 1 point for a defensive stop, +1 for a defensive rebound, 2 points for forcing a turnover/steal, and 0 points if the defense forces a miss but gives up the offensive rebound — reinforcing that a possession isn't over until the defense controls the ball.",
-    ],
-    coachingPoints: [
-      "Ball defender: pressure the ball, stay in a balanced stance, influence the dribble toward the desired direction, and don't overreach.",
-      "Gap defender: position between the ball and your own player, see both ball and man, sit one or two steps into the passing/driving gap, and be ready to help on penetration.",
-      "Move on the flight of the pass, not after the catch. The cue is simply \"Ball — Gap — Ball — Gap,\" and \"Go!\" the instant the simulated turnover happens in part A.",
-      "The transition portion of part A doubles as conditioning without needing any artificial extra running.",
-    ],
-    diagrams: [
-      {
-        title: "2-on-2 Ball-Gap Setup",
-        diagram: {
-          players: [
-            { id: "o1", label: "O1", team: "offense", x: 38, y: 65 },
-            { id: "o2", label: "O2", team: "offense", x: 62, y: 65 },
-            { id: "x1", label: "X1", team: "defense", x: 38, y: 50 },
-            { id: "x2", label: "X2", team: "defense", x: 55, y: 42 },
-          ],
-          ball: { x: 38, y: 65 },
         },
       },
     ],
