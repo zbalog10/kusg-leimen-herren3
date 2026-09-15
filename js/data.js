@@ -482,6 +482,40 @@ const DRILLS = [
       },
     ],
   },
+  {
+    id: "shell-defense-ballgap-progression",
+    name: "Shell Defense: Ball–Gap Progression",
+    category: "Defense",
+    summary: "A 20-minute progression from 2-on-2 ball-gap principles into full 4-on-4 shell defense — pass-only, then with penetration, then live and scored.",
+    objective: "Teach the ball-gap relationship — one defender pressures the ball while the other sits in the gap ready to help — and scale it from 2-on-2 up into a live, scored 4-on-4 shell.",
+    setup: "Four connected stages run back to back: a 2-on-2 perimeter drill that explodes into full-court transition on a simulated turnover, then 4-on-4 shell at increasing levels of live play (pass only, then with dribble penetration, then fully live and scored).",
+    steps: [
+      "A. 2-on-2 Ball–Gap + Transition — 7 min. Two offensive players start on the perimeter, 4–5 m apart, matched by two defenders (X1 on the ball, X2 in the gap). O1 starts with the ball and the two make 5–6 passes without driving; on every pass the defenders swap roles — the new ball defender closes out, the other drops into the gap — moving on the flight of the pass, not after the catch. The offense then deliberately throws the ball to one of the defenders to simulate a turnover: with no pause, the two defenders become offense and the two offensive players become transition defenders, playing live 2-on-2 to the opposite basket. Rotate pairs quickly so players get reps from both sides.",
+      "B. 4-on-4 Shell, Pass Only — 4 min. Same ball-gap principle in a full four-player shell: every pass triggers a new closeout from the ball defender while the other three adjust into their gaps together. No drives yet.",
+      "C. 4-on-4 Shell with Penetration — 5 min. Now allow drives. The focus becomes gap → help → recover: the gap defender should already be positioned so helping doesn't require a desperate sprint, and after every drive the defense rotates and recovers to open players rather than blindly returning to their original matchup.",
+      "D. Live 4-on-4 Shell — 4 min. Fully live and scored: 1 point for a defensive stop, +1 for a defensive rebound, 2 points for forcing a turnover/steal, and 0 points if the defense forces a miss but gives up the offensive rebound — reinforcing that a possession isn't over until the defense controls the ball.",
+    ],
+    coachingPoints: [
+      "Ball defender: pressure the ball, stay in a balanced stance, influence the dribble toward the desired direction, and don't overreach.",
+      "Gap defender: position between the ball and your own player, see both ball and man, sit one or two steps into the passing/driving gap, and be ready to help on penetration.",
+      "Move on the flight of the pass, not after the catch. The cue is simply \"Ball — Gap — Ball — Gap,\" and \"Go!\" the instant the simulated turnover happens in part A.",
+      "The transition portion of part A doubles as conditioning without needing any artificial extra running.",
+    ],
+    diagrams: [
+      {
+        title: "2-on-2 Ball-Gap Setup",
+        diagram: {
+          players: [
+            { id: "o1", label: "O1", team: "offense", x: 38, y: 65 },
+            { id: "o2", label: "O2", team: "offense", x: 62, y: 65 },
+            { id: "x1", label: "X1", team: "defense", x: 38, y: 50 },
+            { id: "x2", label: "X2", team: "defense", x: 55, y: 42 },
+          ],
+          ball: { x: 38, y: 65 },
+        },
+      },
+    ],
+  },
 ];
 
 // Last season's top-scorer stats for the team, sourced from basketball-bund.net
