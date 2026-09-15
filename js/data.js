@@ -235,32 +235,32 @@ const TRAINING_PLANS = [
   },
 ];
 
-// Full-season league fixture list, sourced from basketball-bund.net (league
-// "BBW1 Kreisliga B1 Männer (Senioren Rhein/Neckar; Liganr.: 7140)", liga_id
-// 52666: https://www.basketball-bund.net/index.jsp?Action=101&liga_id=52666
-// A blank opponent/time/venue means the league still has it as "00:00"/TBD —
-// the home club for that fixture hasn't reported the date yet. Re-check the
-// source and fill in details as they're published; `home` tells you which
-// side KuSG is on even before the rest is confirmed.
+// Full-season league fixture list, finalized (as of 15.09.2026) and sourced
+// from basketball-bund.net (league "BBW1 Kreisliga B1 Männer (Senioren
+// Rhein/Neckar; Liganr.: 7140)", liga_id 52666:
+// https://www.basketball-bund.net/index.jsp?Action=101&liga_id=52666).
+// A 6-team league plays a double round robin, so KuSG has 10 games (5
+// opponents, home and away) even though `matchday` numbers run non-
+// sequentially through the league's 18 matchdays — the other matchdays are
+// other teams' games or byes for KuSG.
 const GAME_SCHEDULE = [
-  { matchday: 1, date: "2026-09-26", time: "20:00", home: true, opponent: null, venue: "Sportpark Leimen" },
-  { matchday: 2, date: "2026-10-03", time: null, home: false, opponent: null, venue: null },
   { matchday: 3, date: "2026-10-10", time: "16:00", home: false, opponent: "SV 98/07 Seckenheim", venue: "Richard-Möll-Halle" },
-  { matchday: 4, date: "2026-10-18", time: "19:00", home: true, opponent: null, venue: "Sportpark Leimen" },
-  { matchday: 5, date: "2026-11-08", time: "20:00", home: false, opponent: "TSG Wiesloch 3", venue: "Helmut-Will-Halle" },
+  { matchday: 5, date: "2026-11-08", time: "18:00", home: false, opponent: "TSG Wiesloch 3", venue: "Helmut-Will-Halle" },
   { matchday: 6, date: "2026-11-14", time: "18:00", home: true, opponent: "TV Sinsheim 3 / TSV Baden Östringen", venue: "Sportpark Leimen" },
-  { matchday: 7, date: "2026-11-21", time: "20:00", home: false, opponent: "SG Heidelberg/Kirchheim 3", venue: "Sportzentrum Süd - Alte Halle" },
+  { matchday: 7, date: "2026-11-21", time: "20:00", home: false, opponent: "SG Heidelberg/Kirchheim 3", venue: "Sportzentrum Süd - Neue Halle" },
   { matchday: 8, date: "2026-11-28", time: "18:00", home: true, opponent: "BAC Hockenheim 2", venue: "Sportpark Leimen" },
-  { matchday: 9, date: "2026-12-05", time: null, home: false, opponent: null, venue: null },
-  { matchday: 10, date: "2027-01-16", time: null, home: false, opponent: null, venue: null },
-  { matchday: 11, date: "2027-01-24", time: "19:30", home: true, opponent: null, venue: "Sportpark Leimen" },
   { matchday: 12, date: "2027-01-30", time: "18:00", home: true, opponent: "SV 98/07 Seckenheim", venue: "Sportpark Leimen" },
-  { matchday: 13, date: "2027-02-20", time: null, home: false, opponent: null, venue: null },
   { matchday: 14, date: "2027-02-28", time: "17:00", home: true, opponent: "TSG Wiesloch 3", venue: "Sportpark Leimen" },
   { matchday: 15, date: "2027-03-06", time: "18:30", home: false, opponent: "TV Sinsheim 3 / TSV Baden Östringen", venue: "Kraichgau-Realschule" },
   { matchday: 16, date: "2027-03-13", time: "20:00", home: true, opponent: "SG Heidelberg/Kirchheim 3", venue: "Sportpark Leimen" },
   { matchday: 17, date: "2027-04-11", time: "18:00", home: false, opponent: "BAC Hockenheim 2", venue: "Rudolf-Harbig-Halle" },
-  { matchday: 18, date: "2027-04-18", time: "17:00", home: true, opponent: null, venue: "Sportpark Leimen" },
+];
+
+// Friendlies/preseason games — not part of the official league fixture list
+// above, so they carry no matchday number. Shown merged with GAME_SCHEDULE
+// on games.html, badged so they're not mistaken for league games.
+const PRACTICE_GAMES = [
+  { date: "2026-09-25", time: "20:00", home: false, opponent: "TSV Wieblingen 4", venue: "Neckarhalle, Heidelberg-Wieblingen" },
 ];
 
 // Defensive schemes. Same coordinate system as SET_PLAYS (now in

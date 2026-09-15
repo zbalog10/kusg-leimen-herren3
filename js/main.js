@@ -168,13 +168,18 @@ function renderGameSchedule() {
   const timeLabel = (g) => g.time || "TBD";
   const venueLabel = (g) => g.venue || "Venue TBD";
 
-  const upcoming = GAME_SCHEDULE.find((g) => g.date >= today);
+  const merged = [
+    ...GAME_SCHEDULE.map((g) => ({ ...g, type: "league" })),
+    ...(typeof PRACTICE_GAMES !== "undefined" ? PRACTICE_GAMES.map((g) => ({ ...g, type: "practice" })) : []),
+  ].sort((a, b) => a.date.localeCompare(b.date));
+
+  const upcoming = merged.find((g) => g.date >= today);
   if (upcoming) {
     const d = new Date(upcoming.date + "T00:00:00");
     const longDate = d.toLocaleDateString("en-GB", { weekday: "long", day: "2-digit", month: "long", year: "numeric" });
     nextEl.innerHTML = `
       <div class="next-session-card">
-        <div class="next-session-label">Next game — Matchday ${upcoming.matchday}</div>
+        <div class="next-session-label">Next game${upcoming.type === "league" ? ` — Matchday ${upcoming.matchday}` : " — Friendly"}</div>
         <div class="next-session-date">${longDate}</div>
         <div class="next-session-meta">
           <span class="badge">${timeLabel(upcoming)}</span>
@@ -191,11 +196,11 @@ function renderGameSchedule() {
     <div class="table-scroll">
     <table class="schedule-table game-table">
       <tbody>
-        ${GAME_SCHEDULE.map((g) => {
+        ${merged.map((g) => {
           const isPast = g.date < today;
           return `
           <tr class="${isPast ? "schedule-row-past" : ""}">
-            <td class="schedule-day">MD ${g.matchday}</td>
+            <td class="schedule-day">${g.type === "league" ? `MD ${g.matchday}` : `<span class="badge muted">Friendly</span>`}</td>
             <td class="schedule-date">${formatDate(g.date)}</td>
             <td class="schedule-time">${timeLabel(g)}</td>
             <td class="game-side"><span class="badge ${g.home ? "" : "muted"}">${g.home ? "Home" : "Away"}</span></td>
