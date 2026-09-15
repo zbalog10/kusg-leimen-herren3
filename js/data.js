@@ -496,6 +496,67 @@ const DRILLS = [
       },
     ],
   },
+  {
+    id: "1-3-1-zone-drill",
+    name: "1-3-1 Zone: Rotations & Traps",
+    category: "Zone Defense",
+    summary: "20-minute progression for the 1-3-1 zone that prioritizes rotations over traps — a walk-through of team shifts, then wing and corner traps, finishing in a guided live 5-on-5.",
+    objective: "Teach the 1-3-1 zone as a single moving unit before layering in traps — a bad 1-3-1 usually happens because players are eager to trap but nobody knows who covers the space behind it.",
+    setup: "Base shape: X1 at the top, X3 at the high post/free-throw line, wings X2 and X4, and X5 protecting the baseline. Progresses through four stages: a ball-movement walk-through, a wing trap, a corner trap, and a guided live 5-on-5.",
+    steps: [
+      "Walk-Through — 5 min. Offense moves the ball around the perimeter without attacking; the defense shifts together as one unit. Teach where everyone goes when the ball is at the top, on the wing, in the corner, on the opposite wing, and at the high post — the important visual is that the whole zone moves together, not player by player.",
+      "Wing Trap — 5 min. Ball goes to the wing. Typical trap: X1 and the ball-side wing defender trap, the middle defender (X3) protects the high post/middle, the opposite wing drops toward the weak-side passing lane, and the baseline defender (X5) protects the corner/baseline. Run it slowly from both sides.",
+      "Corner Trap — 5 min. Ball enters the corner — often the best trapping opportunity. The baseline defender closes the corner, the wing defender traps, the top defender takes the reversal/pass-out lane, the middle defender protects the paint, and the weak-side defender sinks toward the rim/skip-pass responsibility. The trap itself shouldn't reach for steals — the goal is trap → force a high or slow pass → intercept on the rotation.",
+      "5-on-5 Guided 1-3-1 — 5 min. Offense must make at least three passes before shooting. Coach stops the possession whenever defensive spacing collapses, then gradually lets it run live.",
+    ],
+    coachingPoints: [
+      "Spend more time on rotations than on traps — a bad 1-3-1 usually happens because players are eager to trap but nobody knows who covers the space behind it.",
+      "The zone should move together as one unit on every pass, not scramble player by player.",
+      "On any trap, the two trapping defenders commit fully, but every other defender has a specific rotation responsibility — high post, weak-side passing lane, corner/baseline, or the reversal lane — nobody is a free player.",
+      "A trap should not reach for steals. The sequence is trap → force a high or slow pass → intercept on the rotation, not gamble for a strip.",
+    ],
+    diagrams: [
+      {
+        title: "Base 1-3-1 Alignment",
+        diagram: {
+          players: [
+            { id: "x1", label: "X1", team: "defense", x: 50, y: 65 },
+            { id: "x2", label: "X2", team: "defense", x: 15, y: 32 },
+            { id: "x3", label: "X3", team: "defense", x: 50, y: 41 },
+            { id: "x4", label: "X4", team: "defense", x: 85, y: 32 },
+            { id: "x5", label: "X5", team: "defense", x: 50, y: 8 },
+          ],
+          ball: { x: 50, y: 78 },
+        },
+      },
+      {
+        title: "Wing Trap",
+        diagram: {
+          players: [
+            { id: "x1", label: "X1", team: "defense", x: 68, y: 55 },
+            { id: "x4", label: "X4", team: "defense", x: 80, y: 38 },
+            { id: "x3", label: "X3", team: "defense", x: 55, y: 40 },
+            { id: "x2", label: "X2", team: "defense", x: 20, y: 15 },
+            { id: "x5", label: "X5", team: "defense", x: 62, y: 12 },
+          ],
+          ball: { x: 85, y: 35 },
+        },
+      },
+      {
+        title: "Corner Trap",
+        diagram: {
+          players: [
+            { id: "x5", label: "X5", team: "defense", x: 85, y: 10 },
+            { id: "x4", label: "X4", team: "defense", x: 78, y: 25 },
+            { id: "x1", label: "X1", team: "defense", x: 60, y: 55 },
+            { id: "x3", label: "X3", team: "defense", x: 50, y: 30 },
+            { id: "x2", label: "X2", team: "defense", x: 20, y: 15 },
+          ],
+          ball: { x: 92, y: 8 },
+        },
+      },
+    ],
+  },
 ];
 
 // Last season's top-scorer stats for the team, sourced from basketball-bund.net
