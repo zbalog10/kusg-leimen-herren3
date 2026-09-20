@@ -35,6 +35,9 @@ function renderTrainingPlans(filter = "All") {
         }
         <h4>Warm-up</h4>
         <p>${p.warmup}</p>
+        ${
+          p.drills && p.drills.length
+            ? `
         <h4>Drills</h4>
         <ul class="drill-list">
           ${p.drills
@@ -48,7 +51,9 @@ function renderTrainingPlans(filter = "All") {
             </li>`;
             })
             .join("")}
-        </ul>
+        </ul>`
+            : ""
+        }
         ${p.notes ? `<h4>Notes</h4><div class="notes-box">${p.notes}</div>` : ""}
       </div>
     </div>`
@@ -628,6 +633,18 @@ function renderDrillDetail() {
         : ""
     }
 
+    ${
+      drill.animation && drill.animation.length
+        ? `
+    <h2 class="section-heading">Animated Video</h2>
+    <div class="anim-section" id="drill-anim-playback"></div>
+    <div class="legend">
+      <span><span class="swatch cut"></span>cut / move</span>
+      <span><span class="swatch pass"></span>pass</span>
+    </div>`
+        : ""
+    }
+
     <h2 class="section-heading">How It's Run</h2>
     <ul class="rules-list">${(drill.steps || []).map((s) => `<li>${s}</li>`).join("")}</ul>
 
@@ -641,6 +658,11 @@ function renderDrillDetail() {
     const el = document.getElementById(`drill-diagram-${i}`);
     if (el) renderCourt(el, dg.diagram);
   });
+
+  if (drill.animation && drill.animation.length && typeof renderAnimatedPlayback === "function") {
+    const animEl = document.getElementById("drill-anim-playback");
+    if (animEl) renderAnimatedPlayback(animEl, drill.animation);
+  }
 }
 
 function renderPlayerStats() {

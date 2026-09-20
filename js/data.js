@@ -248,6 +248,19 @@ const TRAINING_PLANS = [
     ],
     notes: "Team training resumes as normal next session. This is a one-off cancellation because the city has closed the gym, not a change to the regular schedule.",
   },
+  {
+    id: "week5-offense-kickout",
+    title: "Session 11 — Offensive System + Penetration Kick-Out",
+    date: "2026-09-23",
+    time: "18:30",
+    location: "Fritz-Zugck-Halle, Leimen",
+    category: "Offense",
+    duration: "20 min so far",
+    objective: "Open with the standard offensive system walk-through, then warm up with a 3-spot penetration/kick-out ball-movement drill.",
+    walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
+    warmup: "Penetration Kick-Out — a 3-spot dribble-penetration and kick-out drill cycling ball movement and finishes on both sides. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=penetration-kickout\">Penetration Kick-Out →</a>",
+    drills: [],
+  },
 ];
 
 // Full-season league fixture list, finalized (as of 15.09.2026) and sourced
@@ -614,6 +627,101 @@ const DRILLS = [
           ],
           ball: { x: 92, y: 8 },
         },
+      },
+    ],
+  },
+  {
+    id: "penetration-kickout",
+    name: "Penetration Kick-Out",
+    category: "Offense",
+    summary: "Warm-up ball-movement drill: a dribble-penetration kick-out sequence that cycles through three spots, finishing with a layup on the opposite side.",
+    objective: "Warm up decision-making on the drive — attack downhill, draw help, and kick out early — while getting every spot moving and finishing with a layup.",
+    setup: "Three players start in a triangle: 1 on the left wing (45°), 2 on the right wing (45°) with the ball, and 3 in the right corner.",
+    steps: [
+      "2 attacks the basket off the dribble from the right wing.",
+      "Instead of finishing, 2 kicks the ball out to 3 in the corner.",
+      "3 immediately attacks downhill with a left-hand dribble; 2 fills the corner 3 just vacated.",
+      "After 2–3 dribbles, 3 kicks out to 1 on the left wing and cuts up to the top of the key.",
+      "1 catches and drives in for a layup finish from the left side.",
+    ],
+    coachingPoints: [
+      "Kick out on the way down, before help fully arrives — don't wait until you're committed to a finish.",
+      "Attack downhill immediately off the catch — no hesitation dribble before driving.",
+      "Always fill the spot that was just vacated — the corner and the top of the key should never sit empty.",
+      "Finish with the correct footwork on the layup, not just any finish.",
+    ],
+    animation: [
+      {
+        title: "Initial Setup",
+        narrative: "1 starts on the left wing, 3 in the right corner, and 2 on the right wing with the ball.",
+        players: [
+          { id: "1", label: "1", team: "offense", x: 20, y: 46 },
+          { id: "2", label: "2", team: "offense", x: 80, y: 46 },
+          { id: "3", label: "3", team: "offense", x: 90, y: 8 },
+        ],
+        actions: [],
+        ball: { x: 80, y: 46 },
+      },
+      {
+        title: "2 Attacks the Basket",
+        narrative: "2 attacks the basket off the dribble from the right wing, drawing help toward the paint.",
+        players: [
+          { id: "1", label: "1", team: "offense", x: 20, y: 46 },
+          { id: "2", label: "2", team: "offense", x: 60, y: 20 },
+          { id: "3", label: "3", team: "offense", x: 90, y: 8 },
+        ],
+        actions: [{ type: "cut", path: [{ x: 80, y: 46 }, { x: 60, y: 20 }] }],
+        ball: { x: 60, y: 20 },
+      },
+      {
+        title: "Kick-Out to 3",
+        narrative: "Instead of finishing, 2 kicks the ball out to 3 in the corner.",
+        players: [
+          { id: "1", label: "1", team: "offense", x: 20, y: 46 },
+          { id: "2", label: "2", team: "offense", x: 60, y: 20 },
+          { id: "3", label: "3", team: "offense", x: 90, y: 8 },
+        ],
+        actions: [{ type: "pass", from: { x: 60, y: 20 }, to: { x: 90, y: 8 } }],
+        ball: { x: 90, y: 8 },
+      },
+      {
+        title: "3 Attacks, 2 Fills the Corner",
+        narrative: "3 immediately attacks downhill with a left-hand dribble, while 2 clears out to fill the corner 3 just vacated.",
+        players: [
+          { id: "1", label: "1", team: "offense", x: 20, y: 46 },
+          { id: "2", label: "2", team: "offense", x: 90, y: 8 },
+          { id: "3", label: "3", team: "offense", x: 65, y: 15 },
+        ],
+        actions: [
+          { type: "cut", path: [{ x: 90, y: 8 }, { x: 65, y: 15 }] },
+          { type: "cut", path: [{ x: 60, y: 20 }, { x: 90, y: 8 }] },
+        ],
+        ball: { x: 65, y: 15 },
+      },
+      {
+        title: "3 Kicks Out to 1",
+        narrative: "After 2–3 dribbles, 3 kicks out to 1 on the left wing, then cuts up to fill the top of the key.",
+        players: [
+          { id: "1", label: "1", team: "offense", x: 20, y: 46 },
+          { id: "2", label: "2", team: "offense", x: 90, y: 8 },
+          { id: "3", label: "3", team: "offense", x: 50, y: 65 },
+        ],
+        actions: [
+          { type: "pass", from: { x: 65, y: 15 }, to: { x: 20, y: 46 } },
+          { type: "cut", path: [{ x: 65, y: 15 }, { x: 50, y: 65 }] },
+        ],
+        ball: { x: 20, y: 46 },
+      },
+      {
+        title: "1 Finishes on the Left Side",
+        narrative: "1 catches and drives in for a layup finish from the left side, completing the sequence.",
+        players: [
+          { id: "1", label: "1", team: "offense", x: 22, y: 10 },
+          { id: "2", label: "2", team: "offense", x: 90, y: 8 },
+          { id: "3", label: "3", team: "offense", x: 50, y: 65 },
+        ],
+        actions: [{ type: "cut", path: [{ x: 20, y: 46 }, { x: 22, y: 10 }] }],
+        ball: { x: 22, y: 10 },
       },
     ],
   },
