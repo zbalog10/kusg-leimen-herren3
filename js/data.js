@@ -233,6 +233,21 @@ const TRAINING_PLANS = [
     ],
     notes: "The three defensive messages for this session — repeat only these, not fifteen different points: 1) Talk early, before the pass or drive develops, not after. 2) Move on the pass, not after the catch — applies equally to shell defense and the 1-3-1. 3) Finish the possession — a good 20 seconds of defense followed by an offensive rebound is not a stop. For the 1-3-1 specifically, make one rule clear: we trap only when the ball is in a position where the other three defenders can cover the available passes, not because trapping looks aggressive — that's what keeps the zone structured rather than chaotic.",
   },
+  {
+    id: "week4-monday-outdoor-individual",
+    title: "Session 10 — Gym Closed: Individual Outdoor Training",
+    date: "2026-09-21",
+    time: "18:30",
+    location: "Outdoor (individual)",
+    category: "Cancelled",
+    duration: "Individual",
+    objective: "The gym is closed by the city for this date, so there is no organized team training tonight. Everybody trains individually outdoors instead — conditioning, ball-handling, and shooting reps on your own or in a small group.",
+    warmup: "Whatever suits your own outdoor session — a light jog or dynamic warm-up before you start.",
+    drills: [
+      { name: "Suggested Individual Work", time: "Your choice", desc: "Pick from: ball-handling series, form shooting (if you have access to a hoop), conditioning runs, or bodyweight strength/core work. No team format tonight — just keep moving and stay sharp for the next session." },
+    ],
+    notes: "Team training resumes as normal next session. This is a one-off cancellation because the city has closed the gym, not a change to the regular schedule.",
+  },
 ];
 
 // Full-season league fixture list, finalized (as of 15.09.2026) and sourced
