@@ -255,8 +255,8 @@ const TRAINING_PLANS = [
     time: "18:30",
     location: "Fritz-Zugck-Halle, Leimen",
     category: "Offense",
-    duration: "65 min so far",
-    objective: "Open with the standard offensive system walk-through, then warm up with a 3-spot penetration/kick-out ball-movement drill before moving into continuous fast-break and full-court shooting work, with a competitive free-throw break in between the two shooting reps.",
+    duration: "90 min",
+    objective: "Open with the standard offensive system walk-through, then warm up with a 3-spot penetration/kick-out ball-movement drill before moving into continuous fast-break and full-court shooting work (with a competitive free-throw break in between), closing with live 5-on-5 that prioritizes transition, falls back to the half-court offense, and cycles through all three defenses.",
     walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
     warmup: "Penetration Kick-Out — a 3-spot dribble-penetration and kick-out drill cycling ball movement and finishes on both sides. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=penetration-kickout\">Penetration Kick-Out →</a>",
     drills: [
@@ -284,6 +284,11 @@ const TRAINING_PLANS = [
         time: "10 min",
         drillRef: "full-court-sprint-shooting",
         desc: "Same drill again, but swap starting corners so everyone sprints and shoots from the side they didn't start on the first time.",
+      },
+      {
+        name: "Live 5-on-5 Play",
+        time: "~25 min (fills remaining time)",
+        desc: "First objective in transition: push the fast break. If it doesn't materialize, run the half-court offensive systems at game speed instead. On defense, alternate between the 1-3-1 zone and shell (man-to-man) principles from possession to possession — but play one full game using the 2-3 zone specifically.",
       },
     ],
   },
