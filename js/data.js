@@ -650,6 +650,12 @@ const DRILLS = [
       "Always fill the spot that was just vacated — the corner and the top of the key should never sit empty.",
       "Attack the rim on a 45° angle, not a straight line down the baseline — it keeps the finish square to the basket and opens the correct footwork.",
     ],
+    variations: [
+      {
+        name: "One More Pass: Kick Back to the Corner",
+        desc: "Same start: 2 attacks and kicks out to 3, then fills the corner and spots up ready to shoot. 3 attacks and kicks out to 1, then cuts to the top of the key — same as the base drill. The difference is the ending: instead of 1 attacking the rim to finish, 1 drives and kicks back out to 2, who catches and shoots the jumper from the corner. One extra read at the end — drive, then find the shooter you already set up in the corner rather than forcing the finish yourself.",
+      },
+    ],
     animation: [
       {
         title: "Initial Setup",

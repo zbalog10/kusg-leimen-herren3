@@ -651,6 +651,16 @@ function renderDrillDetail() {
     <h2 class="section-heading">Coaching Points</h2>
     <ul class="rules-list">${(drill.coachingPoints || []).map((c) => `<li>${c}</li>`).join("")}</ul>
 
+    ${
+      drill.variations && drill.variations.length
+        ? `
+    <h2 class="section-heading">Variations</h2>
+    <ul class="drill-list">
+      ${drill.variations.map((v) => `<li class="drill-item"><div class="drill-head"><span>${v.name}</span></div><p>${v.desc}</p></li>`).join("")}
+    </ul>`
+        : ""
+    }
+
     ${drill.source ? `<p class="schedule-source">Source: <a href="${drill.source}" target="_blank" rel="noopener">${drill.source}</a></p>` : ""}
   `;
 
