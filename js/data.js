@@ -255,11 +255,19 @@ const TRAINING_PLANS = [
     time: "18:30",
     location: "Fritz-Zugck-Halle, Leimen",
     category: "Offense",
-    duration: "20 min so far",
-    objective: "Open with the standard offensive system walk-through, then warm up with a 3-spot penetration/kick-out ball-movement drill.",
+    duration: "35 min so far",
+    objective: "Open with the standard offensive system walk-through, then warm up with a 3-spot penetration/kick-out ball-movement drill before moving into continuous fast-break work.",
     walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
     warmup: "Penetration Kick-Out — a 3-spot dribble-penetration and kick-out drill cycling ball movement and finishes on both sides. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=penetration-kickout\">Penetration Kick-Out →</a>",
-    drills: [],
+    drills: [
+      { name: "Individual Stretching", time: "5 min", desc: "Light individual stretching to close out the warm-up." },
+      {
+        name: "11 Men — Continuous 3-on-2 Fast Break",
+        time: "10 min",
+        drillRef: "eleven-man-fastbreak",
+        desc: "Simple continuous fast-break drill: 3 offense vs 2 defense at one end. After the possession ends, the 2 defenders become part of the next 3-man wave breaking back the other way, while 2 of the 3 who just ran the break become the new defenders. Runs continuously in both directions.",
+      },
+    ],
   },
 ];
 
@@ -728,6 +736,42 @@ const DRILLS = [
         ],
         actions: [{ type: "cut", path: [{ x: 80, y: 46 }, { x: 62, y: 13 }] }],
         ball: { x: 62, y: 13 },
+      },
+    ],
+  },
+  {
+    id: "eleven-man-fastbreak",
+    name: "11 Men — Continuous 3-on-2 Fast Break",
+    category: "Offense",
+    summary: "Continuous full-court conditioning and transition drill: 3-on-2 fast breaks in both directions, with defenders and the rebounder rotating into the next wave so the drill never stops.",
+    objective: "Build fast-break execution and transition defense under fatigue with a drill that runs continuously in both directions — kept deliberately simple.",
+    setup: "3 offensive players start at one baseline, 2 defenders start at the other end near the free-throw line. Everyone else waits in line at the baseline behind the offense, ready to rotate in.",
+    steps: [
+      "The 3 offensive players push the ball on a 3-on-2 fast break against the 2 defenders at the far end.",
+      "Play out the possession — score, miss, or turnover.",
+      "The moment the possession ends, the 2 defenders become 2 of the 3 offensive players for the next wave, breaking back the other way immediately.",
+      "Two of the three players who just ran the break become the new defenders waiting at that end for the next wave coming back; the third goes to the end of the line.",
+      "Repeat continuously in both directions — the drill never stops, so the next wave should already be moving as soon as the ball changes hands.",
+    ],
+    coachingPoints: [
+      "Kept simple on purpose: it's just 3 offense vs 2 defense, and whoever doesn't end up with the ball becomes a defender for the next wave.",
+      "Outlet quickly off a rebound, make, or miss — the break starts the instant possession is decided, not after everyone jogs into position.",
+      "Wide lanes on the break, same as any 3-on-2: ball handler in the middle, wings running wide to the sideline.",
+      "This is a conditioning drill as much as a skill drill — the continuous back-and-forth is the point, so keep the pace high.",
+    ],
+    diagrams: [
+      {
+        title: "Base 3-on-2 Setup",
+        diagram: {
+          players: [
+            { id: "o1", label: "1", team: "offense", x: 50, y: 75 },
+            { id: "o2", label: "2", team: "offense", x: 15, y: 65 },
+            { id: "o3", label: "3", team: "offense", x: 85, y: 65 },
+            { id: "x1", label: "x1", team: "defense", x: 40, y: 35 },
+            { id: "x2", label: "x2", team: "defense", x: 60, y: 35 },
+          ],
+          ball: { x: 50, y: 75 },
+        },
       },
     ],
   },
