@@ -1100,6 +1100,42 @@ const DRILLS = [
       },
     ],
   },
+  {
+    id: "free-throw-conditioning",
+    name: "Free Throw Conditioning",
+    category: "Conditioning",
+    summary: "Simple free-throw and suicide conditioning drill: shoot 2 free throws, then sprint baseline-to-baseline-and-back once per miss (or once if both go in) — 5 rounds, two baskets running at once.",
+    objective: "Build free-throw composure under real conditioning consequences, and reinforce that free throws matter even when tired — sprinting, not jogging, every single time.",
+    setup: "Split the team into two groups, one at each basket. Each group lines up in a queue running from the baseline up to the free-throw line, staggered along the side of the lane. The last player in line rebounds for the shooter.",
+    steps: [
+      "The first player in line shoots 2 free throws.",
+      "2 makes = sprint to the opposite baseline and back once. 1 make = sprint down and back twice. 0 makes = sprint down and back three times.",
+      "While that player runs, the next player in line steps up and shoots their 2 free throws — the line keeps moving, it doesn't wait for the runner to finish.",
+      "The player who just shot joins the back of the line once their sprint(s) are done.",
+      "The last player in line rebounds each shot, then moves to the front once relieved by the next rebounder.",
+      "Repeat for 5 rounds — everybody shoots 5 times total.",
+    ],
+    coachingPoints: [
+      "Sprint, don't jog — every trip down and back is a full sprint regardless of how tired legs are.",
+      "Free throws matter most when you're tired — this drill is designed to make bad shots costly, not to punish players.",
+      "Keep the line moving continuously — the next shooter goes as soon as the previous one starts running, not after they finish.",
+      "Track makes over the 5 rounds if you want a team target on top of the running — same accountability principle as other shooting challenges.",
+    ],
+    diagrams: [
+      {
+        title: "Queue Setup",
+        diagram: {
+          players: [
+            { id: "shooter", label: "S", team: "offense", x: 50, y: 41 },
+            { id: "q1", label: "Q", team: "offense", x: 72, y: 32 },
+            { id: "q2", label: "Q", team: "offense", x: 72, y: 20 },
+            { id: "q3", label: "Q", team: "offense", x: 72, y: 8 },
+            { id: "rebounder", label: "R", team: "offense", x: 50, y: 8 },
+          ],
+        },
+      },
+    ],
+  },
 ];
 
 // Last season's top-scorer stats for the team, sourced from basketball-bund.net
