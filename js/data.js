@@ -299,11 +299,13 @@ const TRAINING_PLANS = [
     time: "18:30",
     location: "Fritz-Zugck-Halle, Leimen",
     category: "Offense",
-    duration: "25 min so far",
+    duration: "30 min so far",
     objective: "A longer offensive system walk-through today with special emphasis on Split, then warm up with the Swing and Cut continuous finishing drill.",
     walkthrough: { name: "Offensive System Walk-Through", time: "15 min", desc: "Extended today with special emphasis on Split — extra reps on the entry, the split cuts off 5's back-to-back screens, and the staggered screen at the end. Still low intensity, no conditioning focus. Full breakdown: <a class=\"btn-link\" href=\"play.html?id=split-vs-man\">Split (vs. Man-to-Man) →</a>" },
     warmup: "Swing and Cut — continuous top/wing entry pass, closeout, swing, and ball-side cut finishing drill using 2-3 balls from a baseline queue. Run until the team makes 1.5× as many layups in a row as there are players, then repeat from the other side. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=swing-and-cut\">Swing and Cut →</a>",
-    drills: [],
+    drills: [
+      { name: "Individual Stretching", time: "5 min", desc: "Light individual stretching to close out the warm-up." },
+    ],
   },
 ];
 
