@@ -292,6 +292,19 @@ const TRAINING_PLANS = [
       },
     ],
   },
+  {
+    id: "week5-split-swingcut",
+    title: "Session 12 — Split Emphasis + Swing and Cut",
+    date: "2026-09-30",
+    time: "18:30",
+    location: "Fritz-Zugck-Halle, Leimen",
+    category: "Offense",
+    duration: "25 min so far",
+    objective: "A longer offensive system walk-through today with special emphasis on Split, then warm up with the Swing and Cut continuous finishing drill.",
+    walkthrough: { name: "Offensive System Walk-Through", time: "15 min", desc: "Extended today with special emphasis on Split — extra reps on the entry, the split cuts off 5's back-to-back screens, and the staggered screen at the end. Still low intensity, no conditioning focus. Full breakdown: <a class=\"btn-link\" href=\"play.html?id=split-vs-man\">Split (vs. Man-to-Man) →</a>" },
+    warmup: "Swing and Cut — continuous top/wing entry pass, closeout, swing, and ball-side cut finishing drill using 2-3 balls from a baseline queue. Run until the team makes 1.5× as many layups in a row as there are players, then repeat from the other side. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=swing-and-cut\">Swing and Cut →</a>",
+    drills: [],
+  },
 ];
 
 // Full-season league fixture list, finalized (as of 15.09.2026) and sourced
@@ -843,6 +856,90 @@ const DRILLS = [
       "Run this as a break between higher-intensity work on purpose — the real challenge is shooting free throws calmly while still breathing hard.",
       "Call out makes/misses and running totals out loud so there's real pressure and accountability, not just quiet counting.",
       "Same routine on every single attempt — that's exactly the habit that's supposed to hold up late in a close game.",
+    ],
+  },
+  {
+    id: "swing-and-cut",
+    name: "Swing and Cut",
+    category: "Offense",
+    summary: "Continuous top/wing shooting and finishing drill: entry pass, closeout, swing pass, and a hard ball-side cut for the layup — run from a baseline queue with 2-3 balls going at once.",
+    objective: "Warm up the swing-and-cut reaction under a bit of ball pressure: catch, swing quickly, and finish a hard ball-side cut off the catch.",
+    setup: "Two starting spots stay occupied throughout: one player at the top outside the three-point line, one player at the 45° wing on the right side. Everyone else queues up at the baseline with 2-3 balls between them.",
+    steps: [
+      "The first player in the queue passes to the player at the top, then sprints out to close out on them.",
+      "The top player swings the ball to the wing and immediately cuts hard to the rim on the ball side.",
+      "The wing passes the ball back to the cutter, who finishes with a layup, gets his own rebound, and joins the back of the queue.",
+      "The closeout player now stays in as the new \"top\" for the next rep.",
+      "The next player in the queue repeats the same pattern, but starts by passing to the wing instead — the wing swings to the top, and the wing player cuts and finishes this time.",
+      "Keep alternating the entry pass between top and wing every rep, so the ball swings both ways and the closeout player always becomes the next stationary feeder.",
+      "Run it continuously until the team makes 1.5× as many layups in a row as there are players in the drill — a miss resets the streak.",
+    ],
+    coachingPoints: [
+      "Swing the ball on the catch — no second dribble or hesitation before moving it to the other spot.",
+      "The cut happens the instant the pass leaves your hands, not after you watch where it goes.",
+      "Cut hard and ball-side — the whole point is to be moving downhill by the time the return pass arrives.",
+      "Closeouts should be real: sprint, then chop to a balanced stance, high hand — this is also a defensive-habit rep, not just a passing outlet.",
+    ],
+    variations: [
+      {
+        name: "Run It From Both Sides",
+        desc: "Repeat the entire drill with the wing spot on the left 45° instead of the right, so everyone gets ball-side cut reps from both sides of the floor.",
+      },
+    ],
+    animation: [
+      {
+        title: "Initial Setup",
+        narrative: "T holds the top spot, W holds the right wing, and Q is next up in the baseline queue with the ball.",
+        players: [
+          { id: "q", label: "Q", team: "offense", x: 50, y: -6 },
+          { id: "t", label: "T", team: "offense", x: 50, y: 65 },
+          { id: "w", label: "W", team: "offense", x: 80, y: 46 },
+        ],
+        actions: [],
+        ball: { x: 50, y: -6 },
+      },
+      {
+        title: "Entry Pass + Closeout",
+        narrative: "Q passes to T at the top, then sprints out to close out on him.",
+        players: [
+          { id: "q", label: "Q", team: "defense", x: 55, y: 58 },
+          { id: "t", label: "T", team: "offense", x: 50, y: 65 },
+          { id: "w", label: "W", team: "offense", x: 80, y: 46 },
+        ],
+        actions: [
+          { type: "pass", from: { x: 50, y: -6 }, to: { x: 50, y: 65 } },
+          { type: "cut", path: [{ x: 50, y: -6 }, { x: 55, y: 58 }] },
+        ],
+        ball: { x: 50, y: 65 },
+      },
+      {
+        title: "Swing to the Wing, Cutter Goes",
+        narrative: "T swings the ball to W and immediately cuts hard to the rim on the ball side.",
+        players: [
+          { id: "q", label: "Q", team: "defense", x: 55, y: 58 },
+          { id: "t", label: "T", team: "offense", x: 62, y: 35 },
+          { id: "w", label: "W", team: "offense", x: 80, y: 46 },
+        ],
+        actions: [
+          { type: "pass", from: { x: 50, y: 65 }, to: { x: 80, y: 46 } },
+          { type: "cut", path: [{ x: 50, y: 65 }, { x: 62, y: 35 }] },
+        ],
+        ball: { x: 80, y: 46 },
+      },
+      {
+        title: "Return Pass, Finish",
+        narrative: "W passes back to the cutting T, who catches in stride and finishes the layup.",
+        players: [
+          { id: "q", label: "Q", team: "defense", x: 55, y: 58 },
+          { id: "t", label: "T", team: "offense", x: 58, y: 12 },
+          { id: "w", label: "W", team: "offense", x: 80, y: 46 },
+        ],
+        actions: [
+          { type: "pass", from: { x: 80, y: 46 }, to: { x: 58, y: 12 } },
+          { type: "cut", path: [{ x: 62, y: 35 }, { x: 58, y: 12 }] },
+        ],
+        ball: { x: 58, y: 12 },
+      },
     ],
   },
 ];
