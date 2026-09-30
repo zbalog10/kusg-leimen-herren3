@@ -944,6 +944,127 @@ const DRILLS = [
       },
     ],
   },
+  {
+    id: "oregon-drill",
+    name: "Oregon Drill",
+    category: "Offense",
+    summary: "Continuous 3-player zigzag passing drill from baseline to half-court line and back, finishing with a cross-court feed and a layup — then the next trio goes.",
+    objective: "Sharpen passing accuracy on the move, hard cuts (especially the cut to the ball), and full-speed floor coverage in a continuous relay.",
+    setup: "Three players start on the baseline: 1 in the left corner with the ball, 2 in the middle, 3 in the right corner. Run continuously, one trio after another.",
+    steps: [
+      "1 passes to 2 and sprints to the right sideline, stopping at the halfway point between the baseline and the half-court line.",
+      "2 passes to 3 and sprints to the left sideline, all the way up to the half-court line.",
+      "3 passes to 1 (now on the right sideline) and sprints to the middle of the half-court line.",
+      "1 passes to 2 (on the left sideline) and sprints back down to the right corner; at the same time, 3 relocates down to the left corner.",
+      "2 passes to 3 (now in the left corner) and sprints back down to the middle of the baseline — the group is now a mirror image of the starting formation.",
+      "3 passes cross-court to 1, who cuts hard from the right corner to the basket and finishes with a layup.",
+      "The next trio starts the drill as soon as the first group clears out.",
+    ],
+    coachingPoints: [
+      "Every pass should hit the receiver in rhythm — nobody stands still waiting for the ball to arrive.",
+      "The hardest cut in this drill, and in general, is the cut to the ball — sprint to meet every pass instead of drifting toward it.",
+      "Catch with two hands every time — make it a hard rule that a one-handed catch means the rep doesn't count.",
+      "This is a conditioning drill as much as a passing drill — sprint the whole pattern, including the trip back down.",
+    ],
+    animation: [
+      {
+        title: "Initial Setup",
+        narrative: "1 starts in the left corner with the ball, 2 in the middle, 3 in the right corner.",
+        players: [
+          { id: "1", label: "1", team: "offense", x: 0, y: 0 },
+          { id: "2", label: "2", team: "offense", x: 50, y: 0 },
+          { id: "3", label: "3", team: "offense", x: 100, y: 0 },
+        ],
+        actions: [],
+        ball: { x: 0, y: 0 },
+      },
+      {
+        title: "1 to 2",
+        narrative: "1 passes to 2, then sprints to the right sideline, halfway up to the half-court line.",
+        players: [
+          { id: "1", label: "1", team: "offense", x: 100, y: 50 },
+          { id: "2", label: "2", team: "offense", x: 50, y: 0 },
+          { id: "3", label: "3", team: "offense", x: 100, y: 0 },
+        ],
+        actions: [
+          { type: "pass", from: { x: 0, y: 0 }, to: { x: 50, y: 0 } },
+          { type: "cut", path: [{ x: 0, y: 0 }, { x: 100, y: 50 }] },
+        ],
+        ball: { x: 50, y: 0 },
+      },
+      {
+        title: "2 to 3",
+        narrative: "2 passes to 3, then sprints all the way up to the left sideline at the half-court line.",
+        players: [
+          { id: "1", label: "1", team: "offense", x: 100, y: 50 },
+          { id: "2", label: "2", team: "offense", x: 0, y: 100 },
+          { id: "3", label: "3", team: "offense", x: 100, y: 0 },
+        ],
+        actions: [
+          { type: "pass", from: { x: 50, y: 0 }, to: { x: 100, y: 0 } },
+          { type: "cut", path: [{ x: 50, y: 0 }, { x: 0, y: 100 }] },
+        ],
+        ball: { x: 100, y: 0 },
+      },
+      {
+        title: "3 to 1",
+        narrative: "3 passes up the sideline to 1, then sprints to the middle of the half-court line.",
+        players: [
+          { id: "1", label: "1", team: "offense", x: 100, y: 50 },
+          { id: "2", label: "2", team: "offense", x: 0, y: 100 },
+          { id: "3", label: "3", team: "offense", x: 50, y: 100 },
+        ],
+        actions: [
+          { type: "pass", from: { x: 100, y: 0 }, to: { x: 100, y: 50 } },
+          { type: "cut", path: [{ x: 100, y: 0 }, { x: 50, y: 100 }] },
+        ],
+        ball: { x: 100, y: 50 },
+      },
+      {
+        title: "1 to 2, Mirroring Back Down",
+        narrative: "1 passes back to 2 on the left sideline and sprints down to the right corner, while 3 drops down to the left corner to get ready.",
+        players: [
+          { id: "1", label: "1", team: "offense", x: 100, y: 0 },
+          { id: "2", label: "2", team: "offense", x: 0, y: 100 },
+          { id: "3", label: "3", team: "offense", x: 0, y: 0 },
+        ],
+        actions: [
+          { type: "pass", from: { x: 100, y: 50 }, to: { x: 0, y: 100 } },
+          { type: "cut", path: [{ x: 100, y: 50 }, { x: 100, y: 0 }] },
+          { type: "cut", path: [{ x: 50, y: 100 }, { x: 0, y: 0 }] },
+        ],
+        ball: { x: 0, y: 100 },
+      },
+      {
+        title: "2 to 3 — Back to a Mirrored Baseline",
+        narrative: "2 passes down to 3, now in the left corner, and sprints back down to the middle of the baseline — the group is now a mirror image of the starting formation.",
+        players: [
+          { id: "1", label: "1", team: "offense", x: 100, y: 0 },
+          { id: "2", label: "2", team: "offense", x: 50, y: 0 },
+          { id: "3", label: "3", team: "offense", x: 0, y: 0 },
+        ],
+        actions: [
+          { type: "pass", from: { x: 0, y: 100 }, to: { x: 0, y: 0 } },
+          { type: "cut", path: [{ x: 0, y: 100 }, { x: 50, y: 0 }] },
+        ],
+        ball: { x: 0, y: 0 },
+      },
+      {
+        title: "3 Feeds 1 for the Finish",
+        narrative: "3 passes cross-court to 1, who cuts hard from the right corner to the basket and finishes with a layup.",
+        players: [
+          { id: "1", label: "1", team: "offense", x: 65, y: 12 },
+          { id: "2", label: "2", team: "offense", x: 50, y: 0 },
+          { id: "3", label: "3", team: "offense", x: 0, y: 0 },
+        ],
+        actions: [
+          { type: "pass", from: { x: 0, y: 0 }, to: { x: 65, y: 12 } },
+          { type: "cut", path: [{ x: 100, y: 0 }, { x: 65, y: 12 }] },
+        ],
+        ball: { x: 65, y: 12 },
+      },
+    ],
+  },
 ];
 
 // Last season's top-scorer stats for the team, sourced from basketball-bund.net
