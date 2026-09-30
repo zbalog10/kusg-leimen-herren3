@@ -300,22 +300,22 @@ const TRAINING_PLANS = [
     location: "Fritz-Zugck-Halle, Leimen",
     category: "Offense",
     duration: "55 min so far",
-    objective: "A longer offensive system walk-through today with special emphasis on Split, then warm up with the Swing and Cut continuous finishing drill, followed by free throw conditioning and the Oregon Drill.",
+    objective: "A longer offensive system walk-through today with special emphasis on Split, then warm up with the Swing and Cut continuous finishing drill, followed by the Oregon Drill and free throw conditioning.",
     walkthrough: { name: "Offensive System Walk-Through", time: "15 min", desc: "Extended today with special emphasis on Split — extra reps on the entry, the split cuts off 5's back-to-back screens, and the staggered screen at the end. Still low intensity, no conditioning focus. Full breakdown: <a class=\"btn-link\" href=\"play.html?id=split-vs-man\">Split (vs. Man-to-Man) →</a>" },
     warmup: "Swing and Cut — continuous top/wing entry pass, closeout, swing, and ball-side cut finishing drill using 2-3 balls from a baseline queue. Run until the team makes 1.5× as many layups in a row as there are players, then repeat from the other side. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=swing-and-cut\">Swing and Cut →</a>",
     drills: [
       { name: "Individual Stretching", time: "5 min", desc: "Light individual stretching to close out the warm-up." },
       {
+        name: "Oregon Drill",
+        time: "10 min",
+        drillRef: "oregon-drill",
+        desc: "Continuous 3-player zigzag passing relay around the half-court perimeter — baseline, sideline, half-court line, sideline — finishing with a feed to a cutter for the layup. Every pass is immediately followed by a run. Run it in both directions, and keep going until the team makes 1.5× as many layups in a row as there are players.",
+      },
+      {
         name: "Free Throw Conditioning",
         time: "15 min",
         drillRef: "free-throw-conditioning",
         desc: "Two groups, one per basket, queued from the baseline to the free-throw line. Each shooter takes 2 free throws, then sprints a baseline-to-baseline suicide once per miss (up to 3 for missing both) while the line keeps moving. 5 rounds, sprinting emphasized over jogging.",
-      },
-      {
-        name: "Oregon Drill",
-        time: "10 min",
-        drillRef: "oregon-drill",
-        desc: "Continuous 3-player zigzag passing relay around the half-court perimeter — baseline, sideline, half-court line, sideline — finishing with a feed to a cutter for the layup. Every pass is immediately followed by a run. Next trio goes as soon as the first clears out.",
       },
     ],
   },
@@ -960,7 +960,7 @@ const DRILLS = [
     id: "oregon-drill",
     name: "Oregon Drill",
     category: "Offense",
-    summary: "Continuous 3-player zigzag passing drill from baseline to half-court line and back, finishing with a feed to a cutter for the layup — then the next trio goes.",
+    summary: "Continuous 3-player zigzag passing drill from baseline to half-court line and back, finishing with a feed to a cutter for the layup — run in both directions until the team hits its target streak.",
     objective: "Sharpen passing accuracy on the move, hard cuts (especially the cut to the ball), and full-speed floor coverage in a continuous relay.",
     setup: "Three players start on the baseline: 1 in the left corner with the ball, 2 in the middle, 3 in the right corner. Run continuously, one trio after another.",
     steps: [
@@ -970,6 +970,8 @@ const DRILLS = [
       "Left sideline (2 passes): 1 passes down to 2 (already at the middle of the left sideline), then immediately cuts hard toward the basket. 2 passes down to 3, already waiting in the left corner.",
       "Finish: 3 feeds 1, who is already waiting at the rim (having cut there the instant he released his own pass) and finishes with a layup.",
       "The next trio starts the drill as soon as the first group clears out.",
+      "Run the whole pattern in both directions — mirrored, starting with the ball on the right corner instead — so everyone gets reps cutting and finishing from both sides.",
+      "Keep running (both directions included) until the team makes 1.5× as many layups in a row as there are players — a miss resets the streak.",
     ],
     coachingPoints: [
       "Every single pass is immediately followed by a run — the instant the ball leaves your hand, you're moving to your next spot, not watching where it goes.",
