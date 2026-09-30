@@ -299,7 +299,7 @@ const TRAINING_PLANS = [
     time: "18:30",
     location: "Fritz-Zugck-Halle, Leimen",
     category: "Offense",
-    duration: "85 min",
+    duration: "90 min",
     objective: "A longer offensive system walk-through today with special emphasis on Split, then warm up with the Swing and Cut continuous finishing drill, followed by the Oregon Drill, free throw conditioning, elbow shooting, and a live 5-on-5 that locks in Split as the answer whenever the fast break isn't there.",
     walkthrough: { name: "Offensive System Walk-Through", time: "15 min", desc: "Extended today with special emphasis on Split — extra reps on the entry, the split cuts off 5's back-to-back screens, and the staggered screen at the end. Still low intensity, no conditioning focus. Full breakdown: <a class=\"btn-link\" href=\"play.html?id=split-vs-man\">Split (vs. Man-to-Man) →</a>" },
     warmup: "Swing and Cut — continuous top/wing entry pass, closeout, swing, and ball-side cut finishing drill using 2-3 balls from a baseline queue. Run until the team makes 1.5× as many layups in a row as there are players, then repeat from the other side. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=swing-and-cut\">Swing and Cut →</a>. Then 5 min individual stretching to close out the warm-up.",
@@ -324,7 +324,7 @@ const TRAINING_PLANS = [
       },
       {
         name: "Live 5-on-5 — Split Emphasis",
-        time: "20 min",
+        time: "25 min",
         desc: "Strict restriction: if no fast break can be run, the offense must run Split — no free-lance half-court sets today. Play several games: one game, played to 7 points, must be run with no dribbling allowed at all (pass and cut only). The other games are played to 11 points with normal rules.",
       },
     ],
