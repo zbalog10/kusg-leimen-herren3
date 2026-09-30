@@ -952,12 +952,11 @@ const DRILLS = [
     objective: "Sharpen passing accuracy on the move, hard cuts (especially the cut to the ball), and full-speed floor coverage in a continuous relay.",
     setup: "Three players start on the baseline: 1 in the left corner with the ball, 2 in the middle, 3 in the right corner. Run continuously, one trio after another.",
     steps: [
-      "1 passes to 2 and sprints to the right sideline, stopping at the halfway point between the baseline and the half-court line.",
-      "2 passes to 3 and sprints up to the right sideline at the half-court line, landing directly across from 1.",
-      "3 passes up the sideline to 1 and sprints to the middle of the half-court line.",
-      "1 passes to 2 (at the half-court line) and sprints to the half-court line on the left side — the opposite side from 2.",
-      "2 passes to 3, who cuts down to catch it right in the left corner — the same spot 1 started in — while 2 sprints back down to the middle of the left sideline.",
-      "3 feeds 1, who cuts hard from the half-court line down to the basket and finishes with a layup.",
+      "Baseline (2 passes): 1 passes to 2 and sprints to the right sideline, halfway up to the half-court line. Then 2 passes to 3.",
+      "Right sideline (2 passes): 3 passes up the sideline to 1, then sprints to the middle of the half-court line. Then 1 passes up the sideline to 2, who has sprinted up to the half-court line, landing directly across from 1.",
+      "Half-court line (2 passes): 2 passes across to 3 (waiting at the middle of the line), who relays it on to 1 (waiting on the left sideline) — a pure two-pass relay, nobody runs.",
+      "Left sideline (2 passes): 1 passes down to 2, who has sprinted down to the middle of the left sideline. Then 2 passes down to 3, who cuts down to catch it right in the left corner — the same spot 1 started in.",
+      "Finish: 3 feeds 1, who cuts hard from the half-court line down to the basket and finishes with a layup.",
       "The next trio starts the drill as soon as the first group clears out.",
     ],
     coachingPoints: [
@@ -1021,8 +1020,8 @@ const DRILLS = [
         ball: { x: 100, y: 50 },
       },
       {
-        title: "1 to 2, Crossing to the Opposite Side",
-        narrative: "1 passes to 2 at the half-court line and sprints to the half-court line on the left side — the opposite side from 2.",
+        title: "1 to 2 (Right Sideline)",
+        narrative: "1 passes up the sideline to 2, who has sprinted up to the half-court line, landing directly across from 1.",
         players: [
           { id: "1", label: "1", team: "offense", x: 0, y: 100 },
           { id: "2", label: "2", team: "offense", x: 100, y: 100 },
@@ -1035,17 +1034,52 @@ const DRILLS = [
         ball: { x: 100, y: 100 },
       },
       {
-        title: "2 to 3, Mirroring Back Down",
-        narrative: "2 passes to 3, who cuts down to catch it right in the left corner — the same spot 1 started in — while 2 sprints back down to the middle of the left sideline.",
+        title: "2 to 3 (Half-Court Line Relay)",
+        narrative: "2 passes across to 3, waiting at the middle of the half-court line. Nobody runs — this is a pure relay pass.",
+        players: [
+          { id: "1", label: "1", team: "offense", x: 0, y: 100 },
+          { id: "2", label: "2", team: "offense", x: 100, y: 100 },
+          { id: "3", label: "3", team: "offense", x: 50, y: 100 },
+        ],
+        actions: [{ type: "pass", from: { x: 100, y: 100 }, to: { x: 50, y: 100 } }],
+        ball: { x: 50, y: 100 },
+      },
+      {
+        title: "3 to 1 (Half-Court Line Relay)",
+        narrative: "3 relays it on to 1, waiting on the left sideline — the second half of the half-court-line relay.",
+        players: [
+          { id: "1", label: "1", team: "offense", x: 0, y: 100 },
+          { id: "2", label: "2", team: "offense", x: 100, y: 100 },
+          { id: "3", label: "3", team: "offense", x: 50, y: 100 },
+        ],
+        actions: [{ type: "pass", from: { x: 50, y: 100 }, to: { x: 0, y: 100 } }],
+        ball: { x: 0, y: 100 },
+      },
+      {
+        title: "1 to 2 (Left Sideline)",
+        narrative: "1 passes down to 2, who sprints down to the middle of the left sideline to catch it.",
+        players: [
+          { id: "1", label: "1", team: "offense", x: 0, y: 100 },
+          { id: "2", label: "2", team: "offense", x: 0, y: 50 },
+          { id: "3", label: "3", team: "offense", x: 50, y: 100 },
+        ],
+        actions: [
+          { type: "pass", from: { x: 0, y: 100 }, to: { x: 0, y: 50 } },
+          { type: "cut", path: [{ x: 100, y: 100 }, { x: 0, y: 50 }] },
+        ],
+        ball: { x: 0, y: 50 },
+      },
+      {
+        title: "2 to 3 (Left Sideline)",
+        narrative: "2 passes down to 3, who cuts down to catch it right in the left corner — the same spot 1 started in.",
         players: [
           { id: "1", label: "1", team: "offense", x: 0, y: 100 },
           { id: "2", label: "2", team: "offense", x: 0, y: 50 },
           { id: "3", label: "3", team: "offense", x: 0, y: 0 },
         ],
         actions: [
-          { type: "pass", from: { x: 100, y: 100 }, to: { x: 0, y: 0 } },
+          { type: "pass", from: { x: 0, y: 50 }, to: { x: 0, y: 0 } },
           { type: "cut", path: [{ x: 50, y: 100 }, { x: 0, y: 0 }] },
-          { type: "cut", path: [{ x: 100, y: 100 }, { x: 0, y: 50 }] },
         ],
         ball: { x: 0, y: 0 },
       },
