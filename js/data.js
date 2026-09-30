@@ -1183,9 +1183,9 @@ const DRILLS = [
         diagram: {
           players: [
             { id: "a1", label: "A1", team: "offense", x: 15, y: 5 },
-            { id: "a2", label: "A2", team: "offense", x: 15, y: 20 },
+            { id: "a2", label: "A2", team: "offense", x: 15, y: -8 },
             { id: "b1", label: "B1", team: "offense", x: 85, y: 5 },
-            { id: "b2", label: "B2", team: "offense", x: 85, y: 20 },
+            { id: "b2", label: "B2", team: "offense", x: 85, y: -8 },
           ],
           actions: [
             { type: "cut", path: [{ x: 85, y: 5 }, { x: 66, y: 25 }, { x: 34, y: 41 }] },
