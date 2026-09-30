@@ -302,9 +302,8 @@ const TRAINING_PLANS = [
     duration: "55 min so far",
     objective: "A longer offensive system walk-through today with special emphasis on Split, then warm up with the Swing and Cut continuous finishing drill, followed by the Oregon Drill and free throw conditioning.",
     walkthrough: { name: "Offensive System Walk-Through", time: "15 min", desc: "Extended today with special emphasis on Split — extra reps on the entry, the split cuts off 5's back-to-back screens, and the staggered screen at the end. Still low intensity, no conditioning focus. Full breakdown: <a class=\"btn-link\" href=\"play.html?id=split-vs-man\">Split (vs. Man-to-Man) →</a>" },
-    warmup: "Swing and Cut — continuous top/wing entry pass, closeout, swing, and ball-side cut finishing drill using 2-3 balls from a baseline queue. Run until the team makes 1.5× as many layups in a row as there are players, then repeat from the other side. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=swing-and-cut\">Swing and Cut →</a>",
+    warmup: "Swing and Cut — continuous top/wing entry pass, closeout, swing, and ball-side cut finishing drill using 2-3 balls from a baseline queue. Run until the team makes 1.5× as many layups in a row as there are players, then repeat from the other side. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=swing-and-cut\">Swing and Cut →</a>. Then 5 min individual stretching to close out the warm-up.",
     drills: [
-      { name: "Individual Stretching", time: "5 min", desc: "Light individual stretching to close out the warm-up." },
       {
         name: "Oregon Drill",
         time: "10 min",
