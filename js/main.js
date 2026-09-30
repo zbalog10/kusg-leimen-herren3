@@ -629,6 +629,8 @@ function renderDrillDetail() {
     <div class="legend">
       <span><span class="swatch dot offense"></span>offense</span>
       <span><span class="swatch dot defense"></span>defense</span>
+      <span><span class="swatch cut"></span>cut / move</span>
+      <span><span class="swatch pass"></span>pass</span>
     </div>`
         : ""
     }
