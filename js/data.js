@@ -329,6 +329,19 @@ const TRAINING_PLANS = [
       },
     ],
   },
+  {
+    id: "week6-weave-warmup",
+    title: "Session 13 — Offensive System + Three-Man Weave",
+    date: "2026-10-05",
+    time: "18:30",
+    location: "Fritz-Zugck-Halle, Leimen",
+    category: "Offense",
+    duration: "25 min so far",
+    objective: "Open with the standard offensive system walk-through, then warm up with a progressively faster three-man weave.",
+    walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
+    warmup: "10 min three-man weave, increasing the intensity as it goes: start with 5 passes per trip down the floor, then speed up to 4 passes, and finish at full speed with 3 passes. Then 5 min individual stretching to close out the warm-up.",
+    drills: [],
+  },
 ];
 
 // Full-season league fixture list, finalized (as of 15.09.2026) and sourced
