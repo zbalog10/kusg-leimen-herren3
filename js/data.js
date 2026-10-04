@@ -337,7 +337,7 @@ const TRAINING_PLANS = [
     location: "Fritz-Zugck-Halle, Leimen",
     category: "Offense",
     duration: "90 min",
-    objective: "Open with the standard offensive system walk-through, then warm up with a progressively faster three-man weave, followed by a no-dribble passing drill against three circle defenders, a seven-spot team shooting game, a 3-on-3 defensive rotation drill and a live 5-on-5 game that restricts the offense to the set plays at game speed.",
+    objective: "Open with the standard offensive system walk-through, then warm up with a progressively faster three-man weave, followed by a no-dribble passing drill against three circle defenders, a seven-spot team shooting game, a 3-on-3 defensive rotation drill and a live 5-on-5 game that restricts the offense to the set plays at game speed, and a free 5-on-5 to finish.",
     walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
     warmup: "10 min three-man weave, increasing the intensity as it goes: start with 5 passes per trip down the floor, then speed up to 4 passes, and finish at full speed with 3 passes. The ball must never touch the floor during the whole drill — not even when it comes out of the net. Then 5 min individual stretching to close out the warm-up.",
     drills: [
@@ -361,8 +361,13 @@ const TRAINING_PLANS = [
       },
       {
         name: "Live 5-on-5 — Set Plays at Game Speed",
-        time: "25 min",
+        time: "15 min",
         desc: "Strict restriction: the offense may only score out of the team's set plays, run at full game speed. The coach (or the point guard) calls the play on every possession and the team runs it with proper spacing, timing and cuts against live defense — no freelancing, no off-the-dribble improvisation until the play has been run. If the play breaks down, reset and call the next one. Rotate the plays so every set gets repeated, and swap offense and defense regularly.",
+      },
+      {
+        name: "Free 5-on-5",
+        time: "10 min",
+        desc: "Completely free play to finish the session — no restrictions, no set plays required. Just play and have fun.",
       },
     ],
   },
