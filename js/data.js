@@ -336,11 +336,18 @@ const TRAINING_PLANS = [
     time: "18:30",
     location: "Fritz-Zugck-Halle, Leimen",
     category: "Offense",
-    duration: "25 min so far",
-    objective: "Open with the standard offensive system walk-through, then warm up with a progressively faster three-man weave.",
+    duration: "35 min so far",
+    objective: "Open with the standard offensive system walk-through, then warm up with a progressively faster three-man weave, followed by a no-dribble passing drill against three circle defenders.",
     walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
     warmup: "10 min three-man weave, increasing the intensity as it goes: start with 5 passes per trip down the floor, then speed up to 4 passes, and finish at full speed with 3 passes. The ball must never touch the floor during the whole drill — not even when it comes out of the net. Then 5 min individual stretching to close out the warm-up.",
-    drills: [],
+    drills: [
+      {
+        name: "Three-Circle Passing",
+        time: "10 min",
+        drillRef: "circle-passing",
+        desc: "Three defenders, one in each free-throw circle and one in the center circle, can only move inside their own circle. Two offensive players start on the baseline and pass their way down the floor, finishing with a layup — no dribbling.",
+      },
+    ],
   },
 ];
 
@@ -1212,6 +1219,27 @@ const DRILLS = [
           ball: { x: 15, y: 5 },
         },
       },
+    ],
+  },
+  {
+    id: "circle-passing",
+    name: "Three-Circle Passing",
+    category: "Offense",
+    summary: "Full-court passing drill: two offensive players pass their way down the floor against three defenders who are locked inside the two free-throw circles and the center circle, finishing with a layup — no dribbling.",
+    objective: "Learn to move the ball past defenders with crisp passes, wide spacing, and well-timed cuts, without relying on the dribble.",
+    setup: "Three defenders, one standing in each of the two free-throw circles and one in the center circle. Two offensive players start on the baseline with a ball.",
+    steps: [
+      "The two offensive players move down the floor passing the ball back and forth — no dribbling at any point.",
+      "Defenders may only move inside their own circle. They can't chase the ball outside it.",
+      "The offense has to pass around or through each circle in turn: first the free-throw circle, then the center circle, then the far free-throw circle.",
+      "The pair finishes with a layup at the far basket without having dribbled.",
+      "The next pair starts as soon as the floor is clear, so the drill keeps running.",
+    ],
+    coachingPoints: [
+      "Spread wide to stretch each defender — a pass that has to travel far gives the defender in the circle less chance to reach it.",
+      "Pass ahead of the receiver and into space, so the catch happens on the move, not while standing still.",
+      "Catch with two hands and be ready to pass or finish immediately, since there's no dribble to bail you out.",
+      "Fake and use angles to open a passing lane before throwing it, rather than forcing a pass into a defender's reach.",
     ],
   },
 ];
