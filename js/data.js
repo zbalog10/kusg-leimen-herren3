@@ -339,7 +339,7 @@ const TRAINING_PLANS = [
     duration: "25 min so far",
     objective: "Open with the standard offensive system walk-through, then warm up with a progressively faster three-man weave.",
     walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
-    warmup: "10 min three-man weave, increasing the intensity as it goes: start with 5 passes per trip down the floor, then speed up to 4 passes, and finish at full speed with 3 passes. Then 5 min individual stretching to close out the warm-up.",
+    warmup: "10 min three-man weave, increasing the intensity as it goes: start with 5 passes per trip down the floor, then speed up to 4 passes, and finish at full speed with 3 passes. The ball must never touch the floor during the whole drill — not even when it comes out of the net. Then 5 min individual stretching to close out the warm-up.",
     drills: [],
   },
 ];
