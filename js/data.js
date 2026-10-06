@@ -381,7 +381,7 @@ const TRAINING_PLANS = [
     duration: "90 min",
     objective: "Open with the standard offensive system walk-through, then warm up with layups from both sides at increasing difficulty, work the 1-3-1 zone, sprint-shoot at full-court pace with a free-throw break, and close by running the set plays at game speed.",
     walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
-    warmup: "15 min layup series, finishing from both sides (right, then left) at three difficulty levels: basic layup, reverse layup, and around-the-waist layup. Same sequence on each side.",
+    warmup: "15 min layup series, finishing from both sides (right, then left) at three difficulty levels: basic layup, reverse layup, and around-the-waist layup. Same sequence on each side. Then 5 min individual stretching to close out the warm-up.",
     drills: [
       {
         name: "1-3-1 Zone Drill",
@@ -403,7 +403,7 @@ const TRAINING_PLANS = [
       },
       {
         name: "Set Plays at Game Speed",
-        time: "20 min",
+        time: "15 min",
         desc: "5-on-5 against live defense, running the team's set plays at full game speed. The play is called every possession and the offense runs it with proper spacing, timing and cuts. Rotate the plays so every set gets repeated, and swap offense and defense regularly.",
       },
     ],
