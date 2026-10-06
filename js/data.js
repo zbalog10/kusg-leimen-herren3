@@ -371,6 +371,43 @@ const TRAINING_PLANS = [
       },
     ],
   },
+  {
+    id: "week6-layups-131",
+    title: "Session 14 — Layup Warm-Up, 1-3-1 Zone + Set Plays",
+    date: "2026-10-07",
+    time: "18:30",
+    location: "Fritz-Zugck-Halle, Leimen",
+    category: "Offense",
+    duration: "90 min",
+    objective: "Open with the standard offensive system walk-through, then warm up with layups from both sides at increasing difficulty, work the 1-3-1 zone, sprint-shoot at full-court pace with a free-throw break, and close by running the set plays at game speed.",
+    walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
+    warmup: "15 min layup series, finishing from both sides (right, then left) at three difficulty levels: basic layup, reverse layup, and around-the-waist layup. Same sequence on each side.",
+    drills: [
+      {
+        name: "1-3-1 Zone Drill",
+        time: "20 min",
+        drillRef: "1-3-1-zone-drill",
+        desc: "The 20-minute 1-3-1 progression: team-shift walk-through, wing trap, corner trap, and a guided live 5-on-5 — see the full drill breakdown for the stages and coaching points.",
+      },
+      {
+        name: "Full-Court Sprint Shooting",
+        time: "15 min",
+        drillRef: "full-court-sprint-shooting",
+        desc: "Two lines at opposite baseline corners. Sprint diagonally to the far free-throw line, catch a timed pass in stride, and shoot immediately. Collect your own rebound and join the line at that end; the passer becomes the next sprinter. Continuous running at game pace.",
+      },
+      {
+        name: "5×2 Free Throw Challenge",
+        time: "10 min",
+        drillRef: "five-by-two-free-throws",
+        desc: "Split into two groups, one at each basket, shooting at the same time — within each group, players rotate 2 free throws each until everyone has taken 5 trips (10 attempts each). Anyone with fewer than 5 makes runs a suicide.",
+      },
+      {
+        name: "Set Plays at Game Speed",
+        time: "20 min",
+        desc: "5-on-5 against live defense, running the team's set plays at full game speed. The play is called every possession and the offense runs it with proper spacing, timing and cuts. Rotate the plays so every set gets repeated, and swap offense and defense regularly.",
+      },
+    ],
+  },
 ];
 
 // Full-season league fixture list, finalized (as of 15.09.2026) and sourced
