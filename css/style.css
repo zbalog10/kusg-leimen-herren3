@@ -128,7 +128,8 @@ footer {
 .hero p { color: var(--text-muted); max-width: 60ch; margin: 0; }
 
 .team-photo {
-  margin: 0 0 2rem;
+  max-width: 720px;
+  margin: 0 auto 2rem;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
@@ -138,9 +139,6 @@ footer {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 620px;
-  object-fit: cover;
-  object-position: center 75%;
 }
 
 .card-grid {
