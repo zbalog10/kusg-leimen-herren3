@@ -127,6 +127,22 @@ footer {
 .hero h1 { font-size: 2rem; margin: 0 0 0.5rem; }
 .hero p { color: var(--text-muted); max-width: 60ch; margin: 0; }
 
+.team-photo {
+  margin: 0 0 2rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-elevated);
+}
+.team-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 620px;
+  object-fit: cover;
+  object-position: center 75%;
+}
+
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
