@@ -692,6 +692,43 @@ const SET_PLAYS = [
     ],
   },
   {
+    id: "wave-vs-zone",
+    name: "Wave (vs. 2-3 Zone)",
+    category: "Zone Offense",
+    description: "Set play against the 2-3 zone, built from a 1-2-2 alignment with the point guard at the top, a wing on each side and both post players on the low blocks. Only the initial set is diagrammed so far — the continuation will be added next.",
+    keyPoints: [
+      "1 is the point guard and has the ball, in the middle just outside the three-point line.",
+      "2 and 3 are the wings, one on each side at roughly 45° off the basket-to-basket line, outside the three-point line.",
+      "4 and 5 occupy the low posts, one on each block.",
+    ],
+    diagram: {
+      players: [
+          { id: "1", label: "1", x: 50, y: 64 },
+          { id: "2", label: "2", x: 16, y: 48 },
+          { id: "3", label: "3", x: 84, y: 48 },
+          { id: "4", label: "4", x: 37, y: 17 },
+          { id: "5", label: "5", x: 63, y: 17 },
+        ],
+      actions: [],
+      ball: { x: 50, y: 64 },
+    },
+    steps: [
+      {
+        title: "Initial Alignment",
+        narrative: "1 is the point guard with the ball, in the middle just outside the three-point line. 2 and 3 are the wings on each side at 45° off the basket-to-basket line, outside the three-point line. 4 and 5 occupy the low posts.",
+        players: [
+          { id: "1", label: "1", x: 50, y: 64 },
+          { id: "2", label: "2", x: 16, y: 48 },
+          { id: "3", label: "3", x: 84, y: 48 },
+          { id: "4", label: "4", x: 37, y: 17 },
+          { id: "5", label: "5", x: 63, y: 17 },
+        ],
+        actions: [],
+        ball: { x: 50, y: 64 },
+      },
+    ],
+  },
+  {
     id: "split-vs-man",
     name: "Split (vs. Man-to-Man)",
     category: "Man-to-Man Offense",

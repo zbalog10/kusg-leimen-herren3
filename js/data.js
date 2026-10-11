@@ -416,8 +416,8 @@ const TRAINING_PLANS = [
     location: "Fritz-Zugck-Halle, Leimen",
     category: "Offense",
     duration: "10 min so far",
-    objective: "Open with the standard offensive system walk-through, with special emphasis on Rot and Wave. The rest of the session is still to be planned.",
-    walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus, with special emphasis on Rot and Wave — extra reps on both, run at walking pace first and then at a slightly higher tempo, without defense. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. Full breakdown: <a class=\"btn-link\" href=\"play.html?id=rot-vs-zone\">Rot (vs. Zone) →</a>" },
+    objective: "Open with the standard offensive system walk-through, with special emphasis on Rot and Wave (both against the 2-3 zone). The rest of the session is still to be planned.",
+    walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus, with special emphasis on Rot and Wave — extra reps on both, run at walking pace first and then at a slightly higher tempo, without defense. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. Full breakdowns: <a class=\"btn-link\" href=\"play.html?id=rot-vs-zone\">Rot (vs. Zone) →</a> <a class=\"btn-link\" href=\"play.html?id=wave-vs-zone\">Wave (vs. 2-3 Zone) →</a>" },
     drills: [],
   },
 ];
