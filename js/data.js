@@ -408,6 +408,18 @@ const TRAINING_PLANS = [
       },
     ],
   },
+  {
+    id: "week7-rot-wave",
+    title: "Session 15 — Rot + Wave Emphasis",
+    date: "2026-10-12",
+    time: "18:30",
+    location: "Fritz-Zugck-Halle, Leimen",
+    category: "Offense",
+    duration: "10 min so far",
+    objective: "Open with the standard offensive system walk-through, with special emphasis on Rot and Wave. The rest of the session is still to be planned.",
+    walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus, with special emphasis on Rot and Wave — extra reps on both, run at walking pace first and then at a slightly higher tempo, without defense. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. Full breakdown: <a class=\"btn-link\" href=\"play.html?id=rot-vs-zone\">Rot (vs. Zone) →</a>" },
+    drills: [],
+  },
 ];
 
 // Full-season league fixture list, finalized (as of 15.09.2026) and sourced

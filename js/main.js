@@ -33,8 +33,7 @@ function renderTrainingPlans(filter = "All") {
             ? `<h4>${p.walkthrough.name}${p.walkthrough.time ? ` — ${p.walkthrough.time}` : ""}</h4><p>${p.walkthrough.desc}</p>`
             : ""
         }
-        <h4>Warm-up</h4>
-        <p>${p.warmup}</p>
+        ${p.warmup ? `<h4>Warm-up</h4><p>${p.warmup}</p>` : ""}
         ${
           p.drills && p.drills.length
             ? `
