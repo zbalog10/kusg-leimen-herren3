@@ -695,7 +695,7 @@ const SET_PLAYS = [
     id: "wave-vs-zone",
     name: "Wave (vs. 2-3 Zone)",
     category: "Zone Offense",
-    description: "Set play against the 2-3 zone from a 1-2-2 alignment: 1 passes to a wing, who passes right back and becomes the runner — running the baseline through picks from both post players to the opposite corner while the ball swings to the other wing and into the corner. The posts then rotate: one flashes high and drops to the low block, the other slides through the baseline to the other side.",
+    description: "Set play against the 2-3 zone from a 1-2-2 alignment: 1 passes to a wing, who passes right back and becomes the runner — running the baseline through picks from both post players to the opposite corner while the ball swings to the other wing and into the corner. The posts then rotate: one flashes high and drops to the low block, the other slides through the baseline to the other side. If there is still no scoring opportunity, the whole pattern reverses back the other way with the ball swung through the top.",
     keyPoints: [
       "1 is the point guard with the ball in the middle outside the three-point line; 2 and 3 are the wings at 45° outside the three-point line; 4 and 5 are on the low blocks.",
       "1 starts the play by passing to 2 or 3 — whoever gets the ball becomes the runner (described here with 2 as the runner).",
@@ -703,6 +703,9 @@ const SET_PLAYS = [
       "2 continues from the low post along the baseline through the picks from 4 and 5 and finishes in the opposite corner, spotting up for a shot.",
       "Meanwhile, 1 passes to 3, and 3 passes to the arriving 2 in the corner.",
       "After setting the pick, 4 cuts to the high post, and 5 cuts through the baseline to the other side to make room for 4, who then drops to the low post.",
+      "If the defense rotates perfectly and there is no scoring opportunity, 2 passes back to 3 and cuts through the baseline to the opposite corner using the picks from 4 and 5 again.",
+      "At the same time, 3 dribbles to 1's spot at the top and 1 slides down to 2's initial position on the wing; 3 passes to 1, who passes to 2 in the corner.",
+      "Post movement is the same as before: after the pick, 4 cuts to the high post and 5 slides to the opposite block to make room for 4, who drops to the low post. The pattern can then repeat.",
     ],
     diagram: {
       players: [
@@ -819,6 +822,59 @@ const SET_PLAYS = [
           { type: "cut", path: [{ x: 50, y: 40 }, { x: 63, y: 17 }] },
         ],
         ball: { x: 90, y: 8 },
+      },
+      {
+        title: "Reversal & Run the Other Way",
+        narrative: "If the defense rotates perfectly and there is no scoring opportunity, 2 passes the ball back to 3 and cuts along the baseline through the picks from 4 and 5 again, this time to the opposite corner. At the same time, 3 dribbles to 1's spot at the top while 1 slides down to 2's initial position on the wing.",
+        players: [
+          { id: "1", label: "1", x: 16, y: 48 },
+          { id: "2", label: "2", x: 10, y: 8 },
+          { id: "3", label: "3", x: 50, y: 64 },
+          { id: "4", label: "4", x: 63, y: 17 },
+          { id: "5", label: "5", x: 37, y: 17 },
+        ],
+        actions: [
+          { type: "pass", from: { x: 90, y: 8 }, to: { x: 84, y: 48 }, beat: 0 },
+          { type: "cut", path: [{ x: 90, y: 8 }, { x: 70, y: 6 }, { x: 40, y: 6 }, { x: 10, y: 8 }], beat: 0 },
+          { type: "move", path: [{ x: 84, y: 48 }, { x: 50, y: 64 }], beat: 1 },
+          { type: "move", path: [{ x: 50, y: 64 }, { x: 16, y: 48 }], beat: 1 },
+          { type: "screen", at: { x: 63, y: 12 }, angle: 90 },
+          { type: "screen", at: { x: 37, y: 12 }, angle: 90 },
+        ],
+        ball: { x: 50, y: 64 },
+      },
+      {
+        title: "Swing to the Corner & Post Movement",
+        narrative: "3 passes to 1 on the wing, and 1 passes to the arriving 2 in the corner. The post movement is the same as before: after the pick, 4 cuts to the high post, and 5 slides across the baseline to the opposite block to make room for 4.",
+        players: [
+          { id: "1", label: "1", x: 16, y: 48 },
+          { id: "2", label: "2", x: 10, y: 8 },
+          { id: "3", label: "3", x: 50, y: 64 },
+          { id: "4", label: "4", x: 50, y: 40 },
+          { id: "5", label: "5", x: 63, y: 17 },
+        ],
+        actions: [
+          { type: "pass", from: { x: 50, y: 64 }, to: { x: 16, y: 48 }, beat: 0 },
+          { type: "pass", from: { x: 16, y: 48 }, to: { x: 10, y: 8 }, beat: 1 },
+          { type: "cut", path: [{ x: 63, y: 17 }, { x: 50, y: 40 }], beat: 0 },
+          { type: "cut", path: [{ x: 37, y: 17 }, { x: 50, y: 7 }, { x: 63, y: 17 }], beat: 0 },
+        ],
+        ball: { x: 10, y: 8 },
+      },
+      {
+        title: "4 Drops to the Low Post Again",
+        narrative: "4 cuts from the high post down to the low post on the ball side, in the space 5 cleared. The shape is now the mirror image of where the play first finished, with 2 in the corner with the ball, 1 on the wing and 3 at the top, so the pattern can repeat.",
+        players: [
+          { id: "1", label: "1", x: 16, y: 48 },
+          { id: "2", label: "2", x: 10, y: 8 },
+          { id: "3", label: "3", x: 50, y: 64 },
+          { id: "4", label: "4", x: 37, y: 17 },
+          { id: "5", label: "5", x: 63, y: 17 },
+        ],
+        actions: [
+          { type: "cut", path: [{ x: 50, y: 40 }, { x: 37, y: 17 }] },
+        ],
+        ball: { x: 10, y: 8 },
       },
     ],
   },
