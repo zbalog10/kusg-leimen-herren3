@@ -1399,7 +1399,7 @@ const DRILLS = [
       "B throws the ball against the backboard and gets his own rebound. At the same time, A starts running up the court along the sideline.",
       "B may take one or two dribbles to advance the ball up the court, then throws a long pass to A, who receives it on the run.",
       "A finishes with a layup at the opposite basket — no dribbling on the layup.",
-      "B runs after A. He goes around the first cone from the opposite side (the left, away from A), then between the second cone and the sideline, and runs back toward the basket where he started.",
+      "B runs after A. He goes around the first cone from the right, then between the second cone and the sideline, and runs back toward the basket where he started.",
       "In the meantime, A gets his own rebound and — with one or two dribbles at most to advance the ball — throws a long pass to B.",
       "B receives the pass on the run and finishes with a layup, again without dribbling.",
       "As soon as one pair has finished, the next pair starts. After finishing, the one who started with the ball (B) goes to the group at the sideline, and the one who started at the sideline (A) goes to the group under the basket.",
@@ -1442,7 +1442,7 @@ const DRILLS = [
           actions: [
             { type: "pass", from: { x: 50, y: 22 }, to: { x: 88, y: 150 } },
             { type: "cut", path: [{ x: 95, y: 41.4 }, { x: 92, y: 95 }, { x: 88, y: 150 }, { x: 58, y: 186 }] },
-            { type: "move", path: [{ x: 50, y: 22 }, { x: 42, y: 110 }, { x: 42, y: 142 }, { x: 50, y: 149 }, { x: 58, y: 142 }, { x: 26, y: 112 }, { x: 3.3, y: 100 }, { x: 10, y: 90 }, { x: 38, y: 48 }, { x: 44, y: 16 }] },
+            { type: "move", path: [{ x: 50, y: 22 }, { x: 58, y: 110 }, { x: 58, y: 142 }, { x: 50, y: 149 }, { x: 42, y: 142 }, { x: 26, y: 112 }, { x: 3.3, y: 100 }, { x: 10, y: 90 }, { x: 38, y: 48 }, { x: 44, y: 16 }] },
             { type: "pass", from: { x: 52, y: 176 }, to: { x: 38, y: 48 } },
           ],
           cones: [{ x: 50, y: 140.5 }, { x: 6.7, y: 100 }],
@@ -1480,11 +1480,11 @@ const DRILLS = [
       },
       {
         title: "Layup & Chase",
-        narrative: "A catches and finishes with a layup at the opposite basket, no dribbling. B runs after him and around the first cone from the opposite side.",
+        narrative: "A catches and finishes with a layup at the opposite basket, no dribbling. B runs after him and around the first cone from the right.",
         fullCourt: true,
         cones: [{ x: 50, y: 140.5 }, { x: 6.7, y: 100 }],
-        players: [{ id: "a", label: "A", team: "offense", x: 58, y: 186 }, { id: "b", label: "B", team: "offense", x: 58, y: 142 }],
-        actions: [{ type: "cut", path: [{ x: 88, y: 150 }, { x: 58, y: 186 }], beat: 0 }, { type: "cut", path: [{ x: 50, y: 22 }, { x: 42, y: 110 }, { x: 42, y: 142 }, { x: 50, y: 149 }, { x: 58, y: 142 }], beat: 0 }],
+        players: [{ id: "a", label: "A", team: "offense", x: 58, y: 186 }, { id: "b", label: "B", team: "offense", x: 42, y: 142 }],
+        actions: [{ type: "cut", path: [{ x: 88, y: 150 }, { x: 58, y: 186 }], beat: 0 }, { type: "cut", path: [{ x: 50, y: 22 }, { x: 58, y: 110 }, { x: 58, y: 142 }, { x: 50, y: 149 }, { x: 42, y: 142 }], beat: 0 }],
         ball: { x: 56, y: 186 },
       },
       {
@@ -1493,7 +1493,7 @@ const DRILLS = [
         fullCourt: true,
         cones: [{ x: 50, y: 140.5 }, { x: 6.7, y: 100 }],
         players: [{ id: "a", label: "A", team: "offense", x: 52, y: 176 }, { id: "b", label: "B", team: "offense", x: 10, y: 90 }],
-        actions: [{ type: "cut", path: [{ x: 58, y: 186 }, { x: 52, y: 176 }], beat: 0 }, { type: "cut", path: [{ x: 58, y: 142 }, { x: 26, y: 112 }, { x: 3.3, y: 100 }, { x: 10, y: 90 }], beat: 0 }],
+        actions: [{ type: "cut", path: [{ x: 58, y: 186 }, { x: 52, y: 176 }], beat: 0 }, { type: "cut", path: [{ x: 42, y: 142 }, { x: 26, y: 112 }, { x: 3.3, y: 100 }, { x: 10, y: 90 }], beat: 0 }],
         ball: { x: 52, y: 176 },
       },
       {
