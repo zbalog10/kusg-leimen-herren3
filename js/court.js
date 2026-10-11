@@ -1,4 +1,4 @@
-// Renders a half-court diagram from a play's `diagram` data.
+// Renders a half-court (or, with `fullCourt: true`, a full-court) diagram from a `diagram` object.
 // Coordinate system: x 0-100 (sideline to sideline), y 0-100 (baseline/hoop at y=0, half-court line at y=100).
 
 const COURT_NS = "http://www.w3.org/2000/svg";
@@ -22,7 +22,10 @@ function m(meters) { return meters * PX_PER_M; } // meters -> px, for radii
 
 // x: 0-100 = sideline to sideline (15m). y: 0-100 = baseline(0) to half-court line(100), over 14m.
 function mapX(x) { return (x / 100) * COURT_W_PX; }
-function mapY(y) { return COURT_H_PX - (y / 100) * COURT_H_PX; }
+// COURT_HALVES is 2 only while rendering a diagram with `fullCourt: true`
+// (y then runs 0-200, the far half being the mirror image of the near one).
+let COURT_HALVES = 1;
+function mapY(y) { return COURT_H_PX * COURT_HALVES - (y / 100) * COURT_H_PX; }
 
 // FIBA landmarks expressed as % of the half-court's own axis, so they can
 // be dropped straight into mapX/mapY and into play diagrams.
@@ -35,13 +38,20 @@ const THREE_PT_CORNER_X = (0.9 / COURT_WIDTH_M) * 100; // ~6
 const THREE_PT_TRANSITION_Y = 21.4; // where the straight 3pt line meets the arc
 
 function drawCourtLines(svg) {
-  const line = (x1, y1, x2, y2, extra = {}) =>
-    svg.appendChild(svgEl("line", { x1: mapX(x1), y1: mapY(y1), x2: mapX(x2), y2: mapY(y2), stroke: "#48603f", "stroke-width": 1.5, ...extra }));
-  const arcPath = (d, extra = {}) => svg.appendChild(svgEl("path", { d, fill: "none", stroke: "#48603f", "stroke-width": 1.5, ...extra }));
+  // Court boundary: sidelines, baseline(s), half-court line.
+  const top = 100 * COURT_HALVES;
+  svg.appendChild(svgEl("rect", { x: mapX(0), y: mapY(top), width: mapX(100) - mapX(0), height: mapY(0) - mapY(top), fill: "none", stroke: "#48603f", "stroke-width": 2 }));
+  svg.appendChild(svgEl("line", { x1: mapX(0), y1: mapY(100), x2: mapX(100), y2: mapY(100), stroke: "#48603f", "stroke-width": 1.5 }));
+  drawHalfCourtLines(svg, false);
+  if (COURT_HALVES === 2) drawHalfCourtLines(svg, true);
+}
 
-  // Court boundary: sidelines, baseline, half-court line.
-  svg.appendChild(svgEl("rect", { x: mapX(0), y: mapY(100), width: mapX(100) - mapX(0), height: mapY(0) - mapY(100), fill: "none", stroke: "#48603f", "stroke-width": 2 }));
-  line(0, 100, 100, 100);
+function drawHalfCourtLines(svg, mirror) {
+  const Y = (y) => (mirror ? 200 - y : y);
+  const sweep = mirror ? 0 : 1;
+  const line = (x1, y1, x2, y2, extra = {}) =>
+    svg.appendChild(svgEl("line", { x1: mapX(x1), y1: mapY(Y(y1)), x2: mapX(x2), y2: mapY(Y(y2)), stroke: "#48603f", "stroke-width": 1.5, ...extra }));
+  const arcPath = (d, extra = {}) => svg.appendChild(svgEl("path", { d, fill: "none", stroke: "#48603f", "stroke-width": 1.5, ...extra }));
 
   // Key / paint (4.9m wide, free-throw line 5.8m from the baseline)
   line(KEY_LEFT_X, 0, KEY_LEFT_X, FT_LINE_Y);
@@ -49,7 +59,7 @@ function drawCourtLines(svg) {
   line(KEY_LEFT_X, FT_LINE_Y, KEY_RIGHT_X, FT_LINE_Y);
 
   // Free-throw circle (1.8m radius)
-  svg.appendChild(svgEl("circle", { cx: mapX(50), cy: mapY(FT_LINE_Y), r: m(1.8), fill: "none", stroke: "#48603f", "stroke-width": 1.5, "stroke-dasharray": "4 3" }));
+  svg.appendChild(svgEl("circle", { cx: mapX(50), cy: mapY(Y(FT_LINE_Y)), r: m(1.8), fill: "none", stroke: "#48603f", "stroke-width": 1.5, "stroke-dasharray": "4 3" }));
 
   // Restricted (no-charge) area: a true semicircle centered on the rim's
   // floor projection (1.575m from the baseline), 1.25m radius, connected to
@@ -63,17 +73,17 @@ function drawCourtLines(svg) {
   const raRightX = 50 + raXOffset;
   line(raLeftX, 0, raLeftX, RIM_Y);
   line(raRightX, 0, raRightX, RIM_Y);
-  arcPath(`M ${mapX(raLeftX)} ${mapY(RIM_Y)} A ${raR} ${raR} 0 0 1 ${mapX(raRightX)} ${mapY(RIM_Y)}`);
+  arcPath(`M ${mapX(raLeftX)} ${mapY(Y(RIM_Y))} A ${raR} ${raR} 0 0 ${sweep} ${mapX(raRightX)} ${mapY(Y(RIM_Y))}`);
 
   // Backboard (1.2m from baseline) + rim (center 1.575m from baseline)
   line(47, BACKBOARD_Y, 53, BACKBOARD_Y, { "stroke-width": 2.2 });
-  svg.appendChild(svgEl("circle", { cx: mapX(50), cy: mapY(RIM_Y), r: m(0.225), fill: "none", stroke: "#e0663f", "stroke-width": 1.6 }));
+  svg.appendChild(svgEl("circle", { cx: mapX(50), cy: mapY(Y(RIM_Y)), r: m(0.225), fill: "none", stroke: "#e0663f", "stroke-width": 1.6 }));
 
   // Three-point line: straight sections (0.9m from the sideline) then a 6.75m-radius arc
   line(THREE_PT_CORNER_X, 0, THREE_PT_CORNER_X, THREE_PT_TRANSITION_Y);
   line(100 - THREE_PT_CORNER_X, 0, 100 - THREE_PT_CORNER_X, THREE_PT_TRANSITION_Y);
   const tpR = m(6.75);
-  arcPath(`M ${mapX(THREE_PT_CORNER_X)} ${mapY(THREE_PT_TRANSITION_Y)} A ${tpR} ${tpR} 0 0 1 ${mapX(100 - THREE_PT_CORNER_X)} ${mapY(THREE_PT_TRANSITION_Y)}`);
+  arcPath(`M ${mapX(THREE_PT_CORNER_X)} ${mapY(Y(THREE_PT_TRANSITION_Y))} A ${tpR} ${tpR} 0 0 ${sweep} ${mapX(100 - THREE_PT_CORNER_X)} ${mapY(Y(THREE_PT_TRANSITION_Y))}`);
 }
 
 function drawArrow(svg, points, { dashed = false, color = "#4ade80" } = {}) {
@@ -118,6 +128,14 @@ function drawPlayer(svg, p) {
   }
 }
 
+function drawCone(svg, at) {
+  const cx = mapX(at.x), cy = mapY(at.y);
+  svg.appendChild(svgEl("polygon", {
+    points: `${cx},${cy - 8} ${cx - 7},${cy + 6} ${cx + 7},${cy + 6}`,
+    fill: "#fb923c", stroke: "#0a0d0a", "stroke-width": 1.5, "stroke-linejoin": "round",
+  }));
+}
+
 function drawBall(svg, at) {
   const cx = mapX(at.x), cy = mapY(at.y);
   svg.appendChild(svgEl("circle", { cx, cy, r: 6, fill: "#e0663f", stroke: "#0a0d0a", "stroke-width": 1.5 }));
@@ -145,11 +163,13 @@ function ensureArrowMarker(svg) {
 const OOB_MARGIN = 26;
 
 function renderCourt(container, diagram) {
+  COURT_HALVES = diagram.fullCourt ? 2 : 1;
   const svg = svgEl("svg", {
     width: "100%",
-    viewBox: `${-OOB_MARGIN} ${-OOB_MARGIN} ${COURT_W_PX + 2 * OOB_MARGIN} ${COURT_H_PX + 2 * OOB_MARGIN}`,
+    viewBox: `${-OOB_MARGIN} ${-OOB_MARGIN} ${COURT_W_PX + 2 * OOB_MARGIN} ${COURT_H_PX * COURT_HALVES + 2 * OOB_MARGIN}`,
   });
   svg.style.display = "block";
+  if (diagram.fullCourt) { svg.style.maxWidth = "340px"; svg.style.margin = "0 auto"; }
 
   ensureArrowMarker(svg);
   drawCourtLines(svg);
@@ -165,6 +185,7 @@ function renderCourt(container, diagram) {
     }
   }
 
+  for (const c of diagram.cones || []) drawCone(svg, c);
   for (const p of diagram.players || []) drawPlayer(svg, p);
   if (diagram.ball) drawBall(svg, diagram.ball);
 

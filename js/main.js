@@ -629,7 +629,8 @@ function renderDrillDetail() {
       <span><span class="swatch dot offense"></span>offense</span>
       <span><span class="swatch dot defense"></span>defense</span>
       <span><span class="swatch cut"></span>cut / move</span>
-      <span><span class="swatch pass"></span>pass</span>
+      <span><span class="swatch pass"></span>pass</span>${drill.diagrams.some((dg) => dg.diagram.cones && dg.diagram.cones.length) ? `
+      <span><span class="swatch cone"></span>cone</span>` : ""}
     </div>`
         : ""
     }
@@ -647,10 +648,18 @@ function renderDrillDetail() {
     }
 
     <h2 class="section-heading">How It's Run</h2>
-    <ul class="rules-list">${(drill.steps || []).map((s) => `<li>${s}</li>`).join("")}</ul>
+    ${
+      drill.steps && drill.steps.length
+        ? `<ul class="rules-list">${drill.steps.map((s) => `<li>${s}</li>`).join("")}</ul>`
+        : `<p class="prose">Instructions to be added.</p>`
+    }
 
-    <h2 class="section-heading">Coaching Points</h2>
-    <ul class="rules-list">${(drill.coachingPoints || []).map((c) => `<li>${c}</li>`).join("")}</ul>
+    ${
+      drill.coachingPoints && drill.coachingPoints.length
+        ? `<h2 class="section-heading">Coaching Points</h2>
+    <ul class="rules-list">${drill.coachingPoints.map((c) => `<li>${c}</li>`).join("")}</ul>`
+        : ""
+    }
 
     ${
       drill.variations && drill.variations.length

@@ -415,11 +415,18 @@ const TRAINING_PLANS = [
     time: "18:30",
     location: "Fritz-Zugck-Halle, Leimen",
     category: "Offense",
-    duration: "30 min so far",
+    duration: "45 min so far",
     objective: "Open with the standard offensive system walk-through, with special emphasis on Rot and Wave (both against the 2-3 zone). The walk-through flows straight into the warm-up, running the plays at 50–60% intensity. The rest of the session is still to be planned.",
     walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus, with special emphasis on Rot and Wave — extra reps on both, run at walking pace first and then at a slightly higher tempo, without defense. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. Full breakdowns: <a class=\"btn-link\" href=\"play.html?id=rot-vs-zone\">Rot (vs. Zone) →</a> <a class=\"btn-link\" href=\"play.html?id=wave-vs-zone\">Wave (vs. 2-3 Zone) →</a>" },
     warmup: "15 min — the walk-through carries straight on into the warm-up: run the plays at 50–60% intensity, with the full spacing, timing and cuts but without going all out. Rot and Wave get the most reps. Then 5 min individual stretching to close out the warm-up. Full breakdowns: <a class=\"btn-link\" href=\"play.html?id=rot-vs-zone\">Rot (vs. Zone) →</a> <a class=\"btn-link\" href=\"play.html?id=wave-vs-zone\">Wave (vs. 2-3 Zone) →</a>",
-    drills: [],
+    drills: [
+      {
+        name: "Speed Layups",
+        time: "15 min",
+        drillRef: "speed-layups",
+        desc: "Full-court speed layup drill. Split the team in half: one group at the right sideline at free-throw-line height without a ball, the other in the paint with the ball, and two cones on the court — one in the middle at the opposite three-point line, one on the half-court line on the left side about 1 meter from the sideline. Instructions to follow.",
+      },
+    ],
   },
 ];
 
@@ -1377,6 +1384,31 @@ const DRILLS = [
             { type: "move", path: [{ x: 28, y: 46 }, { x: 66, y: 40 }] },
           ],
           ball: { x: 20, y: 46 },
+        },
+      },
+    ],
+  },
+  {
+    id: "speed-layups",
+    name: "Speed Layups",
+    category: "Offense",
+    summary: "Full-court speed layup drill: the team splits into two groups, one starting with the ball in the paint and one at the sideline without a ball, with two cones marking the route.",
+    objective: "Finish layups at full-court speed.",
+    setup: "Split the team in half. Group A starts at the sideline on the right side, at the height of the free-throw line, without a ball. Group B starts in the paint with the ball. Place two cones on the court: one in the middle at the three-point line of the opposite basket, and one on the half-court line on the left side, about 1 meter from the sideline.",
+    steps: [],
+    coachingPoints: [],
+    diagrams: [
+      {
+        title: "Setup (full court)",
+        diagram: {
+          fullCourt: true,
+          players: [
+            { id: "a", label: "A", team: "offense", x: 95, y: 41.4 },
+            { id: "b", label: "B", team: "offense", x: 50, y: 22 },
+          ],
+          actions: [],
+          cones: [{ x: 50, y: 140.5 }, { x: 6.7, y: 100 }],
+          ball: { x: 50, y: 22 },
         },
       },
     ],
