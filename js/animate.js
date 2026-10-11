@@ -81,13 +81,18 @@ function renderAnimatedPlayback(container, steps) {
 
   function drawStatic(i) {
     const step = steps[i];
+    // A step can set `fullCourt: true` (y 0-200) and `cones: [{x, y}]`, same
+    // as a static diagram — see renderCourt() in court.js.
+    COURT_HALVES = step.fullCourt ? 2 : 1;
     svg = svgEl("svg", {
       width: "100%",
-      viewBox: `${-OOB_MARGIN} ${-OOB_MARGIN} ${COURT_W_PX + 2 * OOB_MARGIN} ${COURT_H_PX + 2 * OOB_MARGIN}`,
+      viewBox: `${-OOB_MARGIN} ${-OOB_MARGIN} ${COURT_W_PX + 2 * OOB_MARGIN} ${COURT_H_PX * COURT_HALVES + 2 * OOB_MARGIN}`,
     });
     svg.style.display = "block";
+    if (step.fullCourt) { svg.style.maxWidth = "340px"; svg.style.margin = "0 auto"; }
     ensureArrowMarker(svg);
     drawCourtLines(svg);
+    for (const c of step.cones || []) drawCone(svg, c);
 
     for (const a of step.actions || []) {
       if (a.type === "cut" || a.type === "move") drawArrow(svg, a.path, { dashed: false, color: "#4ade80" });
