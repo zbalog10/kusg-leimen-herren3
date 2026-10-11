@@ -415,8 +415,8 @@ const TRAINING_PLANS = [
     time: "18:30",
     location: "Fritz-Zugck-Halle, Leimen",
     category: "Offense",
-    duration: "75 min so far",
-    objective: "Open with the standard offensive system walk-through, with special emphasis on Rot and Wave (both against the 2-3 zone). The walk-through flows straight into the warm-up, running the plays at 50–60% intensity. The rest of the session is still to be planned.",
+    duration: "90 min",
+    objective: "Open with the standard offensive system walk-through, with special emphasis on Rot and Wave (both against the 2-3 zone). The walk-through flows straight into the warm-up, running the plays at 50–60% intensity. After the plays warm-up it continues with a full-court speed layup drill, the 5×2 free throw challenge and a four-group transition game, and closes with free 5-on-5.",
     walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus, with special emphasis on Rot and Wave — extra reps on both, run at walking pace first and then at a slightly higher tempo, without defense. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. Full breakdowns: <a class=\"btn-link\" href=\"play.html?id=rot-vs-zone\">Rot (vs. Zone) →</a> <a class=\"btn-link\" href=\"play.html?id=wave-vs-zone\">Wave (vs. 2-3 Zone) →</a>" },
     warmup: "15 min — the walk-through carries straight on into the warm-up: run the plays at 50–60% intensity, with the full spacing, timing and cuts but without going all out. Rot and Wave get the most reps. Then 5 min individual stretching to close out the warm-up. Full breakdowns: <a class=\"btn-link\" href=\"play.html?id=rot-vs-zone\">Rot (vs. Zone) →</a> <a class=\"btn-link\" href=\"play.html?id=wave-vs-zone\">Wave (vs. 2-3 Zone) →</a>",
     drills: [
@@ -437,6 +437,11 @@ const TRAINING_PLANS = [
         time: "20 min",
         drillRef: "four-group-transition",
         desc: "Split the players into four groups, one behind each baseline and two on the court. The two on the court play live on one basket. After a score or a defensive rebound, the group on the baseline comes in and runs a transition game to the other basket against the attackers of the previous game, and the defense goes out. After a score or a defensive rebound at the other basket, the group on the other baseline replaces the defensive team and immediately runs a transition game.",
+      },
+      {
+        name: "Free 5-on-5",
+        time: "15 min",
+        desc: "Completely free play to finish the session — no restrictions, no set plays required. Just play and have fun.",
       },
     ],
   },
