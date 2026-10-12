@@ -445,6 +445,19 @@ const TRAINING_PLANS = [
       },
     ],
   },
+  {
+    id: "week7-kickout-both-sides",
+    title: "Session 16 — Penetration Kick-Out, Both Sides",
+    date: "2026-10-14",
+    time: "18:30",
+    location: "Fritz-Zugck-Halle, Leimen",
+    category: "Offense",
+    duration: "25 min so far",
+    objective: "Open with the standard offensive system walk-through, then warm up with the penetration kick-out drill run on both sides, closing the warm-up with stretching. The rest of the session is still to be planned.",
+    walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
+    warmup: "10 min Penetration Kick-Out — run the drill from the first side, then repeat it mirrored on the other side so everyone attacks and finishes from both sides. Then 5 min individual stretching to close out the warm-up. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=penetration-kickout\">Penetration Kick-Out →</a>",
+    drills: [],
+  },
 ];
 
 // Full-season league fixture list, finalized (as of 15.09.2026) and sourced
@@ -838,6 +851,10 @@ const DRILLS = [
       {
         name: "One More Pass: Kick Back to the Corner",
         desc: "Same start: 2 attacks and kicks out to 3, then fills the corner and spots up ready to shoot. 3 attacks and kicks out to 1, then cuts to the top of the key — same as the base drill. The difference is the ending: instead of 1 attacking the rim to finish, 1 drives and kicks back out to 2, who catches and shoots the jumper from the corner. One extra read at the end — drive, then find the shooter you already set up in the corner rather than forcing the finish yourself.",
+      },
+      {
+        name: "Other Side (Mirror Image)",
+        desc: "Run the whole drill again mirrored: 1 starts on the left wing, 2 on the right wing with the ball, and 3 in the right corner. Everything else — the attack, the kick-out, the second attack and the 45° finish — is the same as the base drill, just on the other side.",
       },
     ],
     animation: [
