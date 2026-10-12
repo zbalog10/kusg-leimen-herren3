@@ -452,11 +452,18 @@ const TRAINING_PLANS = [
     time: "18:30",
     location: "Fritz-Zugck-Halle, Leimen",
     category: "Offense",
-    duration: "25 min so far",
+    duration: "40 min so far",
     objective: "Open with the standard offensive system walk-through, then warm up with the penetration kick-out drill run on both sides, closing the warm-up with stretching. The rest of the session is still to be planned.",
     walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
     warmup: "10 min Penetration Kick-Out — run the drill from the first side, then repeat it mirrored on the other side so everyone attacks and finishes from both sides. Then 5 min individual stretching to close out the warm-up. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=penetration-kickout\">Penetration Kick-Out →</a>",
-    drills: [],
+    drills: [
+      {
+        name: "Zigzag 1-on-1 Defense",
+        time: "15 min",
+        drillRef: "zigzag-one-on-one",
+        desc: "Split the team into two groups in opposite corners of the court and work in pairs, one on offense and one on defense. The offensive player dribbles in a zigzag, two or three dribbles left and right, up to the half-court line; from there it's a free 1-on-1 where the offense must not cross the basket-to-basket line. After finishing, both go to the corner, change roles and come back on the other side.",
+      },
+    ],
   },
 ];
 
@@ -1623,6 +1630,21 @@ const DRILLS = [
         ball: { x: 50, y: 50 },
       },
     ],
+  },
+  {
+    id: "zigzag-one-on-one",
+    name: "Zigzag 1-on-1 Defense",
+    category: "Defense",
+    summary: "1-on-1 defensive drill in pairs: the offensive player dribbles in a zigzag up to the half-court line, then it turns into a free 1-on-1 where the offense may not cross the basket-to-basket line.",
+    objective: "Practice 1-on-1 defense — staying in front of a zigzagging ball handler and then guarding him in a free 1-on-1 on one side of the court.",
+    setup: "Split the team into two groups, standing in opposite corners of the court. The drill is done in pairs: one player on offense and one on defense.",
+    steps: [
+      "The offensive player dribbles the ball in a zigzag — two or three dribbles to the left, then two or three to the right — until he reaches the half-court line.",
+      "From the half-court line on, it's a free 1-on-1 game against the defender.",
+      "The only restriction: the offensive player must not cross the basket-to-basket line (the center line running down the middle of the court).",
+      "When the 1-on-1 is finished, both players go to the corner, change roles, and come back on the other side.",
+    ],
+    coachingPoints: [],
   },
 ];
 
