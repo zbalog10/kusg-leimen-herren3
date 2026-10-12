@@ -128,6 +128,14 @@ function drawPlayer(svg, p) {
   }
 }
 
+// Dashed guide line (e.g. the basket-to-basket line a drill must not cross).
+function drawGuideLine(svg, from, to) {
+  svg.appendChild(svgEl("line", {
+    x1: mapX(from.x), y1: mapY(from.y), x2: mapX(to.x), y2: mapY(to.y),
+    stroke: "#f59e0b", "stroke-width": 2, "stroke-dasharray": "7 5", "stroke-opacity": 0.85,
+  }));
+}
+
 function drawCone(svg, at) {
   const cx = mapX(at.x), cy = mapY(at.y);
   svg.appendChild(svgEl("polygon", {
@@ -182,12 +190,15 @@ function renderCourt(container, diagram) {
       drawArrow(svg, [action.from, action.to], { dashed: true, color: "#8a988a" });
     } else if (action.type === "screen") {
       drawScreen(svg, action.at, action.angle || 0);
+    } else if (action.type === "line") {
+      drawGuideLine(svg, action.from, action.to);
     }
   }
 
   for (const c of diagram.cones || []) drawCone(svg, c);
   for (const p of diagram.players || []) drawPlayer(svg, p);
   if (diagram.ball) drawBall(svg, diagram.ball);
+  for (const b of diagram.balls || []) drawBall(svg, b);
 
   container.innerHTML = "";
   container.appendChild(svg);

@@ -98,6 +98,7 @@ function renderAnimatedPlayback(container, steps) {
       if (a.type === "cut" || a.type === "move") drawArrow(svg, a.path, { dashed: false, color: "#4ade80" });
       else if (a.type === "pass") drawArrow(svg, [a.from, a.to], { dashed: true, color: "#8a988a" });
       else if (a.type === "screen") drawScreen(svg, a.at, a.angle || 0);
+      else if (a.type === "line") drawGuideLine(svg, a.from, a.to);
     }
 
     playerEls = {};
@@ -124,6 +125,7 @@ function renderAnimatedPlayback(container, steps) {
       playerEls[p.id] = { circle, text };
     }
     if (step.ball) drawBall(svg, step.ball);
+    for (const b of step.balls || []) drawBall(svg, b);
 
     courtEl.innerHTML = "";
     courtEl.appendChild(svg);
