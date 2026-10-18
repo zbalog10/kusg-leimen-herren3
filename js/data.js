@@ -497,7 +497,7 @@ const TRAINING_PLANS = [
     duration: "25 min so far",
     objective: "Open with the standard offensive system walk-through, then warm up with the new Banana Cut drill and close the warm-up with stretching. The rest of the session is still to be planned.",
     walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
-    warmup: "10 min Banana Cut — half-court passing, curved cuts and layup finish with four lines in the corners and on the half-court line: 1 passes to 2 and runs an arch toward 3's line, 2 runs an arch toward 4's line, 3 cuts to the basket for the layup and 4 rebounds and passes to the next player in line 1. Every player rotates to a new line. Then 5 min individual stretching to close out the warm-up. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=banana-cut\">Banana Cut →</a>",
+    warmup: "10 min Banana Cut — half-court passing, curved cuts and layup finish with four lines in the corners and on the half-court line: 1 passes to 2 and runs an arch toward 3's line, 2 runs an arch toward 4's line, 3 cuts to the basket for the layup and 4 rebounds and passes to the next player in line 1. Every player rotates to a new line. Keep going until the team makes 1.5× as many consecutive layups as there are players (a miss resets the streak), then run it in the other direction. Then 5 min individual stretching to close out the warm-up. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=banana-cut\">Banana Cut →</a>",
     drills: [],
   },
 ];
@@ -1752,7 +1752,7 @@ const DRILLS = [
     id: "banana-cut",
     name: "Banana Cut",
     category: "Offense",
-    summary: "Continuous half-court warm-up with four lines in the corners: passing, two curved \"banana\" cuts, and a layup finish, with every player rotating to a new line.",
+    summary: "Continuous half-court warm-up with four lines in the corners: passing, two curved \"banana\" cuts, and a layup finish, with every player rotating to a new line, run until the team makes 1.5× as many layups in a row as there are players.",
     objective: "Warm up passing, cutting in an arch and finishing at the basket in one continuous flow, with every player moving through each position.",
     setup: "The drill is run on one half of the court. Distribute the players over four positions: 1 in the corner on the right side of the court, 2 on the half-court line on the same side, 3 on the half-court line on the left side, and 4 in the left corner. Each position is a line of players, and 1 has the ball.",
     steps: [
@@ -1762,6 +1762,8 @@ const DRILLS = [
       "2 passes the ball to 4 and runs to the end of the line at position 4.",
       "At the same time, after passing to 2, 3 cuts to the basket, receives the ball from 4 and finishes with a layup. After the layup, 3 runs to the end of the line at position 2.",
       "4 gets the rebound, passes to position 1 and runs to the end of the line at position 1.",
+      "Keep the drill running until the team has made 1.5× as many consecutive layups as there are players — a miss resets the streak.",
+      "Then run it in the other direction (mirror image): 1 starts in the left corner, 2 and 3 swap sides, and 4 is in the right corner.",
     ],
     coachingPoints: [],
     diagrams: [
@@ -1771,6 +1773,19 @@ const DRILLS = [
           players: [{ id: "1", label: "1", team: "offense", x: 8, y: 6 }, { id: "2", label: "2", team: "offense", x: 8, y: 98 }, { id: "3", label: "3", team: "offense", x: 92, y: 98 }, { id: "4", label: "4", team: "offense", x: 92, y: 6 }],
           actions: [],
           ball: { x: 8, y: 6 },
+        },
+      },
+      {
+        title: "Setup — other direction (mirror image)",
+        diagram: {
+          players: [
+            { id: "1", label: "1", team: "offense", x: 92, y: 6 },
+            { id: "2", label: "2", team: "offense", x: 92, y: 98 },
+            { id: "3", label: "3", team: "offense", x: 8, y: 98 },
+            { id: "4", label: "4", team: "offense", x: 8, y: 6 },
+          ],
+          actions: [],
+          ball: { x: 92, y: 6 },
         },
       },
       {
