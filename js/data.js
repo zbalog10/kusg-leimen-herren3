@@ -494,11 +494,18 @@ const TRAINING_PLANS = [
     time: "18:30",
     location: "Fritz-Zugck-Halle, Leimen",
     category: "Offense",
-    duration: "30 min so far",
+    duration: "40 min so far",
     objective: "Open with the standard offensive system walk-through, then warm up with the new Banana Cut drill and close the warm-up with stretching. The rest of the session is still to be planned.",
     walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
     warmup: "15 min Banana Cut — half-court passing, curved cuts and layup finish with four lines in the corners and on the half-court line: 1 passes to 2 and runs an arch toward 3's line, 2 runs an arch toward 4's line, 3 cuts to the basket for the layup and 4 rebounds and passes to the next player in line 1. Every player rotates to a new line. Keep going until the team makes 1.5× as many consecutive layups as there are players (a miss resets the streak), then run it in the other direction. Then 5 min individual stretching to close out the warm-up. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=banana-cut\">Banana Cut →</a>",
-    drills: [],
+    drills: [
+      {
+        name: "5×2 Free Throw Challenge",
+        time: "10 min",
+        drillRef: "five-by-two-free-throws",
+        desc: "Split into two groups, one at each basket, shooting at the same time — within each group, players rotate 2 free throws each until everyone has taken 5 trips (10 attempts each). Anyone with fewer than 5 makes runs a suicide.",
+      },
+    ],
   },
 ];
 
