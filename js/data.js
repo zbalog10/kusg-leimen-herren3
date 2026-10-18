@@ -509,7 +509,7 @@ const TRAINING_PLANS = [
         name: "Two Hand-Off Shooting",
         time: "15 min",
         drillRef: "two-hand-off-shooting",
-        desc: "Three positions: 1 in the right corner, 2 at 45° on the three-point line with the ball, 3 on the low block on the left side. 2 dribbles toward the right corner and hands off to 1 as he lifts, while 3 goes to the high post. 1 passes to 3, runs after the pass and gets the ball back with a second hand-off, while 2 goes to the corner to spot up. 1 attacks the left side of the basket with one dribble and passes to 2 in the corner for a shot, and 3 goes for the rebound. Then rotate: 3 takes the ball to 2's original position, 1 goes to the low block, and 2 remains in the corner.",
+        desc: "Three positions: 1 in the right corner, 2 at 45° on the three-point line with the ball, 3 on the low block on the left side. 2 dribbles toward the right corner and hands off to 1 as he lifts, while 3 goes to the high post. 1 passes to 3, runs after the pass and gets the ball back with a second hand-off, while 2 goes to the corner to spot up. 1 attacks the left side of the basket with one dribble and passes to 2 in the corner for a shot, and 3 goes for the rebound. Then rotate: 3 takes the ball to 2's original position, 1 goes to the low block, and 2 remains in the corner. The drill goes on until each player has taken 10 shots.",
       },
     ],
   },
@@ -1880,6 +1880,7 @@ const DRILLS = [
       "After receiving the ball, 1 attacks the left side of the basket with one dribble and passes to 2 in the corner.",
       "2 shoots, and 3 goes for the rebound.",
       "Rotate: 3 takes the ball to the original position of 2, 1 goes to the low block, and 2 remains in the corner. Then the drill starts again from there.",
+      "The drill goes on until each player has taken 10 shots.",
     ],
     coachingPoints: [],
     diagrams: [
