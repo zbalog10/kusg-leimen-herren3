@@ -494,8 +494,8 @@ const TRAINING_PLANS = [
     time: "18:30",
     location: "Fritz-Zugck-Halle, Leimen",
     category: "Offense",
-    duration: "75 min so far",
-    objective: "Open with the standard offensive system walk-through, then warm up with the new Banana Cut drill and close the warm-up with stretching. The rest of the session is still to be planned.",
+    duration: "90 min",
+    objective: "Open with the standard offensive system walk-through, then warm up with the new Banana Cut drill and close the warm-up with stretching. After the warm-up it continues with the 5×2 free throw challenge, Two Hand-Off Shooting and the 3-on-3 Drive Reads drill, and closes with free 5-on-5 where the offense runs a set play whenever no fast break is possible.",
     walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
     warmup: "15 min Banana Cut — half-court passing, curved cuts and layup finish with four lines in the corners and on the half-court line: 1 passes to 2 and runs an arch toward 3's line, 2 runs an arch toward 4's line, 3 cuts to the basket for the layup and 4 rebounds and passes to the next player in line 1. Every player rotates to a new line. Keep going until the team makes 1.5× as many consecutive layups as there are players (a miss resets the streak), then run it in the other direction. Then 5 min individual stretching to close out the warm-up. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=banana-cut\">Banana Cut →</a>",
     drills: [
@@ -516,6 +516,11 @@ const TRAINING_PLANS = [
         time: "20 min",
         drillRef: "three-on-three-reads",
         desc: "Same alignment as the 3-on-3 Defensive Rotation drill, but the game starts with O1 behind D1, both facing the basket, with the ball touching D1's back — O1 starts the play by removing the ball. O1 chooses the middle (then O3 cuts through the baseline to the other side of the basket for a likely free layup, because D3 has to help) or the baseline side (then O2 cuts to the high post and O3 lifts to spot up at 45° as fast-break security). Free play follows until the offense scores or the defense gets the ball, then offense and defense switch. A foul resets the play. Rotate through all positions: one complete rotation is 6 possessions.",
+      },
+      {
+        name: "Free 5-on-5",
+        time: "15 min",
+        desc: "Free 5-on-5 play until the end of the training. If no fast break is possible, the offense runs one of the set plays.",
       },
     ],
   },
