@@ -531,11 +531,40 @@ const TRAINING_PLANS = [
     time: "18:30",
     location: "Fritz-Zugck-Halle, Leimen",
     category: "Offense",
-    duration: "25 min so far",
-    objective: "Open with the standard offensive system walk-through, then warm up with the penetration kick-out drill and close the warm-up with stretching. The rest of the session is still to be planned.",
+    duration: "90 min",
+    objective: "Open with the standard offensive system walk-through, then warm up with the penetration kick-out drill and close the warm-up with stretching. It continues with elbow shooting, free throw conditioning and the four-group transition game, and closes with 5-on-5 — the first game to 7 points without dribbling, then free play.",
     walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
     warmup: "10 min Penetration Kick-Out — a 3-spot dribble-penetration and kick-out drill cycling ball movement and finishes on both sides. Then 5 min individual stretching to close out the warm-up. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=penetration-kickout\">Penetration Kick-Out →</a>",
-    drills: [],
+    drills: [
+      {
+        name: "Elbow Shooting",
+        time: "10 min",
+        drillRef: "elbow-shooting",
+        desc: "Two lines at the baseline, one ball per line, offset by one player. Cutters run elbow-to-elbow, catch a pass in stride, shoot a mid-range jumper, rebound their own shot, and feed the opposite line — mirrored continuously on both sides. Score it +1 make / -1 miss as a team, running total, to a target of 10.",
+      },
+      {
+        name: "Free Throw Conditioning",
+        time: "15 min",
+        drillRef: "free-throw-conditioning",
+        desc: "Two groups, one per basket, queued from the baseline to the free-throw line. Each shooter takes 2 free throws, then sprints a baseline-to-baseline suicide once per miss (up to 3 for missing both) while the line keeps moving. 5 rounds, sprinting emphasized over jogging.",
+      },
+      {
+        name: "Four-Group Transition Game",
+        time: "20 min",
+        drillRef: "four-group-transition",
+        desc: "Split the players into four groups, one behind each baseline and two on the court. The two on the court play live on one basket. After a score or a defensive rebound, the group on the baseline comes in and runs a transition game to the other basket against the attackers of the previous game, and the defense goes out. After a score or a defensive rebound at the other basket, the group on the other baseline replaces the defensive team and immediately runs a transition game.",
+      },
+      {
+        name: "5-on-5 — First Game to 7, No Dribbling",
+        time: "~8 min",
+        desc: "The first 5-on-5 game is played to 7 points with no dribbling allowed — the ball moves by passing only.",
+      },
+      {
+        name: "Free 5-on-5",
+        time: "until the end (~12 min)",
+        desc: "Free 5-on-5 play for the rest of the training.",
+      },
+    ],
   },
 ];
 
