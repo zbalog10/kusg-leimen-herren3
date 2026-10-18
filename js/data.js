@@ -524,6 +524,19 @@ const TRAINING_PLANS = [
       },
     ],
   },
+  {
+    id: "week8-penetration-kickout",
+    title: "Session 18 — Penetration Kick-Out",
+    date: "2026-10-21",
+    time: "18:30",
+    location: "Fritz-Zugck-Halle, Leimen",
+    category: "Offense",
+    duration: "25 min so far",
+    objective: "Open with the standard offensive system walk-through, then warm up with the penetration kick-out drill and close the warm-up with stretching. The rest of the session is still to be planned.",
+    walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
+    warmup: "10 min Penetration Kick-Out — a 3-spot dribble-penetration and kick-out drill cycling ball movement and finishes on both sides. Then 5 min individual stretching to close out the warm-up. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=penetration-kickout\">Penetration Kick-Out →</a>",
+    drills: [],
+  },
 ];
 
 // Full-season league fixture list, finalized (as of 15.09.2026) and sourced
