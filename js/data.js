@@ -642,7 +642,7 @@ const TRAINING_PLANS = [
     duration: "90 min",
     objective: "Open with the standard offensive system walk-through, then warm up with Banana Cut and stretching. The main part is the 5×2 free throw challenge, the Run and Gun shooting drill and the 1-3-1 zone rotation drill, and the session closes with 5-on-5 that strictly practices the set plays.",
     walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
-    warmup: "15 min Banana Cut — half-court passing, curved cuts and layup finish with four lines in the corners and on the half-court line: 1 passes to 2 and runs an arch toward 3's line, 2 runs an arch toward 4's line, 3 cuts to the basket for the layup and 4 rebounds and passes to the next player in line 1. Every player rotates to a new line. Keep going until the team makes 1.5× as many consecutive layups as there are players (a miss resets the streak), then run it in the other direction. Then 5 min individual stretching to close out the warm-up. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=banana-cut\">Banana Cut →</a>",
+    warmup: "10 min Banana Cut — half-court passing, curved cuts and layup finish with four lines in the corners and on the half-court line: 1 passes to 2 and runs an arch toward 3's line, 2 runs an arch toward 4's line, 3 cuts to the basket for the layup and 4 rebounds and passes to the next player in line 1. Every player rotates to a new line. Keep going until the team makes 1.5× as many consecutive layups as there are players (a miss resets the streak), then run it in the other direction. Then 5 min individual stretching to close out the warm-up. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=banana-cut\">Banana Cut →</a>",
     drills: [
       {
         name: "5×2 Free Throw Challenge",
@@ -658,13 +658,13 @@ const TRAINING_PLANS = [
       },
       {
         name: "1-3-1 Zone Rotation",
-        time: "20 min",
+        time: "15 min",
         drillRef: "1-3-1-zone-drill",
-        desc: "The 20-minute 1-3-1 progression: team-shift walk-through, wing trap, corner trap, and a guided live 5-on-5 — see the full drill breakdown for the stages and coaching points.",
+        desc: "The 1-3-1 progression, shortened to 15 minutes: team-shift walk-through, wing trap, corner trap, and a guided live 5-on-5 — see the full drill breakdown for the stages and coaching points.",
       },
       {
         name: "5-on-5 — Set Plays Only",
-        time: "10 min",
+        time: "20 min",
         desc: "5-on-5 with a strict restriction: the offense may only play the set plays. Run them at game speed and rotate through the plays.",
       },
     ],
