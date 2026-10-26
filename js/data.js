@@ -2342,6 +2342,85 @@ const DRILLS = [
       },
     ],
   },
+  {
+    id: "run-and-gun",
+    name: "Run and Gun",
+    category: "Offense",
+    summary: "Continuous full-court shooting drill for three players with two balls: each player runs to the ball, catches inside the three-point line, shoots without dribbling, rebounds his own shot and moves on to the next spot.",
+    objective: "Get catch-and-shoot jump shots on the run in a continuous full-court flow.",
+    setup: "Three players and two balls. 1 starts at one baseline with a ball, 2 starts at the half-court line without a ball, and 3 starts at the other baseline with a ball.",
+    steps: [
+      "2 starts running toward 1. When he gets inside the three-point line, he receives the ball from 1 and takes a jump shot, without dribbling.",
+      "2 gets his own rebound and goes to the place of 1.",
+      "Meanwhile, 1 starts running toward 3. When he gets inside the other three-point line, he receives the ball from 3 and takes a jump shot.",
+      "1 gets his own rebound and goes to the place of 3.",
+      "Meanwhile, 3 runs toward 2's place at the half-court line, and everything repeats.",
+      "The drill goes on until the team has made 10 shots.",
+    ],
+    coachingPoints: [],
+    diagrams: [
+      {
+        title: "Setup (full court)",
+        diagram: {
+          fullCourt: true,
+          players: [{ id: "1", label: "1", team: "offense", x: 50, y: 6 }, { id: "2", label: "2", team: "offense", x: 50, y: 100 }, { id: "3", label: "3", team: "offense", x: 50, y: 194 }],
+          actions: [],
+          balls: [{ x: 50, y: 6 }, { x: 50, y: 194 }],
+        },
+      },
+      {
+        title: "One cycle",
+        diagram: {
+          fullCourt: true,
+          players: [{ id: "1", label: "1", team: "offense", x: 50, y: 6 }, { id: "2", label: "2", team: "offense", x: 50, y: 100 }, { id: "3", label: "3", team: "offense", x: 50, y: 194 }],
+          actions: [
+            { type: "cut", path: [{ x: 50, y: 100 }, { x: 50, y: 50 }] },
+            { type: "pass", from: { x: 50, y: 6 }, to: { x: 50, y: 50 } },
+            { type: "cut", path: [{ x: 50, y: 50 }, { x: 42, y: 30 }, { x: 42, y: 10 }, { x: 50, y: 6 }] },
+            { type: "cut", path: [{ x: 50, y: 6 }, { x: 58, y: 40 }, { x: 58, y: 120 }, { x: 50, y: 150 }] },
+            { type: "pass", from: { x: 50, y: 194 }, to: { x: 50, y: 150 } },
+            { type: "cut", path: [{ x: 50, y: 150 }, { x: 42, y: 170 }, { x: 42, y: 190 }, { x: 50, y: 194 }] },
+            { type: "cut", path: [{ x: 50, y: 194 }, { x: 58, y: 180 }, { x: 58, y: 110 }, { x: 50, y: 100 }] },
+          ],
+          balls: [{ x: 50, y: 6 }, { x: 50, y: 194 }],
+        },
+      },
+    ],
+    animation: [
+      {
+        title: "Setup",
+        narrative: "1 is at one baseline with a ball, 2 is at the half-court line without a ball, and 3 is at the other baseline with a ball.",
+        fullCourt: true,
+        players: [{ id: "1", label: "1", team: "offense", x: 50, y: 6 }, { id: "2", label: "2", team: "offense", x: 50, y: 100 }, { id: "3", label: "3", team: "offense", x: 50, y: 194 }],
+        actions: [],
+        balls: [{ x: 50, y: 6 }, { x: 50, y: 194 }],
+      },
+      {
+        title: "2 Runs, Catches and Shoots",
+        narrative: "2 runs toward 1 and, once inside the three-point line, receives the ball from 1 and takes a jump shot without dribbling.",
+        fullCourt: true,
+        players: [{ id: "1", label: "1", team: "offense", x: 50, y: 6 }, { id: "2", label: "2", team: "offense", x: 50, y: 50 }, { id: "3", label: "3", team: "offense", x: 50, y: 194 }],
+        actions: [{ type: "cut", path: [{ x: 50, y: 100 }, { x: 50, y: 50 }], beat: 0 }, { type: "pass", from: { x: 50, y: 6 }, to: { x: 50, y: 50 }, beat: 1 }, { type: "pass", from: { x: 50, y: 50 }, to: { x: 50, y: 11 }, beat: 2 }],
+        balls: [{ x: 50, y: 11 }, { x: 50, y: 194 }],
+      },
+      {
+        title: "Rebound; 1 Runs to the Other End",
+        narrative: "2 gets his own rebound and goes to the place of 1. Meanwhile, 1 runs toward 3 and, once inside the other three-point line, receives the ball from 3 and takes a jump shot.",
+        fullCourt: true,
+        players: [{ id: "1", label: "1", team: "offense", x: 50, y: 150 }, { id: "2", label: "2", team: "offense", x: 50, y: 6 }, { id: "3", label: "3", team: "offense", x: 50, y: 194 }],
+        actions: [{ type: "cut", path: [{ x: 50, y: 50 }, { x: 42, y: 30 }, { x: 42, y: 10 }, { x: 50, y: 6 }], beat: 0 }, { type: "cut", path: [{ x: 50, y: 6 }, { x: 58, y: 40 }, { x: 58, y: 120 }, { x: 50, y: 150 }], beat: 0 }, { type: "pass", from: { x: 50, y: 194 }, to: { x: 50, y: 150 }, beat: 1 }, { type: "pass", from: { x: 50, y: 150 }, to: { x: 50, y: 189 }, beat: 2 }],
+        balls: [{ x: 50, y: 6 }, { x: 50, y: 189 }],
+      },
+      {
+        title: "Rebound; 3 Runs to 2's Place",
+        narrative: "1 gets his own rebound and goes to the place of 3. Meanwhile, 3 runs toward the half-court line, the place of 2, and everything repeats.",
+        fullCourt: true,
+        players: [{ id: "1", label: "1", team: "offense", x: 50, y: 194 }, { id: "2", label: "2", team: "offense", x: 50, y: 6 }, { id: "3", label: "3", team: "offense", x: 50, y: 100 }],
+        actions: [{ type: "cut", path: [{ x: 50, y: 150 }, { x: 42, y: 170 }, { x: 42, y: 190 }, { x: 50, y: 194 }], beat: 0 }, { type: "cut", path: [{ x: 50, y: 194 }, { x: 58, y: 180 }, { x: 58, y: 110 }, { x: 50, y: 100 }], beat: 0 }],
+        balls: [{ x: 50, y: 6 }, { x: 50, y: 194 }],
+      },
+    ],
+  },
 ];
 
 // Last season's top-scorer stats for the team, sourced from basketball-bund.net
