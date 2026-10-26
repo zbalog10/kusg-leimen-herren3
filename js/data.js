@@ -597,10 +597,23 @@ const TRAINING_PLANS = [
     time: "18:30",
     location: "Fritz-Zugck-Halle, Leimen",
     category: "Offense",
-    duration: "25 min so far",
-    objective: "Open with the standard offensive system walk-through, then introduce the new Weave to 3-on-2 Fast Break drill. The rest of the session is still to be planned.",
+    duration: "65 min so far",
+    objective: "Open with the standard offensive system walk-through, then warm up with a three-man weave (5, 4, then 3 passes per trip, 10 consecutive layups each) and stretching. The main part is a three-circle passing drill, the 5×2 free throw challenge and the new Weave to 3-on-2 Fast Break drill. The rest of the session is still to be planned.",
     walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
+    warmup: "15 min Three-Man Weave, up and down the court — two trips. Start under one basket and finish with a layup at the other end (first trip), then immediately turn back and continue to the first basket and finish with a layup there as well (second trip). Start with 5 passes per trip until the team has made 10 consecutive layups, then 4 passes per trip until 10 consecutive made layups, and finally 3 passes per trip until 10 consecutive made layups. Then 5 min individual stretching to close out the warm-up. Full breakdown: <a class=\"btn-link\" href=\"drill.html?id=three-man-weave\">Three-Man Weave →</a>",
     drills: [
+      {
+        name: "Three-Circle Passing",
+        time: "10 min",
+        drillRef: "circle-passing",
+        desc: "Three defenders, one in each free-throw circle and one in the center circle, can only move inside their own circle. Two offensive players start on the baseline and pass their way down the floor, finishing with a layup — no dribbling.",
+      },
+      {
+        name: "5×2 Free Throw Challenge",
+        time: "10 min",
+        drillRef: "five-by-two-free-throws",
+        desc: "Split into two groups, one at each basket, shooting at the same time — within each group, players rotate 2 free throws each until everyone has taken 5 trips (10 attempts each). Anyone with fewer than 5 makes runs a suicide.",
+      },
       {
         name: "Weave to 3-on-2 Fast Break",
         time: "15 min",
@@ -2283,6 +2296,39 @@ const DRILLS = [
         players: [{ id: "1", label: "1", team: "defense", x: 46, y: 44 }, { id: "2", label: "2", team: "offense", x: 68, y: 34 }, { id: "3", label: "3", team: "offense", x: 50, y: 41 }, { id: "4", label: "4", team: "offense", x: 36, y: 20 }, { id: "5", label: "5", team: "defense", x: 54, y: 36 }],
         actions: [{ type: "pass", from: { x: 68, y: 34 }, to: { x: 36, y: 22 }, beat: 0 }, { type: "cut", path: [{ x: 30, y: 46 }, { x: 36, y: 20 }], beat: 0 }, { type: "cut", path: [{ x: 50, y: 54 }, { x: 50, y: 41 }], beat: 0 }],
         ball: { x: 36, y: 20 },
+      },
+    ],
+  },
+  {
+    id: "three-man-weave",
+    name: "Three-Man Weave",
+    category: "Offense",
+    summary: "Full-court warm-up passing drill: three players weave up the court, finish with a layup, and weave straight back, with the number of passes per trip dropping from 5 to 4 to 3.",
+    objective: "Warm up passing and finishing on the move, then raise the intensity by cutting the number of passes per trip while the team still has to make its layups.",
+    setup: "Three players start under one basket and weave up and down the court — two trips, one to each basket.",
+    steps: [
+      "The first trip starts under one basket and ends with a layup at the other end.",
+      "Immediately turn back and continue to the first basket, finishing with a layup there as well (the second trip).",
+      "Start with 5 passes per trip, until the team has made 10 consecutive layups.",
+      "Then go to 4 passes per trip, until the team has made 10 consecutive layups.",
+      "Finally, go to 3 passes per trip, until the team has made 10 consecutive layups.",
+    ],
+    coachingPoints: [],
+    diagrams: [
+      {
+        title: "Setup (full court)",
+        diagram: {
+          fullCourt: true,
+          players: [
+            { id: "1", label: "1", team: "offense", x: 20, y: 6 },
+            { id: "2", label: "2", team: "offense", x: 50, y: 6 },
+            { id: "3", label: "3", team: "offense", x: 80, y: 6 },
+          ],
+          actions: [
+            { type: "cut", path: [{ x: 50, y: 10 }, { x: 50, y: 170 }] },
+          ],
+          ball: { x: 50, y: 6 },
+        },
       },
     ],
   },
