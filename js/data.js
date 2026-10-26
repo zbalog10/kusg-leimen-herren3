@@ -590,6 +590,25 @@ const TRAINING_PLANS = [
     objective: "There is no team training on this date: the gym is closed due to the autumn break.",
     drills: [],
   },
+  {
+    id: "week9-weave-fastbreak",
+    title: "Session 19 — Weave to 3-on-2 Fast Break",
+    date: "2026-11-02",
+    time: "18:30",
+    location: "Fritz-Zugck-Halle, Leimen",
+    category: "Offense",
+    duration: "25 min so far",
+    objective: "Open with the standard offensive system walk-through, then introduce the new Weave to 3-on-2 Fast Break drill. The rest of the session is still to be planned.",
+    walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
+    drills: [
+      {
+        name: "Weave to 3-on-2 Fast Break",
+        time: "15 min",
+        drillRef: "weave-fastbreak",
+        desc: "Five players run a five-man weave from one end of the court to the other and finish with a layup. The player who made the layup and the player who gave the last pass become the defense; the other three are the offense and must occupy the three fast-break lanes. The player who got the rebound passes to one of the outside lanes; the ball is advanced in that lane, and the ball handler attacks the rim from the side and reads the defense. If the defense stops him, he passes to one of the other two players, creating a 2-on-1.",
+      },
+    ],
+  },
 ];
 
 // Full-season league fixture list, finalized (as of 15.09.2026) and sourced
@@ -2105,6 +2124,85 @@ const DRILLS = [
             { type: "cut", path: [{ x: 90, y: 8 }, { x: 88, y: 28 }, { x: 82, y: 45 }] },
           ],
           ball: { x: 20, y: 49 },
+        },
+      },
+    ],
+  },
+  {
+    id: "weave-fastbreak",
+    name: "Weave to 3-on-2 Fast Break",
+    category: "Offense",
+    summary: "Full-court drill: a five-man weave from one end of the court to the other finishes with a layup, and the drill then turns into a 3-on-2 fast break back the other way, with the three offensive players filling the three lanes.",
+    objective: "Combine passing on the move with fast-break decision-making: fill the lanes, attack the rim from the outside lane and read the defense to create a 2-on-1.",
+    setup: "Full court. Five players start the drill with a five-man weave from one side of the court to the other.",
+    steps: [
+      "The five players run a five-man weave from one end of the court to the other, finishing with a layup.",
+      "After the layup, the drill turns into a 3-on-2 fast break. The player who made the layup and the player who gave the last pass become the defense; the other three players are the offense.",
+      "Important: the offensive players have to occupy the three fast-break lanes.",
+      "The player who got the rebound must pass it to one of the outside lanes.",
+      "The ball is advanced in the outside lane. The player advancing the ball attacks the rim from the side and reads the defense.",
+      "If the defense stops him, he passes to one of the other two players, creating a 2-on-1 situation.",
+    ],
+    coachingPoints: [],
+    diagrams: [
+      {
+        title: "Setup: five-man weave (schematic)",
+        diagram: {
+          fullCourt: true,
+          players: [
+          { id: "1", label: "1", team: "offense", x: 10, y: 6 },
+          { id: "2", label: "2", team: "offense", x: 30, y: 6 },
+          { id: "3", label: "3", team: "offense", x: 50, y: 6 },
+          { id: "4", label: "4", team: "offense", x: 70, y: 6 },
+          { id: "5", label: "5", team: "offense", x: 90, y: 6 },
+        ],
+          actions: [
+            { type: "cut", path: [{ x: 10, y: 6 }, { x: 10, y: 150 }] },
+            { type: "cut", path: [{ x: 30, y: 6 }, { x: 30, y: 150 }] },
+            { type: "cut", path: [{ x: 50, y: 6 }, { x: 50, y: 150 }] },
+            { type: "cut", path: [{ x: 70, y: 6 }, { x: 70, y: 150 }] },
+            { type: "cut", path: [{ x: 90, y: 6 }, { x: 90, y: 150 }] },
+            { type: "cut", path: [{ x: 50, y: 150 }, { x: 50, y: 184 }] },
+          ],
+        },
+      },
+      {
+        title: "3-on-2 fast break: three lanes",
+        diagram: {
+          fullCourt: true,
+          players: [
+          { id: "o1", label: "O1", team: "offense", x: 50, y: 178 },
+          { id: "o2", label: "O2", team: "offense", x: 14, y: 170 },
+          { id: "o3", label: "O3", team: "offense", x: 86, y: 170 },
+          { id: "d1", label: "D1", team: "defense", x: 40, y: 186 },
+          { id: "d2", label: "D2", team: "defense", x: 60, y: 186 },
+        ],
+          actions: [
+            { type: "pass", from: { x: 50, y: 178 }, to: { x: 86, y: 170 } },
+            { type: "cut", path: [{ x: 86, y: 170 }, { x: 84, y: 110 }, { x: 68, y: 34 }] },
+            { type: "cut", path: [{ x: 14, y: 170 }, { x: 14, y: 110 }, { x: 30, y: 46 }] },
+            { type: "cut", path: [{ x: 50, y: 178 }, { x: 50, y: 110 }, { x: 50, y: 54 }] },
+            { type: "move", path: [{ x: 40, y: 186 }, { x: 44, y: 90 }, { x: 46, y: 44 }] },
+            { type: "move", path: [{ x: 60, y: 186 }, { x: 56, y: 90 }, { x: 54, y: 36 }] },
+          ],
+          ball: { x: 50, y: 178 },
+        },
+      },
+      {
+        title: "If the defense stops the ball: pass for a 2-on-1",
+        diagram: {
+          players: [
+          { id: "o3", label: "O3", team: "offense", x: 66, y: 26 },
+          { id: "o2", label: "O2", team: "offense", x: 30, y: 36 },
+          { id: "o1", label: "O1", team: "offense", x: 50, y: 38 },
+          { id: "d1", label: "D1", team: "defense", x: 64, y: 19 },
+          { id: "d2", label: "D2", team: "defense", x: 38, y: 26 },
+        ],
+          actions: [
+            { type: "pass", from: { x: 66, y: 26 }, to: { x: 30, y: 36 } },
+            { type: "cut", path: [{ x: 50, y: 38 }, { x: 46, y: 24 }] },
+          ],
+          ball: { x: 66, y: 26 },
         },
       },
     ],
