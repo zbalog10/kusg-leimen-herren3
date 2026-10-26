@@ -2424,7 +2424,7 @@ const DRILLS = [
       },
       {
         title: "Rebound; 3 Runs the Full Court",
-        narrative: "1 gets his own rebound and goes to the place of 3. Meanwhile, 3 does not stop at the half-court line: he runs all the way to the other side, receives the ball from 2 and shoots.",
+        narrative: "1 gets his own rebound and goes to the place of 3. 3 runs all the way to the other side, receives the ball from 2 and shoots.",
         fullCourt: true,
         players: [{ id: "1", label: "1", team: "offense", x: 50, y: 194 }, { id: "2", label: "2", team: "offense", x: 50, y: 6 }, { id: "3", label: "3", team: "offense", x: 50, y: 50 }],
         actions: [{ type: "cut", path: [{ x: 50, y: 150 }, { x: 42, y: 170 }, { x: 42, y: 190 }, { x: 50, y: 194 }], beat: 0 }, { type: "cut", path: [{ x: 50, y: 194 }, { x: 62, y: 170 }, { x: 62, y: 70 }, { x: 50, y: 50 }], beat: 0 }, { type: "pass", from: { x: 50, y: 6 }, to: { x: 50, y: 50 }, beat: 1 }, { type: "pass", from: { x: 50, y: 50 }, to: { x: 50, y: 11 }, beat: 2 }],
