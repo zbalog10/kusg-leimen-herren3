@@ -26,7 +26,7 @@ function renderTrainingPlans(filter = "All") {
         <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
       <div class="plan-body">
-        <h4>Objective</h4>
+        <h4>${p.cancelled ? "Cancelled" : "Objective"}</h4>
         <p>${p.objective}</p>
         ${
           p.walkthrough
@@ -100,7 +100,8 @@ function renderSeasonSchedule() {
   const today = todayISO();
   const merged = buildMergedSchedule();
 
-  const upcoming = merged.find((s) => s.date >= today);
+  // Sessions marked `cancelled` stay in the list but are skipped as the "next session".
+  const upcoming = merged.find((s) => s.date >= today && !(s.plan && s.plan.cancelled));
   if (upcoming) {
     const d = new Date(upcoming.date + "T00:00:00");
     const longDate = d.toLocaleDateString("en-GB", { weekday: "long", day: "2-digit", month: "long", year: "numeric" });
@@ -143,7 +144,7 @@ function renderSeasonSchedule() {
                 <td class="schedule-day">${wd}</td>
                 <td class="schedule-date">${formatDate(s.date)}</td>
                 <td class="schedule-time">${s.time}</td>
-                <td class="schedule-status">${s.plan ? `<a href="#plan-${s.plan.id}">Planned →</a>` : `<span class="text-muted">Not planned yet</span>`}</td>
+                <td class="schedule-status">${s.plan ? `<a href="#plan-${s.plan.id}">${s.plan.cancelled ? "Cancelled" : "Planned"} →</a>` : `<span class="text-muted">Not planned yet</span>`}</td>
               </tr>`;
               })
               .join("")}

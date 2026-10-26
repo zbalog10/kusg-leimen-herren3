@@ -566,6 +566,30 @@ const TRAINING_PLANS = [
       },
     ],
   },
+  {
+    id: "cancelled-2026-10-26",
+    title: "Training Cancelled — Autumn Break (Mon 26.10)",
+    date: "2026-10-26",
+    time: "18:30",
+    location: "Fritz-Zugck-Halle, Leimen",
+    category: "Cancelled",
+    cancelled: true,
+    duration: "No training",
+    objective: "There is no team training on this date: the gym is closed due to the autumn break.",
+    drills: [],
+  },
+  {
+    id: "cancelled-2026-10-28",
+    title: "Training Cancelled — Autumn Break (Wed 28.10)",
+    date: "2026-10-28",
+    time: "18:30",
+    location: "Fritz-Zugck-Halle, Leimen",
+    category: "Cancelled",
+    cancelled: true,
+    duration: "No training",
+    objective: "There is no team training on this date: the gym is closed due to the autumn break.",
+    drills: [],
+  },
 ];
 
 // Full-season league fixture list, finalized (as of 15.09.2026) and sourced
