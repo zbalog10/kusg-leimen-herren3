@@ -597,8 +597,8 @@ const TRAINING_PLANS = [
     time: "18:30",
     location: "Fritz-Zugck-Halle, Leimen",
     category: "Offense",
-    duration: "65 min so far",
-    objective: "Open with the standard offensive system walk-through, then warm up with a three-man weave (5, 4, then 3 passes per trip, 10 consecutive layups each) and stretching. The main part is a three-circle passing drill, the 5×2 free throw challenge and the new Weave to 3-on-2 Fast Break drill. The rest of the session is still to be planned.",
+    duration: "90 min",
+    objective: "Open with the standard offensive system walk-through, then warm up with a three-man weave (5, 4, then 3 passes per trip, 10 consecutive layups each) and stretching. The main part is a three-circle passing drill, the 5×2 free throw challenge and the new Weave to 3-on-2 Fast Break drill. It finishes with 5 min of BLOB practice and 20 min of free play in which every baseline throw-in has to be played as the BLOB.",
     walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
     warmup: "15 min Three-Man Weave, up and down the court — two trips. Start under one basket and finish with a layup at the other end (first trip), then immediately turn back and continue to the first basket and finish with a layup there as well (second trip). Start with 5 passes per trip until the team has made 10 consecutive layups, then 4 passes per trip until 10 consecutive made layups, and finally 3 passes per trip until 10 consecutive made layups. Then 5 min individual stretching to close out the warm-up. Full breakdown: <a class=\"btn-link\" href=\"drill.html?id=three-man-weave\">Three-Man Weave →</a>",
     drills: [
@@ -619,6 +619,16 @@ const TRAINING_PLANS = [
         time: "15 min",
         drillRef: "weave-fastbreak",
         desc: "Five players run a five-man weave from one end of the court to the other (3 passes to 4 and runs behind 5, 4 passes to 2 and runs behind 1, 2 passes to 5 and runs behind 3, 5 passes to 1 for the layup). The player who made the layup and the player who gave the last pass become the defense; the other three are the offense and must occupy the three fast-break lanes. The player who got the rebound passes to one of the outside lanes; the ball is advanced in that lane, and the ball handler attacks the rim from the side and reads the defense. If the defense stops him, he passes to one of the other two players, creating a 2-on-1. The drill ends when the offense scores, or the defense steals, deflects or rebounds the ball; the offense gets one offensive rebound, and the second missed shot ends the drill. Rotate counterclockwise for the next round.",
+      },
+      {
+        name: "BLOB Practice",
+        time: "5 min",
+        desc: "Practice the baseline out-of-bounds plays (BLOB). Full breakdown: <a class=\"btn-link\" href=\"play.html?id=baseline-post-cross\">Baseline Post Cross →</a>",
+      },
+      {
+        name: "Free Play — BLOB on Every Baseline Throw-In",
+        time: "20 min",
+        desc: "Free play until the end of the training. Whenever the offense gets a baseline throw-in, the team has to set up and play the BLOB.",
       },
     ],
   },
