@@ -2354,7 +2354,7 @@ const DRILLS = [
       "2 gets his own rebound and goes to the place of 1.",
       "Meanwhile, 1 starts running toward 3. When he gets inside the other three-point line, he receives the ball from 3 and takes a jump shot.",
       "1 gets his own rebound and goes to the place of 3.",
-      "Meanwhile, 3 does not finish his run at the half-court line: he runs all the way to the other side, receives the ball and shoots. Everything repeats — every runner takes the place of the player who passed to him, and the passer runs to the other end.",
+      "3 runs all the way to the other side, receives the ball and shoots. Everything repeats — every runner takes the place of the player who passed to him, and the passer runs to the other end.",
       "The drill is executed in at least three different lanes — right, middle and left — until the team has made 10 shots in each lane.",
       "More than one team can do the drill at once. The teams rotate their positions counterclockwise.",
       "If there are more than 3 teams, reduce the number of required makes to 7.",
