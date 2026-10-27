@@ -703,7 +703,7 @@ function renderPlayerStats() {
   listEl.innerHTML = `
     <h2 class="section-heading">Played and scored</h2>
     <div class="table-scroll">
-    <table class="schedule-table player-table">
+    <table class="schedule-table player-table player-stats-table">
       <thead>
         <tr>
           <th>Rank</th>
@@ -711,6 +711,9 @@ function renderPlayerStats() {
           <th>Points</th>
           <th>Games</th>
           <th>Avg / Game</th>
+          <th>3PT / Game</th>
+          <th>FT made/att</th>
+          <th>FT %</th>
         </tr>
       </thead>
       <tbody>
@@ -723,6 +726,9 @@ function renderPlayerStats() {
             <td class="player-points">${p.points}</td>
             <td class="schedule-time">${p.games}</td>
             <td class="player-avg">${p.average.toFixed(1)}</td>
+            <td class="schedule-time">${p.threesAverage.toFixed(1)}</td>
+            <td class="schedule-time">${p.ftMade}/${p.ftAttempted}</td>
+            <td class="schedule-time">${p.ftAttempted ? ((p.ftMade / p.ftAttempted) * 100).toFixed(1) + "%" : "–"}</td>
           </tr>`
           )
           .join("")}

@@ -2483,7 +2483,9 @@ const DRILLS = [
 // ("Beste Werfer", BBW1 Kreisliga B1 Männer, Senioren Rhein/Neckar, stand
 // 18.10.2026). `scorers` are the players who have played and scored this
 // season, ranked by points (rank = position among the team's players; the
-// league withholds one player's name, which the team has confirmed). `members` are the rest of the squad, who have not scored yet;
+// league withholds one player's name in its lists — Ishak Haïne, confirmed by
+// the team). Also from basketball-bund.net: "Beste 3er-Werfer" (`threes` made,
+// `threesAverage` per game) and "Beste Freiwerfer" (`ftMade` / `ftAttempted`). `members` are the rest of the squad, who have not scored yet;
 // `newcomer: true` marks players who were not part of last season's squad.
 const PLAYER_STATS = {
   season: "2026/2027",
@@ -2492,15 +2494,15 @@ const PLAYER_STATS = {
   standDate: "2026-10-18",
   source: "https://www.basketball-bund.net/statistik.do?reqCode=statBesteWerfer&liga_id=52666",
   scorers: [
-    { rank: 1, lastName: "Baglaroglu", firstName: "Faruk", points: 18, games: 1, average: 18.0 },
-    { rank: 2, lastName: "Neureither", firstName: "Lasse", points: 13, games: 1, average: 13.0 },
-    { rank: 3, lastName: "Haïne", firstName: "Ishak", points: 9, games: 1, average: 9.0, newcomer: true }, // name withheld by the league itself, confirmed by the team
-    { rank: 4, lastName: "Velarde", firstName: "James Andrew", points: 8, games: 1, average: 8.0 },
-    { rank: 5, lastName: "Blättel", firstName: "Oliver", points: 6, games: 1, average: 6.0 },
-    { rank: 6, lastName: "Kühnau", firstName: "René", points: 6, games: 1, average: 6.0 },
-    { rank: 7, lastName: "Merten", firstName: "Thomas", points: 4, games: 1, average: 4.0 },
-    { rank: 8, lastName: "Balog", firstName: "Adam", points: 2, games: 1, average: 2.0 },
-    { rank: 9, lastName: "Balog", firstName: "Zoltan", points: 2, games: 1, average: 2.0 },
+    { rank: 1, lastName: "Baglaroglu", firstName: "Faruk", points: 18, games: 1, average: 18.0, threes: 3, threesAverage: 3.0, ftMade: 1, ftAttempted: 3 },
+    { rank: 2, lastName: "Neureither", firstName: "Lasse", points: 13, games: 1, average: 13.0, threes: 1, threesAverage: 1.0, ftMade: 2, ftAttempted: 3 },
+    { rank: 3, lastName: "Haïne", firstName: "Ishak", points: 9, games: 1, average: 9.0, threes: 1, threesAverage: 1.0, ftMade: 0, ftAttempted: 0, newcomer: true },
+    { rank: 4, lastName: "Velarde", firstName: "James Andrew", points: 8, games: 1, average: 8.0, threes: 2, threesAverage: 2.0, ftMade: 0, ftAttempted: 0 },
+    { rank: 5, lastName: "Blättel", firstName: "Oliver", points: 6, games: 1, average: 6.0, threes: 0, threesAverage: 0.0, ftMade: 0, ftAttempted: 0 },
+    { rank: 6, lastName: "Kühnau", firstName: "René", points: 6, games: 1, average: 6.0, threes: 0, threesAverage: 0.0, ftMade: 0, ftAttempted: 2 },
+    { rank: 7, lastName: "Merten", firstName: "Thomas", points: 4, games: 1, average: 4.0, threes: 0, threesAverage: 0.0, ftMade: 0, ftAttempted: 0 },
+    { rank: 8, lastName: "Balog", firstName: "Adam", points: 2, games: 1, average: 2.0, threes: 0, threesAverage: 0.0, ftMade: 0, ftAttempted: 0 },
+    { rank: 9, lastName: "Balog", firstName: "Zoltan", points: 2, games: 1, average: 2.0, threes: 0, threesAverage: 0.0, ftMade: 0, ftAttempted: 0 },
   ],
   members: [
     { lastName: "Hauck", firstName: "Axel" },
