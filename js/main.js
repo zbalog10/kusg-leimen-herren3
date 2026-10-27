@@ -693,10 +693,13 @@ function renderPlayerStats() {
 
   const stand = new Date(PLAYER_STATS.standDate + "T00:00:00").toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
   if (subhead) {
-    subhead.textContent = `Next season's roster, ranked by ${PLAYER_STATS.season} scoring — ${PLAYER_STATS.league}. Stats as of ${stand}; players not continuing with the team have been removed, and newcomers are listed at the end with no stats yet.`;
+    subhead.textContent = `${PLAYER_STATS.season} season — ${PLAYER_STATS.league}. Players who have played and scored are ranked by points (stats as of ${stand}); the rest of the squad is listed below.`;
   }
 
+  const name = (p) => (p.lastName ? `${p.lastName}, ${p.firstName}` : `<span class="text-muted">Name withheld</span>`);
+
   listEl.innerHTML = `
+    <h2 class="section-heading">Played and scored</h2>
     <div class="table-scroll">
     <table class="schedule-table player-table">
       <thead>
@@ -709,28 +712,89 @@ function renderPlayerStats() {
         </tr>
       </thead>
       <tbody>
-        ${PLAYER_STATS.players
-          .map((p, i) => {
-            const prev = PLAYER_STATS.players[i - 1];
-            const separator = p.newcomer && (!prev || !prev.newcomer)
-              ? `<tr class="table-separator-row"><td colspan="5">Newcomers</td></tr>`
-              : "";
-            return `${separator}
+        ${PLAYER_STATS.scorers
+          .map(
+            (p) => `
           <tr>
             <td class="schedule-day">${p.rank}.</td>
-            <td class="player-name">${p.lastName ? `${p.lastName}, ${p.firstName}` : `<span class="text-muted">Name withheld</span>`}</td>
+            <td class="player-name">${name(p)}</td>
             <td class="player-points">${p.points}</td>
             <td class="schedule-time">${p.games}</td>
             <td class="player-avg">${p.average.toFixed(1)}</td>
-          </tr>`;
-          })
+          </tr>`
+          )
           .join("")}
       </tbody>
     </table>
     </div>
-    <p class="schedule-source">Source: <a href="${PLAYER_STATS.source}" target="_blank" rel="noopener">${PLAYER_STATS.source}</a>${
-      PLAYER_STATS.players.some((p) => !p.lastName) ? " — some players' names are withheld by the league itself, not by us." : ""
+
+    <h2 class="section-heading">Squad members</h2>
+    <p class="schedule-intro">Members of the team who have not scored yet this season.</p>
+    <div class="table-scroll">
+    <table class="schedule-table player-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${PLAYER_STATS.members
+          .map(
+            (p) => `
+          <tr>
+            <td class="player-name">${name(p)}</td>
+            <td class="schedule-time">${p.newcomer ? `<span class="badge">Newcomer</span>` : "Member"}</td>
+          </tr>`
+          )
+          .join("")}
+      </tbody>
+    </table>
+    </div>
+    <p class="schedule-source">Source: <a href="${PLAYER_STATS.source}" target="_blank" rel="noopener">basketball-bund.net</a>${
+      PLAYER_STATS.scorers.some((p) => !p.lastName) ? " — one player's name is withheld by the league itself, not by us." : ""
     }</p>`;
+}
+
+function renderLeagueTable() {
+  const el = document.getElementById("league-table");
+  if (!el || typeof LEAGUE_TABLE === "undefined") return;
+  const stand = new Date(LEAGUE_TABLE.standDate + "T00:00:00").toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
+  el.innerHTML = `
+    <h2 class="section-heading">League table</h2>
+    <p class="schedule-intro">${LEAGUE_TABLE.league} — as of ${stand}.</p>
+    <div class="table-scroll">
+    <table class="schedule-table player-table league-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Team</th>
+          <th>GP</th>
+          <th>W/L</th>
+          <th>Pts</th>
+          <th>Baskets</th>
+          <th>Diff</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${LEAGUE_TABLE.rows
+          .map(
+            (r) => `
+          <tr class="${r.us ? "table-highlight-row" : ""}">
+            <td class="schedule-day">${r.rank}.</td>
+            <td class="player-name">${r.team}</td>
+            <td class="schedule-time">${r.games}</td>
+            <td class="schedule-time">${r.wins}/${r.losses}</td>
+            <td class="player-points">${r.points}</td>
+            <td class="schedule-time">${r.scored} : ${r.conceded}</td>
+            <td class="schedule-time">${r.diff > 0 ? "+" : ""}${r.diff}</td>
+          </tr>`
+          )
+          .join("")}
+      </tbody>
+    </table>
+    </div>
+    <p class="schedule-source">Source: <a href="${LEAGUE_TABLE.source}" target="_blank" rel="noopener">basketball-bund.net</a></p>`;
 }
 
 function formatDate(iso) {
@@ -752,4 +816,5 @@ document.addEventListener("DOMContentLoaded", () => {
   renderDrills();
   renderDrillDetail();
   renderPlayerStats();
+  renderLeagueTable();
 });

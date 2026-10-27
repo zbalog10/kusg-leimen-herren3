@@ -2479,35 +2479,54 @@ const DRILLS = [
   },
 ];
 
-// Last season's top-scorer stats for the team, sourced from basketball-bund.net
-// ("Beste Werfer", BBW1 Kreisliga A Männer, Senioren Rhein/Neckar). Two players
-// have their names withheld by the league itself (shown as **** / *** in the
-// source) — kept as `null` here rather than guessed, and rendered as
-// "Name withheld".
+// 2026/27 season stats for KuSG Leimen 3, sourced from basketball-bund.net
+// ("Beste Werfer", BBW1 Kreisliga B1 Männer, Senioren Rhein/Neckar, stand
+// 18.10.2026). `scorers` are the players who have played and scored this
+// season, ranked by points (rank = position among the team's players, one
+// player's name is withheld by the league itself — kept as `null` rather than
+// guessed). `members` are the rest of the squad, who have not scored yet;
+// `newcomer: true` marks players who are new to the team this season.
 const PLAYER_STATS = {
-  season: "2025/2026",
-  league: "BBW1 Kreisliga A Männer (Senioren Rhein/Neckar)",
-  standDate: "2026-04-20",
-  source: "http://basketball-bund.net",
-  players: [
-    { rank: 1, lastName: "Köhler", firstName: "Jannik", points: 169, games: 8, average: 21.1 },
-    { rank: 2, lastName: "Blättel", firstName: "Oliver", points: 80, games: 17, average: 4.7 },
-    { rank: 3, lastName: "Neureither", firstName: "Lasse", points: 66, games: 8, average: 8.2 },
-    { rank: 4, lastName: "Tshiang", firstName: "Luciano", points: 58, games: 7, average: 8.3 },
-    { rank: 5, lastName: "Balog", firstName: "Zoltan", points: 53, games: 17, average: 3.1 },
-    { rank: 6, lastName: "Kühnau", firstName: "René", points: 51, games: 14, average: 3.6 },
-    { rank: 7, lastName: "Baglaroglu", firstName: "Faruk", points: 37, games: 8, average: 4.6 },
-    { rank: 8, lastName: "Merten", firstName: "Thomas", points: 16, games: 3, average: 5.3 },
-    { rank: 9, lastName: "Velarde", firstName: "James Andrew", points: 16, games: 5, average: 3.2 },
-    { rank: 10, lastName: "Rieger", firstName: "Lukas", points: 12, games: 8, average: 1.5 },
-    { rank: 11, lastName: "Hauck", firstName: "Axel", points: 4, games: 2, average: 2.0 },
-    { rank: 12, lastName: "Balog", firstName: "Adam", points: 3, games: 7, average: 0.4 },
-    // New to the team this season — no games played with KuSG Leimen 3 yet,
-    // so stats are 0. `newcomer: true` draws the "Newcomers" separator above
-    // the first one on the players page.
-    { rank: 13, lastName: "Haïne", firstName: "Ishak", points: 0, games: 0, average: 0, newcomer: true },
-    { rank: 14, lastName: "Noman", firstName: "Danyel", points: 0, games: 0, average: 0, newcomer: true },
-    { rank: 15, lastName: "Efimov", firstName: "Elijas", points: 0, games: 0, average: 0, newcomer: true },
-    { rank: 16, lastName: "Großmann", firstName: "Rafael", points: 0, games: 0, average: 0, newcomer: true },
+  season: "2026/2027",
+  league: "BBW1 Kreisliga B1 Männer (Senioren Rhein/Neckar)",
+  team: "KuSG Leimen 3",
+  standDate: "2026-10-18",
+  source: "https://www.basketball-bund.net/statistik.do?reqCode=statBesteWerfer&liga_id=52666",
+  scorers: [
+    { rank: 1, lastName: "Baglaroglu", firstName: "Faruk", points: 18, games: 1, average: 18.0 },
+    { rank: 2, lastName: "Neureither", firstName: "Lasse", points: 13, games: 1, average: 13.0 },
+    { rank: 3, lastName: null, firstName: null, points: 9, games: 1, average: 9.0 },
+    { rank: 4, lastName: "Velarde", firstName: "James Andrew", points: 8, games: 1, average: 8.0 },
+    { rank: 5, lastName: "Blättel", firstName: "Oliver", points: 6, games: 1, average: 6.0 },
+    { rank: 6, lastName: "Kühnau", firstName: "René", points: 6, games: 1, average: 6.0 },
+    { rank: 7, lastName: "Merten", firstName: "Thomas", points: 4, games: 1, average: 4.0 },
+    { rank: 8, lastName: "Balog", firstName: "Adam", points: 2, games: 1, average: 2.0 },
+    { rank: 9, lastName: "Balog", firstName: "Zoltan", points: 2, games: 1, average: 2.0 },
+  ],
+  members: [
+    { lastName: "Hauck", firstName: "Axel" },
+    { lastName: "Köhler", firstName: "Jannik" },
+    { lastName: "Rieger", firstName: "Lukas" },
+    { lastName: "Tshiang", firstName: "Luciano" },
+    { lastName: "Efimov", firstName: "Elijas", newcomer: true },
+    { lastName: "Großmann", firstName: "Rafael", newcomer: true },
+    { lastName: "Haïne", firstName: "Ishak", newcomer: true },
+    { lastName: "Noman", firstName: "Danyel", newcomer: true },
+  ],
+};
+
+// League table (Tabelle), BBW1 Kreisliga B1 Männer, as retrieved from
+// basketball-bund.net. `us: true` highlights KuSG Leimen 3.
+const LEAGUE_TABLE = {
+  league: "BBW1 Kreisliga B1 Männer (Senioren Rhein/Neckar)",
+  standDate: "2026-10-27",
+  source: "https://www.basketball-bund.net/index.jsp?Action=102&liga_id=52666",
+  rows: [
+    { rank: 1, team: "BAC Hockenheim 2", games: 3, wins: 2, losses: 1, points: 4, scored: 203, conceded: 142, diff: 61 },
+    { rank: 2, team: "SG Heidelberg/Kirchheim 3", games: 3, wins: 2, losses: 1, points: 4, scored: 200, conceded: 116, diff: 84 },
+    { rank: 3, team: "KuSG Leimen 3", games: 1, wins: 1, losses: 0, points: 2, scored: 68, conceded: 50, diff: 18, us: true },
+    { rank: 4, team: "SV 98/07 Seckenheim", games: 3, wins: 1, losses: 2, points: 2, scored: 150, conceded: 207, diff: -57 },
+    { rank: 5, team: "TSG Wiesloch 3", games: 0, wins: 0, losses: 0, points: 0, scored: 0, conceded: 0, diff: 0 },
+    { rank: 6, team: "TV Sinsheim 3 / TSV Baden Östringen", games: 2, wins: 0, losses: 2, points: 0, scored: 65, conceded: 171, diff: -106 },
   ],
 };

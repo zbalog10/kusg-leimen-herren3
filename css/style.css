@@ -531,3 +531,9 @@ footer {
   .step-card { flex-direction: column; }
   .step-body .court-wrap { max-width: none; }
 }
+
+.league-section { margin-top: 2.5rem; }
+.league-table { min-width: 560px; }
+.league-table th:nth-child(n+3), .league-table td:nth-child(n+3) { text-align: right; white-space: nowrap; }
+.table-highlight-row td { background: var(--green-dim); }
+.table-highlight-row .player-name { color: var(--green-bright); }
