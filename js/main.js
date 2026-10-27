@@ -696,7 +696,9 @@ function renderPlayerStats() {
     subhead.textContent = `${PLAYER_STATS.season} season — ${PLAYER_STATS.league}. Players who have played and scored are ranked by points (stats as of ${stand}); the rest of the squad is listed below.`;
   }
 
-  const name = (p) => (p.lastName ? `${p.lastName}, ${p.firstName}` : `<span class="text-muted">Name withheld</span>`);
+  const name = (p) =>
+    (p.lastName ? `${p.lastName}, ${p.firstName}` : `<span class="text-muted">Name withheld</span>`) +
+    (p.newcomer ? ` <span class="badge">Newcomer</span>` : "");
 
   listEl.innerHTML = `
     <h2 class="section-heading">Played and scored</h2>
@@ -735,7 +737,6 @@ function renderPlayerStats() {
       <thead>
         <tr>
           <th>Name</th>
-          <th>Status</th>
         </tr>
       </thead>
       <tbody>
@@ -744,7 +745,6 @@ function renderPlayerStats() {
             (p) => `
           <tr>
             <td class="player-name">${name(p)}</td>
-            <td class="schedule-time">${p.newcomer ? `<span class="badge">Newcomer</span>` : "Member"}</td>
           </tr>`
           )
           .join("")}

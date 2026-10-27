@@ -2484,7 +2484,7 @@ const DRILLS = [
 // 18.10.2026). `scorers` are the players who have played and scored this
 // season, ranked by points (rank = position among the team's players; the
 // league withholds one player's name, which the team has confirmed). `members` are the rest of the squad, who have not scored yet;
-// `newcomer: true` marks players who are new to the team this season.
+// `newcomer: true` marks players who were not part of last season's squad.
 const PLAYER_STATS = {
   season: "2026/2027",
   league: "BBW1 Kreisliga B1 Männer (Senioren Rhein/Neckar)",
@@ -2494,7 +2494,7 @@ const PLAYER_STATS = {
   scorers: [
     { rank: 1, lastName: "Baglaroglu", firstName: "Faruk", points: 18, games: 1, average: 18.0 },
     { rank: 2, lastName: "Neureither", firstName: "Lasse", points: 13, games: 1, average: 13.0 },
-    { rank: 3, lastName: "Haïne", firstName: "Ishak", points: 9, games: 1, average: 9.0 }, // name withheld by the league itself, confirmed by the team
+    { rank: 3, lastName: "Haïne", firstName: "Ishak", points: 9, games: 1, average: 9.0, newcomer: true }, // name withheld by the league itself, confirmed by the team
     { rank: 4, lastName: "Velarde", firstName: "James Andrew", points: 8, games: 1, average: 8.0 },
     { rank: 5, lastName: "Blättel", firstName: "Oliver", points: 6, games: 1, average: 6.0 },
     { rank: 6, lastName: "Kühnau", firstName: "René", points: 6, games: 1, average: 6.0 },
@@ -2505,14 +2505,14 @@ const PLAYER_STATS = {
   members: [
     { lastName: "Hauck", firstName: "Axel" },
     { lastName: "Köhler", firstName: "Jannik" },
-    { lastName: "Petrovskiy", firstName: "Stanislav" },
     { lastName: "Rieger", firstName: "Lukas" },
-    { lastName: "Rupp", firstName: "Benjamin" },
-    { lastName: "Schmidt", firstName: "Constantin" },
     { lastName: "Tshiang", firstName: "Luciano" },
     { lastName: "Efimov", firstName: "Elijas", newcomer: true },
     { lastName: "Großmann", firstName: "Rafael", newcomer: true },
     { lastName: "Noman", firstName: "Danyel", newcomer: true },
+    { lastName: "Petrovskiy", firstName: "Stanislav", newcomer: true },
+    { lastName: "Rupp", firstName: "Benjamin", newcomer: true },
+    { lastName: "Schmidt", firstName: "Constantin", newcomer: true },
   ],
 };
 
