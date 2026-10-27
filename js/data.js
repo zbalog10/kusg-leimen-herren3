@@ -2506,7 +2506,10 @@ const PLAYER_STATS = {
   members: [
     { lastName: "Hauck", firstName: "Axel" },
     { lastName: "Köhler", firstName: "Jannik" },
+    { lastName: "Petrovskiy", firstName: "Stanislav" },
     { lastName: "Rieger", firstName: "Lukas" },
+    { lastName: "Rupp", firstName: "Benjamin" },
+    { lastName: "Schmidt", firstName: "Constantin" },
     { lastName: "Tshiang", firstName: "Luciano" },
     { lastName: "Efimov", firstName: "Elijas", newcomer: true },
     { lastName: "Großmann", firstName: "Rafael", newcomer: true },
