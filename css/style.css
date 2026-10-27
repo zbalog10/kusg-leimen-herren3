@@ -225,7 +225,7 @@ footer {
 /* ---------- Games ---------- */
 
 .table-scroll { overflow-x: auto; }
-.game-table { min-width: 640px; }
+.game-table { min-width: 740px; }
 .game-table .game-side { white-space: nowrap; }
 .game-table .game-opponent { font-weight: 600; white-space: nowrap; }
 .game-table .game-venue { color: var(--text-muted); text-align: right; white-space: nowrap; }
@@ -538,3 +538,4 @@ footer {
 .table-highlight-row td { background: var(--green-dim); }
 .table-highlight-row .player-name { color: var(--green-bright); }
 .player-stats-table { min-width: 640px; }
+.game-table .game-result { text-align: right; white-space: nowrap; }

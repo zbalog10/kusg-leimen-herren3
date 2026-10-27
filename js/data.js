@@ -680,8 +680,8 @@ const TRAINING_PLANS = [
 // sequentially through the league's 18 matchdays — the other matchdays are
 // other teams' games or byes for KuSG.
 const GAME_SCHEDULE = [
-  { matchday: 3, date: "2026-10-10", time: "16:00", home: false, opponent: "SV 98/07 Seckenheim", venue: "Richard-Möll-Halle" },
-  { matchday: 5, date: "2026-11-08", time: "18:00", home: false, opponent: "TSG Wiesloch 3", venue: "Helmut-Will-Halle" },
+  { matchday: 3, date: "2026-10-10", time: "16:00", home: false, opponent: "SV 98/07 Seckenheim", venue: "Richard-Möll-Halle", result: { us: 68, them: 50 } },
+  { matchday: 5, date: "2026-11-08", time: "14:00", home: false, opponent: "TSG Wiesloch 3", venue: "Helmut-Will-Halle" },
   { matchday: 6, date: "2026-11-14", time: "18:00", home: true, opponent: "TV Sinsheim 3 / TSV Baden Östringen", venue: "Sportpark Leimen" },
   { matchday: 7, date: "2026-11-21", time: "20:00", home: false, opponent: "SG Heidelberg/Kirchheim 3", venue: "Sportzentrum Süd - Neue Halle" },
   { matchday: 8, date: "2026-11-28", time: "18:00", home: true, opponent: "BAC Hockenheim 2", venue: "Sportpark Leimen" },
@@ -696,7 +696,7 @@ const GAME_SCHEDULE = [
 // above, so they carry no matchday number. Shown merged with GAME_SCHEDULE
 // on games.html, badged so they're not mistaken for league games.
 const PRACTICE_GAMES = [
-  { date: "2026-09-25", time: "20:00", home: false, opponent: "TSV Wieblingen 4", venue: "Neckarhalle, Heidelberg-Wieblingen" },
+  { date: "2026-09-25", time: "20:00", home: false, opponent: "TSV Wieblingen 4", venue: "Neckarhalle, Heidelberg-Wieblingen", result: { us: 67, them: 32 } },
 ];
 
 // Defensive schemes. Same coordinate system as SET_PLAYS (now in

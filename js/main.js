@@ -211,6 +211,11 @@ function renderGameSchedule() {
             <td class="game-side"><span class="badge ${g.home ? "" : "muted"}">${g.home ? "Home" : "Away"}</span></td>
             <td class="game-opponent">${g.opponent ? `vs ${g.opponent}` : `<span class="text-muted">Opponent TBD</span>`}</td>
             <td class="game-venue">${g.venue ? g.venue : `<span class="text-muted">TBD</span>`}</td>
+            <td class="game-result">${
+              g.result
+                ? `<span class="badge ${g.result.us > g.result.them ? "" : "muted"}">${g.result.us > g.result.them ? "W" : "L"} ${g.result.us} : ${g.result.them}</span>`
+                : ""
+            }</td>
           </tr>`;
         }).join("")}
       </tbody>
