@@ -713,11 +713,18 @@ const TRAINING_PLANS = [
     time: "18:30",
     location: "Fritz-Zugck-Halle, Leimen",
     category: "Offense",
-    duration: "25 min so far",
-    objective: "Open with the standard offensive system walk-through, then warm up with the penetration kick-out drill and close the warm-up with stretching. The rest of the session is still to be planned.",
+    duration: "35 min so far",
+    objective: "Open with the standard offensive system walk-through, then warm up with the penetration kick-out drill, run on both sides, and close the warm-up with stretching. The main part starts with elbow shooting. The rest of the session is still to be planned.",
     walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
-    warmup: "10 min Penetration Kick-Out — a 3-spot dribble-penetration and kick-out drill cycling ball movement and finishes on both sides. Then 5 min individual stretching to close out the warm-up. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=penetration-kickout\">Penetration Kick-Out →</a>",
-    drills: [],
+    warmup: "10 min Penetration Kick-Out — run the drill from the first side, then repeat it mirrored on the other side so everyone attacks and finishes from both sides. Then 5 min individual stretching to close out the warm-up. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=penetration-kickout\">Penetration Kick-Out →</a>",
+    drills: [
+      {
+        name: "Elbow Shooting",
+        time: "10 min",
+        drillRef: "elbow-shooting",
+        desc: "Two lines at the baseline, one ball per line, offset by one player. Cutters run elbow-to-elbow, catch a pass in stride, shoot a mid-range jumper, rebound their own shot, and feed the opposite line — mirrored continuously on both sides. Score it +1 make / -1 miss as a team, running total, to a target of 10.",
+      },
+    ],
   },
 ];
 
