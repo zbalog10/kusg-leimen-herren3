@@ -676,8 +676,8 @@ const TRAINING_PLANS = [
     time: "18:30",
     location: "Fritz-Zugck-Halle, Leimen",
     category: "Offense",
-    duration: "75 min so far",
-    objective: "Open with the standard offensive system walk-through, then warm up with Banana Cut and close the warm-up with stretching. The rest of the session is still to be planned.",
+    duration: "90 min",
+    objective: "Open with the standard offensive system walk-through, then warm up with Banana Cut and close the warm-up with stretching. It continues with the Rot Start Drill, the 5×2 free throw challenge and the four-group transition game, and closes with 5-on-5 in which the offense runs Rot in every half-court possession and the high-post player touches the ball at least once each possession.",
     walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
     warmup: "15 min Banana Cut — half-court passing, curved cuts and layup finish with four lines in the corners and on the half-court line: 1 passes to 2 and runs an arch toward 3's line, 2 runs an arch toward 4's line, 3 cuts to the basket for the layup and 4 rebounds and passes to the next player in line 1. Every player rotates to a new line. Keep going until the team makes 1.5× as many consecutive layups as there are players (a miss resets the streak), then run it in the other direction. Then 5 min individual stretching to close out the warm-up. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=banana-cut\">Banana Cut →</a>",
     drills: [
@@ -698,6 +698,11 @@ const TRAINING_PLANS = [
         time: "20 min",
         drillRef: "four-group-transition",
         desc: "Split the players into four groups, one behind each baseline and two on the court. The two on the court play live on one basket. After a score or a defensive rebound, the group on the baseline comes in and runs a transition game to the other basket against the attackers of the previous game, and the defense goes out. After a score or a defensive rebound at the other basket, the group on the other baseline replaces the defensive team and immediately runs a transition game.",
+      },
+      {
+        name: "5-on-5 — Rot in Every Half-Court Possession",
+        time: "15 min",
+        desc: "5-on-5 until the end of the training. In every possession that is not a fast break, the offense runs Rot (full breakdown: <a class=\"btn-link\" href=\"play.html?id=rot-vs-zone\">Rot (vs. Zone) →</a>). The high-post player must touch the ball at least once in every possession.",
       },
     ],
   },
