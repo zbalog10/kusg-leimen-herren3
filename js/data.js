@@ -685,7 +685,7 @@ const TRAINING_PLANS = [
         name: "Rot Start Drill",
         time: "15 min",
         drillRef: "rot-start",
-        desc: "Three players start in the initial position of Rot on the right side: 1 in the slot with the ball, 2 at 45° and 3 at the high post. 1 passes to 2 and runs to the low post, 2 passes to 3, and 3 passes to 1 with a bounce pass (the high-low pass), and 1 finishes close to the rim. Then rotate: 1 goes to 3's spot, 3 to 2's spot, and 2 to 1's spot. Run it half of the time on the right side and half on the left.",
+        desc: "Three players start in the initial position of Rot on the right side: 1 in the slot with the ball, 2 at 45° and 3 at the high post. 1 passes to 2 and runs to the low post, 2 passes to 3, and 3 passes to 1 with a bounce pass (the high-low pass), and 1 finishes close to the rim. Then rotate: 1 goes to 3's spot, 3 to 2's spot, and 2 to 1's spot. The 15 minutes are split in half: about 7½ minutes on the right side and 7½ on the left.",
       },
     ],
   },
@@ -2509,7 +2509,7 @@ const DRILLS = [
       "2 passes to 3 at the high post.",
       "3 passes to 1 with a bounce pass (the high-low pass), and 1 finishes close to the rim.",
       "Then the players rotate: 1 goes to 3's spot, 3 goes to 2's spot, and 2 goes to 1's spot.",
-      "Run the drill on both sides: half of the time on the right side and half of the time on the left (mirror image).",
+      "The whole drill runs for 15 minutes: half of the time (about 7½ minutes) on the right side and half on the left (mirror image).",
     ],
     coachingPoints: [],
     diagrams: [
