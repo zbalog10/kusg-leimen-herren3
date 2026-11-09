@@ -728,7 +728,7 @@ const TRAINING_PLANS = [
         name: "Rebounding Battle",
         time: "15 min",
         drillRef: "rebounding-battle",
-        desc: "Three offensive and three defensive players at the perimeter. One offensive player shoots, and then all players must crash the boards for the rebound. Whoever gets it — offense or defense — can score immediately: a putback after an offensive rebound is 2 points, after a defensive rebound 1 point. If no putback is possible, play regular 3-on-3 until someone scores. Offense and defense swap after each score.",
+        desc: "Three offensive and three defensive players at the perimeter. One offensive player shoots, and then all players must crash the boards for the rebound. Whoever gets it — offense or defense — can score immediately: a putback after an offensive rebound is 2 points, after a defensive rebound 1 point. If no putback is possible, play regular 3-on-3 until someone scores. Offense and defense swap after each score. Each game goes until 7 points, and the box-out has to be done properly: make contact with your opponent first, and only when he stops, turn around and look for the rebound.",
       },
     ],
   },
@@ -2654,8 +2654,11 @@ const DRILLS = [
       "A putback after an offensive rebound is worth 2 points, a putback after a defensive rebound 1 point.",
       "If no putback is possible, play regular 3-on-3 until someone scores.",
       "Offense and defense swap after each score.",
+      "Each game goes until 7 points.",
     ],
-    coachingPoints: [],
+    coachingPoints: [
+      "Pay attention to the proper box-out: first make contact with your opponent, and only when he stops, turn around and look for the rebound.",
+    ],
     diagrams: [
       {
         title: "Setup (half court)",
