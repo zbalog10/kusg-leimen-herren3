@@ -685,7 +685,7 @@ const TRAINING_PLANS = [
         name: "Rot Start Drill",
         time: "15 min",
         drillRef: "rot-start",
-        desc: "Three players start in the initial position of Rot on the right side: 1 in the slot with the ball, 2 at 45° and 3 at the high post. 1 passes to 2 and runs to the low post, 2 passes to 3, and 3 passes to 1, who finishes close to the rim. Then rotate: 1 goes to 3's spot, 3 to 2's spot, and 2 to 1's spot.",
+        desc: "Three players start in the initial position of Rot on the right side: 1 in the slot with the ball, 2 at 45° and 3 at the high post. 1 passes to 2 and runs to the low post, 2 passes to 3, and 3 passes to 1 with a bounce pass (the high-low pass), and 1 finishes close to the rim. Then rotate: 1 goes to 3's spot, 3 to 2's spot, and 2 to 1's spot. Run it half of the time on the right side and half on the left.",
       },
     ],
   },
@@ -2502,13 +2502,14 @@ const DRILLS = [
     name: "Rot Start Drill",
     category: "Offense",
     summary: "Three-player drill built on the first moves of the Rot set play: pass to the wing, cut to the low post, swing through the high post and finish near the rim, then rotate.",
-    objective: "Practice the opening ball movement of Rot — wing pass, low-post cut, high-post pass and a finish at the rim — with every player rotating through all three spots.",
+    objective: "Practice the opening ball movement of Rot — wing pass, low-post cut, high-post pass and a finish at the rim — with every player rotating through all three spots and the drill run on both sides.",
     setup: "Three players start in the initial position of Rot on the right side: 1 in the slot with the ball, 2 at 45° and 3 at the high post.",
     steps: [
       "1 passes to 2 and runs to the low post.",
       "2 passes to 3 at the high post.",
-      "3 passes to 1, who finishes close to the rim.",
+      "3 passes to 1 with a bounce pass (the high-low pass), and 1 finishes close to the rim.",
       "Then the players rotate: 1 goes to 3's spot, 3 goes to 2's spot, and 2 goes to 1's spot.",
+      "Run the drill on both sides: half of the time on the right side and half of the time on the left (mirror image).",
     ],
     coachingPoints: [],
     diagrams: [
@@ -2518,6 +2519,18 @@ const DRILLS = [
           players: [{ id: "1", label: "1", team: "offense", x: 35, y: 61 }, { id: "2", label: "2", team: "offense", x: 10, y: 44 }, { id: "3", label: "3", team: "offense", x: 50, y: 38 }],
           actions: [],
           ball: { x: 35, y: 61 },
+        },
+      },
+      {
+        title: "Setup — other side (mirror image)",
+        diagram: {
+          players: [
+            { id: "1", label: "1", team: "offense", x: 65, y: 61 },
+            { id: "2", label: "2", team: "offense", x: 90, y: 44 },
+            { id: "3", label: "3", team: "offense", x: 50, y: 38 },
+          ],
+          actions: [],
+          ball: { x: 65, y: 61 },
         },
       },
       {
@@ -2569,8 +2582,8 @@ const DRILLS = [
         ball: { x: 50, y: 38 },
       },
       {
-        title: "3 Passes to 1 for the Finish",
-        narrative: "3 passes to 1, who finishes close to the rim.",
+        title: "Bounce Pass to 1 for the Finish",
+        narrative: "3 passes to 1 with a bounce pass (the high-low pass), and 1 finishes close to the rim.",
         players: [{ id: "1", label: "1", team: "offense", x: 46, y: 13 }, { id: "2", label: "2", team: "offense", x: 10, y: 44 }, { id: "3", label: "3", team: "offense", x: 50, y: 38 }],
         actions: [{ type: "pass", from: { x: 50, y: 38 }, to: { x: 36, y: 12 }, beat: 0 }, { type: "cut", path: [{ x: 36, y: 10 }, { x: 46, y: 13 }], beat: 1 }],
         ball: { x: 50, y: 11 },
