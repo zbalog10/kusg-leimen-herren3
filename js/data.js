@@ -713,8 +713,8 @@ const TRAINING_PLANS = [
     time: "18:30",
     location: "Fritz-Zugck-Halle, Leimen",
     category: "Offense",
-    duration: "65 min so far",
-    objective: "Open with the standard offensive system walk-through, then warm up with the penetration kick-out drill, run on both sides, and close the warm-up with stretching. The main part starts with elbow shooting. The rest of the session is still to be planned.",
+    duration: "90 min",
+    objective: "Open with the standard offensive system walk-through, then warm up with the penetration kick-out drill, run on both sides, and close the warm-up with stretching. The main part starts with elbow shooting. It continues with the rebounding battle and free throw conditioning, and closes with 5-on-5 against a zone defense practicing Rot and Wave with a fast setup — the first game to 7 points without dribbling.",
     walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
     warmup: "10 min Penetration Kick-Out — run the drill from the first side, then repeat it mirrored on the other side so everyone attacks and finishes from both sides. Then 5 min individual stretching to close out the warm-up. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=penetration-kickout\">Penetration Kick-Out →</a>",
     drills: [
@@ -735,6 +735,16 @@ const TRAINING_PLANS = [
         time: "15 min",
         drillRef: "free-throw-conditioning",
         desc: "Two groups, one per basket, queued from the baseline to the free-throw line. Each shooter takes 2 free throws, then sprints a baseline-to-baseline suicide once per miss (up to 3 for missing both) while the line keeps moving. 5 rounds, sprinting emphasized over jogging.",
+      },
+      {
+        name: "5-on-5 vs. Zone — First Game to 7, No Dribbling",
+        time: "~10 min",
+        desc: "5-on-5 against a zone defense, practicing the two set plays against zone — <a class=\"btn-link\" href=\"play.html?id=rot-vs-zone\">Rot (vs. Zone) →</a> <a class=\"btn-link\" href=\"play.html?id=wave-vs-zone\">Wave (vs. 2-3 Zone) →</a>. The emphasis is on a fast setup. The first game is played to 7 points with no dribbling allowed.",
+      },
+      {
+        name: "5-on-5 vs. Zone — Rot and Wave",
+        time: "~15 min",
+        desc: "The remaining games, again against a zone defense, running Rot and Wave with the emphasis on a fast setup.",
       },
     ],
   },
