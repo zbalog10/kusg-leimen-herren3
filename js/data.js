@@ -676,11 +676,18 @@ const TRAINING_PLANS = [
     time: "18:30",
     location: "Fritz-Zugck-Halle, Leimen",
     category: "Offense",
-    duration: "30 min so far",
+    duration: "45 min so far",
     objective: "Open with the standard offensive system walk-through, then warm up with Banana Cut and close the warm-up with stretching. The rest of the session is still to be planned.",
     walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
     warmup: "15 min Banana Cut — half-court passing, curved cuts and layup finish with four lines in the corners and on the half-court line: 1 passes to 2 and runs an arch toward 3's line, 2 runs an arch toward 4's line, 3 cuts to the basket for the layup and 4 rebounds and passes to the next player in line 1. Every player rotates to a new line. Keep going until the team makes 1.5× as many consecutive layups as there are players (a miss resets the streak), then run it in the other direction. Then 5 min individual stretching to close out the warm-up. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=banana-cut\">Banana Cut →</a>",
-    drills: [],
+    drills: [
+      {
+        name: "Rot Start Drill",
+        time: "15 min",
+        drillRef: "rot-start",
+        desc: "Three players start in the initial position of Rot on the right side: 1 in the slot with the ball, 2 at 45° and 3 at the high post. 1 passes to 2 and runs to the low post, 2 passes to 3, and 3 passes to 1, who finishes close to the rim. Then rotate: 1 goes to 3's spot, 3 to 2's spot, and 2 to 1's spot.",
+      },
+    ],
   },
 ];
 
@@ -2487,6 +2494,93 @@ const DRILLS = [
         players: [{ id: "1", label: "1", team: "offense", x: 50, y: 194 }, { id: "2", label: "2", team: "offense", x: 50, y: 150 }, { id: "3", label: "3", team: "offense", x: 50, y: 6 }],
         actions: [{ type: "cut", path: [{ x: 50, y: 50 }, { x: 42, y: 30 }, { x: 42, y: 10 }, { x: 50, y: 6 }], beat: 0 }, { type: "cut", path: [{ x: 50, y: 6 }, { x: 58, y: 40 }, { x: 58, y: 120 }, { x: 50, y: 150 }], beat: 0 }, { type: "pass", from: { x: 50, y: 194 }, to: { x: 50, y: 150 }, beat: 1 }, { type: "pass", from: { x: 50, y: 150 }, to: { x: 50, y: 189 }, beat: 2 }],
         balls: [{ x: 50, y: 6 }, { x: 50, y: 189 }],
+      },
+    ],
+  },
+  {
+    id: "rot-start",
+    name: "Rot Start Drill",
+    category: "Offense",
+    summary: "Three-player drill built on the first moves of the Rot set play: pass to the wing, cut to the low post, swing through the high post and finish near the rim, then rotate.",
+    objective: "Practice the opening ball movement of Rot — wing pass, low-post cut, high-post pass and a finish at the rim — with every player rotating through all three spots.",
+    setup: "Three players start in the initial position of Rot on the right side: 1 in the slot with the ball, 2 at 45° and 3 at the high post.",
+    steps: [
+      "1 passes to 2 and runs to the low post.",
+      "2 passes to 3 at the high post.",
+      "3 passes to 1, who finishes close to the rim.",
+      "Then the players rotate: 1 goes to 3's spot, 3 goes to 2's spot, and 2 goes to 1's spot.",
+    ],
+    coachingPoints: [],
+    diagrams: [
+      {
+        title: "Setup (half court)",
+        diagram: {
+          players: [{ id: "1", label: "1", team: "offense", x: 35, y: 61 }, { id: "2", label: "2", team: "offense", x: 10, y: 44 }, { id: "3", label: "3", team: "offense", x: 50, y: 38 }],
+          actions: [],
+          ball: { x: 35, y: 61 },
+        },
+      },
+      {
+        title: "Passes and cut",
+        diagram: {
+          players: [{ id: "1", label: "1", team: "offense", x: 35, y: 61 }, { id: "2", label: "2", team: "offense", x: 10, y: 44 }, { id: "3", label: "3", team: "offense", x: 50, y: 38 }],
+          actions: [
+            { type: "pass", from: { x: 35, y: 61 }, to: { x: 10, y: 44 } },
+            { type: "cut", path: [{ x: 35, y: 61 }, { x: 32, y: 35 }, { x: 36, y: 10 }] },
+            { type: "pass", from: { x: 10, y: 44 }, to: { x: 50, y: 38 } },
+            { type: "pass", from: { x: 50, y: 38 }, to: { x: 36, y: 12 } },
+          ],
+          ball: { x: 35, y: 61 },
+        },
+      },
+      {
+        title: "Rotation",
+        diagram: {
+          players: [{ id: "1", label: "1", team: "offense", x: 46, y: 13 }, { id: "2", label: "2", team: "offense", x: 10, y: 44 }, { id: "3", label: "3", team: "offense", x: 50, y: 38 }],
+          actions: [
+            { type: "cut", path: [{ x: 46, y: 13 }, { x: 50, y: 38 }] },
+            { type: "cut", path: [{ x: 50, y: 38 }, { x: 10, y: 44 }] },
+            { type: "cut", path: [{ x: 10, y: 44 }, { x: 35, y: 61 }] },
+          ],
+          ball: { x: 50, y: 11 },
+        },
+      },
+    ],
+    animation: [
+      {
+        title: "Setup",
+        narrative: "The three players start in the initial position of Rot on the right side: 1 in the slot with the ball, 2 at 45° and 3 at the high post.",
+        players: [{ id: "1", label: "1", team: "offense", x: 35, y: 61 }, { id: "2", label: "2", team: "offense", x: 10, y: 44 }, { id: "3", label: "3", team: "offense", x: 50, y: 38 }],
+        actions: [],
+        ball: { x: 35, y: 61 },
+      },
+      {
+        title: "1 Passes to 2 and Cuts to the Low Post",
+        narrative: "1 passes to 2 and runs to the low post.",
+        players: [{ id: "1", label: "1", team: "offense", x: 36, y: 10 }, { id: "2", label: "2", team: "offense", x: 10, y: 44 }, { id: "3", label: "3", team: "offense", x: 50, y: 38 }],
+        actions: [{ type: "pass", from: { x: 35, y: 61 }, to: { x: 10, y: 44 }, beat: 0 }, { type: "cut", path: [{ x: 35, y: 61 }, { x: 32, y: 35 }, { x: 36, y: 10 }], beat: 1 }],
+        ball: { x: 10, y: 44 },
+      },
+      {
+        title: "2 Passes to 3",
+        narrative: "2 passes to 3 at the high post.",
+        players: [{ id: "1", label: "1", team: "offense", x: 36, y: 10 }, { id: "2", label: "2", team: "offense", x: 10, y: 44 }, { id: "3", label: "3", team: "offense", x: 50, y: 38 }],
+        actions: [{ type: "pass", from: { x: 10, y: 44 }, to: { x: 50, y: 38 }, beat: 0 }],
+        ball: { x: 50, y: 38 },
+      },
+      {
+        title: "3 Passes to 1 for the Finish",
+        narrative: "3 passes to 1, who finishes close to the rim.",
+        players: [{ id: "1", label: "1", team: "offense", x: 46, y: 13 }, { id: "2", label: "2", team: "offense", x: 10, y: 44 }, { id: "3", label: "3", team: "offense", x: 50, y: 38 }],
+        actions: [{ type: "pass", from: { x: 50, y: 38 }, to: { x: 36, y: 12 }, beat: 0 }, { type: "cut", path: [{ x: 36, y: 10 }, { x: 46, y: 13 }], beat: 1 }],
+        ball: { x: 50, y: 11 },
+      },
+      {
+        title: "Rotate",
+        narrative: "The players rotate: 1 goes to 3's spot, 3 goes to 2's spot and 2 goes to 1's spot, and the drill starts again.",
+        players: [{ id: "1", label: "1", team: "offense", x: 50, y: 38 }, { id: "2", label: "2", team: "offense", x: 35, y: 61 }, { id: "3", label: "3", team: "offense", x: 10, y: 44 }],
+        actions: [{ type: "cut", path: [{ x: 46, y: 13 }, { x: 50, y: 38 }], beat: 0 }, { type: "cut", path: [{ x: 50, y: 38 }, { x: 10, y: 44 }], beat: 0 }, { type: "cut", path: [{ x: 10, y: 44 }, { x: 35, y: 61 }], beat: 0 }],
+        ball: { x: 35, y: 61 },
       },
     ],
   },
