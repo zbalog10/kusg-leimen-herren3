@@ -797,8 +797,8 @@ const TRAINING_PLANS = [
     time: "18:30",
     location: "Fritz-Zugck-Halle, Leimen",
     category: "Offense",
-    duration: "80 min so far",
-    objective: "Open with the standard offensive system walk-through, then warm up with the three-man weave and stretching. The main part is the Weave to 3-on-2 Fast Break drill, 7 position shooting and the four-group transition game. The last 10 minutes are still to be planned.",
+    duration: "90 min",
+    objective: "Open with the standard offensive system walk-through, then warm up with the three-man weave and stretching. The main part is the Weave to 3-on-2 Fast Break drill, 7 position shooting and the four-group transition game. The session closes with 10 minutes of 5-on-5.",
     walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
     warmup: "15 min Three-Man Weave, up and down the court — two trips. Start under one basket and finish with a layup at the other end (first trip), then immediately turn back and continue to the first basket and finish with a layup there as well (second trip). Start with 5 passes per trip until the team has made 10 consecutive layups, then 4 passes per trip until 10 consecutive made layups, and finally 3 passes per trip until 10 consecutive made layups. Then 5 min individual stretching to close out the warm-up. Full breakdown: <a class=\"btn-link\" href=\"drill.html?id=three-man-weave\">Three-Man Weave →</a>",
     drills: [
@@ -819,6 +819,11 @@ const TRAINING_PLANS = [
         time: "20 min",
         drillRef: "four-group-transition",
         desc: "Split the players into four groups, one behind each baseline and two on the court. The two on the court play live on one basket. After a score or a defensive rebound, the group on the baseline comes in and runs a transition game to the other basket against the attackers of the previous game, and the defense goes out. After a score or a defensive rebound at the other basket, the group on the other baseline replaces the defensive team and immediately runs a transition game.",
+      },
+      {
+        name: "Free 5-on-5",
+        time: "10 min",
+        desc: "5-on-5 play until the end of the training.",
       },
     ],
   },
