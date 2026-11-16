@@ -679,7 +679,7 @@ function renderDrillDetail() {
         : ""
     }
 
-    ${drill.source ? `<p class="schedule-source">Source: <a href="${drill.source}" target="_blank" rel="noopener">${drill.source}</a></p>` : ""}
+    ${drill.source ? `<p class="schedule-source">Source: <a href="${drill.source}" target="_blank" rel="noopener">${drill.sourceLabel || drill.source}</a></p>` : ""}
   `;
 
   (drill.diagrams || []).forEach((dg, i) => {
