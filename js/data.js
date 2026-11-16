@@ -748,6 +748,48 @@ const TRAINING_PLANS = [
       },
     ],
   },
+  {
+    id: "week11-banana-elbow-rebound",
+    title: "Session 23 — Banana Cut, Elbow Shooting, Rebounding Battle",
+    date: "2026-11-16",
+    time: "18:30",
+    location: "Fritz-Zugck-Halle, Leimen",
+    category: "Offense",
+    duration: "90 min",
+    objective: "Open with the standard offensive system walk-through, then warm up with Banana Cut and stretching. The main part is elbow shooting, free throw conditioning and the rebounding battle, and the session closes with 5-on-5: the first game to 7 points without dribbling, then free games in which the set plays are run whenever no fast break is possible.",
+    walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
+    warmup: "15 min Banana Cut — half-court passing, curved cuts and layup finish with four lines in the corners and on the half-court line: 1 passes to 2 and runs an arch toward 3's line, 2 runs an arch toward 4's line, 3 cuts to the basket for the layup and 4 rebounds and passes to the next player in line 1. Every player rotates to a new line. Keep going until the team makes 1.5× as many consecutive layups as there are players (a miss resets the streak), then run it in the other direction. Then 5 min individual stretching to close out the warm-up. Full breakdown and video: <a class=\"btn-link\" href=\"drill.html?id=banana-cut\">Banana Cut →</a>",
+    drills: [
+      {
+        name: "Elbow Shooting",
+        time: "10 min",
+        drillRef: "elbow-shooting",
+        desc: "Two lines at the baseline, one ball per line, offset by one player. Cutters run elbow-to-elbow, catch a pass in stride, shoot a mid-range jumper, rebound their own shot, and feed the opposite line — mirrored continuously on both sides. Score it +1 make / -1 miss as a team, running total, to a target of 10.",
+      },
+      {
+        name: "Free Throw Conditioning",
+        time: "15 min",
+        drillRef: "free-throw-conditioning",
+        desc: "Two groups, one per basket, queued from the baseline to the free-throw line. Each shooter takes 2 free throws, then sprints a baseline-to-baseline suicide once per miss (up to 3 for missing both) while the line keeps moving. 5 rounds, sprinting emphasized over jogging.",
+      },
+      {
+        name: "Rebounding Battle",
+        time: "15 min",
+        drillRef: "rebounding-battle",
+        desc: "Three offensive and three defensive players at the perimeter. One offensive player shoots, and then all players must crash the boards for the rebound. Whoever gets it — offense or defense — can score immediately: a putback after an offensive rebound is 2 points, after a defensive rebound 1 point. If no putback is possible, play regular 3-on-3 until someone scores. Offense and defense swap after each score. Each game goes until 7 points, and the box-out has to be done properly: make contact with your opponent first, and only when he stops, turn around and look for the rebound.",
+      },
+      {
+        name: "5-on-5 — First Game to 7, No Dribbling",
+        time: "~8 min",
+        desc: "The first 5-on-5 game is played to 7 points with no dribbling allowed — the ball moves by passing only. General rule for all 5-on-5: if no fast break is possible, the offense plays the set plays.",
+      },
+      {
+        name: "5-on-5 Games — Fast Break or Set Plays",
+        time: "~12 min",
+        desc: "The remaining 5-on-5 games, until the end of the training. General rule: if no fast break is possible, play the set plays.",
+      },
+    ],
+  },
 ];
 
 // Full-season league fixture list, finalized (as of 15.09.2026) and sourced
