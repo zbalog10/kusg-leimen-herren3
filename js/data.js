@@ -790,6 +790,38 @@ const TRAINING_PLANS = [
       },
     ],
   },
+  {
+    id: "week11-weave-fastbreak",
+    title: "Session 24 — Three-Man Weave, Fast Break, 7 Position Shooting, Transition",
+    date: "2026-11-18",
+    time: "18:30",
+    location: "Fritz-Zugck-Halle, Leimen",
+    category: "Offense",
+    duration: "80 min so far",
+    objective: "Open with the standard offensive system walk-through, then warm up with the three-man weave and stretching. The main part is the Weave to 3-on-2 Fast Break drill, 7 position shooting and the four-group transition game. The last 10 minutes are still to be planned.",
+    walkthrough: { name: "Offensive System Walk-Through", time: "10 min", desc: "Low intensity, no conditioning focus. Review basic spacing, player positions, first option/first action, key cuts and screens, and transition into the half-court offense. 2–3 repetitions each side without defense." },
+    warmup: "15 min Three-Man Weave, up and down the court — two trips. Start under one basket and finish with a layup at the other end (first trip), then immediately turn back and continue to the first basket and finish with a layup there as well (second trip). Start with 5 passes per trip until the team has made 10 consecutive layups, then 4 passes per trip until 10 consecutive made layups, and finally 3 passes per trip until 10 consecutive made layups. Then 5 min individual stretching to close out the warm-up. Full breakdown: <a class=\"btn-link\" href=\"drill.html?id=three-man-weave\">Three-Man Weave →</a>",
+    drills: [
+      {
+        name: "Weave to 3-on-2 Fast Break",
+        time: "15 min",
+        drillRef: "weave-fastbreak",
+        desc: "Five players run a five-man weave from one end of the court to the other (3 passes to 4 and runs behind 5, 4 passes to 2 and runs behind 1, 2 passes to 5 and runs behind 3, 5 passes to 1 for the layup). The player who made the layup and the player who gave the last pass become the defense; the other three are the offense and must occupy the three fast-break lanes. The player who got the rebound passes to one of the outside lanes; the ball is advanced in that lane, and the ball handler attacks the rim from the side and reads the defense. If the defense stops him, he passes to one of the other two players, creating a 2-on-1. The drill ends when the offense scores, or the defense steals, deflects or rebounds the ball; the offense gets one offensive rebound, and the second missed shot ends the drill. Rotate counterclockwise for the next round.",
+      },
+      {
+        name: "7 Position Shooting",
+        time: "15 min",
+        drillRef: "seven-position-shooting",
+        desc: "Two teams shoot at the same basket, each needing 20 points from each of 7 spots (mid-range baseline, 45° and elbow on both sides, plus one free three-point spot). Made shot 2 points, put-back before the ball touches the floor 1 point, rebound-and-put-back after a make 3 points. Teams swap sides after every set.",
+      },
+      {
+        name: "Four-Group Transition Game",
+        time: "20 min",
+        drillRef: "four-group-transition",
+        desc: "Split the players into four groups, one behind each baseline and two on the court. The two on the court play live on one basket. After a score or a defensive rebound, the group on the baseline comes in and runs a transition game to the other basket against the attackers of the previous game, and the defense goes out. After a score or a defensive rebound at the other basket, the group on the other baseline replaces the defensive team and immediately runs a transition game.",
+      },
+    ],
+  },
 ];
 
 // Full-season league fixture list, finalized (as of 15.09.2026) and sourced
